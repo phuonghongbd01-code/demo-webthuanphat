@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhà máy sản xuất | Thuận Phát</title>
+    <meta name="description" content="Thuận Phát - Đơn vị thiết kế và thi công nội thất cao cấp hàng đầu.">
+    <meta property="og:title" content="Giới thiệu | Thuận Phát">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Caveat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ── Page Banner ── */
+        .page-banner {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 80px;
+        }
+
+        .page-banner .page-title {
+            font-family: var(--font-heading) !important;
+        }
+
+        /* ── About Pillars (mục lục) ── */
+        .about-pillars {
+            background: var(--bg-section);
+            padding: 50px 0;
+        }
+
+        .ap-header {
+            margin-bottom: 30px;
+        }
+
+        .ap-title {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        .ap-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .ap-list li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .ap-link {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 14px 0;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .ap-link:hover {
+            color: var(--luxury-gold);
+            padding-left: 8px;
+        }
+
+        .ap-num {
+            font-size: 11px;
+            color: var(--luxury-gold);
+            letter-spacing: 2px;
+            min-width: 24px;
+            opacity: 0.7;
+        }
+
+        .ap-item-text {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        /* ── About Presence ── */
+        .about-presence {
+            background: var(--bg-main);
+            padding: 100px 0;
+        }
+
+        .presence-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .presence-desc {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.9;
+            margin: 24px 0 48px;
+        }
+
+        .presence-stats {
+            display: flex;
+            align-items: center;
+        }
+
+        .pstat-item {
+            flex: 1;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .pstat-icon-top {
+            font-size: 13px;
+            color: var(--luxury-gold);
+            margin-bottom: 6px;
+        }
+
+        .pstat-number {
+            font-family: var(--font-heading);
+            font-size: 52px;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .pstat-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .pstat-icon-bottom {
+            font-size: 22px;
+            color: var(--luxury-gold);
+            opacity: 0.6;
+        }
+
+        .pstat-divider {
+            width: 1px;
+            height: 80px;
+            background: rgba(197, 160, 89, 0.2);
+            flex-shrink: 0;
+        }
+
+        /* map */
+        .map-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+            margin: 0 auto;
+        }
+
+        .map-img {
+            width: 100%;
+            filter: drop-shadow(0 0 20px rgba(197, 160, 89, 0.15));
+        }
+
+        .island-label-box {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .island-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--luxury-gold);
+            flex-shrink: 0;
+        }
+
+        .island-text p {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        /* ── CEO Message ── */
+        .ceo-message {
+            background: var(--bg-section);
+        }
+
+        .ceo-msg-grid {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            min-height: 540px;
+        }
+
+        .ceo-msg-left {
+            background: var(--bg-card);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+            border-right: 1px solid rgba(197, 160, 89, 0.12);
+            text-align: center;
+        }
+
+        .ceo-portrait-wrap {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(197, 160, 89, 0.4);
+            margin-bottom: 24px;
+        }
+
+        .ceo-portrait-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ceo-role {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--luxury-gold);
+            margin: 0 0 8px;
+        }
+
+        .ceo-name-left {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            color: var(--text-main);
+            margin: 0 0 12px;
+        }
+
+        .ceo-tag-bottom {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin: 0;
+        }
+
+        .ceo-msg-right {
+            padding: 60px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .ceo-section-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--luxury-gold);
+            margin: 0 0 16px;
+        }
+
+        .ceo-msg-title {
+            font-family: var(--font-heading);
+            font-size: 34px;
+            color: var(--text-main);
+            margin: 0 0 28px;
+        }
+
+        .ceo-quote {
+            border-left: 3px solid var(--luxury-gold);
+            padding-left: 24px;
+            margin: 0 0 32px;
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .ceo-msg-body p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.9;
+            margin: 0 0 14px;
+        }
+
+        /* ── Promise Section ── */
+        .promise-section {
+            background: var(--bg-main);
+            padding: 100px 0;
+        }
+
+        .promise-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .promise-title {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            color: var(--text-main);
+            margin: 0 0 32px;
+            line-height: 1.3;
+        }
+
+        .promise-title em {
+            color: var(--luxury-gold);
+            font-style: italic;
+        }
+
+        .promise-item {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .promise-item:last-child {
+            border-bottom: none;
+        }
+
+        .promise-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .promise-item-header h4 {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .promise-num {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            color: rgba(197, 160, 89, 0.2);
+        }
+
+        .promise-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .promise-img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            border-radius: 2px;
+            filter: brightness(0.85);
+        }
+
+        /* ── Vision Section ── */
+        .vision-section {
+            position: relative;
+            padding: 120px 0;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .vision-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.82);
+        }
+
+        .vision-grid {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 0;
+            margin: 0 auto;
+        }
+
+        .vision-col {
+            flex: 1;
+            padding: 0 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .vision-col:hover {
+            transform: translateY(-8px);
+        }
+
+        .vision-col:first-child {
+            padding-left: 0;
+        }
+
+        .vision-icon {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--luxury-gold);
+            font-size: 16px;
+            margin: 0 auto 20px auto;
+        }
+
+        .vision-label {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            text-transform: uppercase;
+            color: var(--luxury-gold);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .vision-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.75);
+            text-align: center;
+        }
+
+        .vision-divider {
+            width: 1px;
+            background: rgba(197, 160, 89, 0.25);
+            flex-shrink: 0;
+        }
+
+        /* ── Reasons Section ── */
+        .reasons-section {
+            background: var(--bg-section);
+            padding: 70px 0;
+        }
+
+        .reasons-intro {
+            max-width: 620px;
+            margin: 16px auto 44px;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px 80px;
+        }
+
+        .reason-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .reason-content {
+            flex: 1;
+        }
+
+        .reason-icon {
+            width: 38px;
+            height: 38px;
+            background: rgba(197, 160, 89, 0.08);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--luxury-gold);
+            flex-shrink: 0;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .reason-item:hover .reason-icon {
+            background: var(--luxury-gold);
+            color: #000;
+        }
+
+        .reason-title-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .reason-title-row h3 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-main);
+            white-space: nowrap;
+        }
+
+        .reason-line {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            flex: 1;
+        }
+
+        .reason-content p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ── Pre-footer CTA ── */
+        .pre-footer-contact {
+            background: var(--bg-main);
+            padding: 60px 0 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="main-header" class="header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo-thuanphat.png" alt="Thuận Phát Logo" class="logo-img"
+                        style="filter: brightness(0) invert(1);">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">TRANG CHỦ</a></li>
+                    <li class="has-simple-dropdown">
+                        <a href="gioi-thieu.html" class="active">GIỚI THIỆU <i class="fa-solid fa-chevron-down"
+                                style="font-size:0.8em;margin-left:5px;"></i></a>
+                        <ul class="simple-dropdown">
+                            <li><a href="gioi-thieu.html">VỀ THUẬN PHÁT</a></li>
+                            <li><a href="nha-may-san-xuat.html">NHÀ MÁY SẢN XUẤT</a></li>
+                            <li><a href="nhan-su.html">NHÂN SỰ</a></li>
+                            <li><a href="gioi-thieu.html#gioi-thieu-kien-truc-su">GIỚI THIỆU VỀ KIẾN TRÚC SƯ</a></li>
+                            <li><a href="gioi-thieu.html#bo-suu-tap">BỘ SƯU TẬP</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-simple-dropdown">
+                        <a href="index.html#du-an">DỰ ÁN <i class="fa-solid fa-chevron-down"
+                                style="font-size:0.8em;margin-left:5px;"></i></a>
+                        <ul class="simple-dropdown">
+                            <li><a href="index.html#du-an-thi-cong">DỰ ÁN THI CÔNG</a></li>
+                            <li><a href="index.html#du-an-thiet-ke">DỰ ÁN THIẾT KẾ</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-simple-dropdown">
+                        <a href="index.html#bao-gia">BÁO GIÁ <i class="fa-solid fa-chevron-down"
+                                style="font-size:0.8em;margin-left:5px;"></i></a>
+                        <ul class="simple-dropdown">
+                            <li><a href="index.html#bao-gia-thiet-ke">THIẾT KẾ NỘI THẤT</a></li>
+                            <li><a href="index.html#bao-gia-thi-cong">THI CÔNG NỘI THẤT</a></li>
+                            <li><a href="index.html#tra-gia-nhu-cau">TRA GIÁ THEO NHU CẦU</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-simple-dropdown">
+                        <a href="index.html#cam-nang">CẨM NANG NỘI THẤT <i class="fa-solid fa-chevron-down"
+                                style="font-size:0.8em;margin-left:5px;"></i></a>
+                        <ul class="simple-dropdown">
+                            <li><a href="index.html#tin-tuc">TIN TỨC</a></li>
+                            <li><a href="index.html#phan-hoi-khach-hang">PHẢN HỒI TỪ KHÁCH HÀNG</a></li>
+                            <li><a href="index.html#xu-huong-noi-that">XU HƯỚNG NỘI THẤT MỚI NHẤT</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-simple-dropdown">
+                        <a href="index.html#kien-truc-xay-dung">KIẾN TRÚC & XÂY DỰNG <i class="fa-solid fa-chevron-down"
+                                style="font-size:0.8em;margin-left:5px;"></i></a>
+                        <ul class="simple-dropdown">
+                            <li><a href="index.html#ho-so-thiet-ke">HỒ SƠ THIẾT KẾ KIẾN TRÚC</a></li>
+                            <li><a href="index.html#quy-trinh-xay-dung">QUY TRÌNH XÂY DỰNG</a></li>
+                            <li><a href="index.html#vat-lieu-xay-dung">VẬT LIỆU XÂY DỰNG CAO CẤP</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#lien-he">LIÊN HỆ</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn-gold icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- 1. Page Banner -->
+        <section class="page-banner" style="background-image: url('images/project_2.png');">
+            <div class="page-banner-overlay"></div>
+            <div class="container page-banner-content" data-aos="fade-up">
+                <div class="breadcrumbs">
+                    <a href="index.html">TRANG CHỦ</a> / <span>NHÀ MÁY SẢN XUẤT</span>
+                </div>
+                <h1 class="page-title">NHÀ MÁY SẢN XUẤT</h1>
+            </div>
+            <a href="#factory-content" class="scroll-down-btn">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- 2. Quy mô nhà máy -->
+        <section class="factory-intro" id="factory-content">
+            <div class="factory-grid">
+                <div class="factory-info" data-aos="fade-right">
+                    <h2 class="factory-title" style="font-family: 'Playfair Display', serif; font-weight: 600;">
+                        NHÀ MÁY QUY MÔ<br>HƠN 650m<sup>2</sup>
+                    </h2>
+                    <p class="factory-desc"><strong>Thuận Phát</strong> đã đầu tư xây dựng nhà máy
+                        sản xuất với quy mô <strong>650m<sup>2</sup></strong>. Đặc biệt, bên trong được trang bị đầy đủ
+                        các loại
+                        máy móc, trang thiết bị hiện đại theo quy chuẩn quốc tế, mang đến cho khách hàng những sản phẩm
+                        chất lượng cao nhất, hoàn hảo và phù hợp với không gian.</p>
+                    <div class="factory-action">
+                        <a href="#lien-he" class="btn-gold btn-outline">NHẬN TƯ VẤN NGAY <i
+                                class="fa-solid fa-arrow-right-long" style="margin-left: 10px;"></i></a>
+                    </div>
+                </div>
+                <div class="factory-image" data-aos="fade-left">
+                    <img src="images/project_1.png" alt="Máy móc hiện đại tại nhà máy Thuận Phát">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Công nghệ tiên tiến -->
+        <section class="factory-tech">
+            <div class="container">
+                <h2 class="tech-title text-center" data-aos="fade-up"
+                    style="font-family: 'Playfair Display', serif; font-weight: 600; text-transform: uppercase;">Công
+                    nghệ tiên tiến và hiện đại</h2>
+
+                <div class="diamonds-grid" style="margin-bottom: 80px;">
+                    <div class="diamond-wrapper" data-aos="fade-up" data-aos-delay="0">
+                        <div class="diamond-box"></div>
+                        <div class="diamond-content">
+                            <i class="fa-solid fa-award"></i>
+                            <p>LUÔN ĐẢM BẢO<br><strong>CHẤT LƯỢNG SẢN PHẨM</strong></p>
+                        </div>
+                    </div>
+                    <div class="diamond-wrapper" data-aos="fade-up" data-aos-delay="100">
+                        <div class="diamond-box"></div>
+                        <div class="diamond-content">
+                            <i class="fa-solid fa-users-gear"></i>
+                            <p>ĐỘI NGŨ SẢN XUẤT<br><strong>GIÀU KINH NGHIỆM</strong></p>
+                        </div>
+                    </div>
+                    <div class="diamond-wrapper" data-aos="fade-up" data-aos-delay="200">
+                        <div class="diamond-box"></div>
+                        <div class="diamond-content">
+                            <i class="fa-solid fa-microchip"></i>
+                            <p>ĐỘI NGŨ SẢN XUẤT<br><strong>TIÊU CHUẨN CHÂU ÂU</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Video -->
+        <section class="factory-video" data-aos="zoom-in">
+            <div class="video-thumbnail-wrapper">
+                <img src="images/project_2.png" alt="Video nhà xưởng Thuận Phát" class="video-thumbnail">
+                <div class="video-overlay" style="position:absolute; inset:0; background:rgba(0,0,0,0.3);"></div>
+                <button class="play-btn"><i class="fa-solid fa-play"></i></button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- CTA Banners + Contact Info (one block) -->
+    <div style="background: var(--bg-main);">
+        <div class="container">
+            <div class="cta-banners-grid" data-aos="fade-up">
+                <a href="#lien-he" class="cta-banner">
+                    <img src="images/ceo.png" alt="Tư vấn KTS" class="bg-img">
+                    <div class="overlay gradient-overlay"></div>
+                    <div class="cta-banner-content">
+                        <div class="cta-banner-box">Đặt lịch tư vấn với KTS</div>
+                    </div>
+                </a>
+                <a href="https://zalo.me/" target="_blank" class="cta-banner">
+                    <img src="images/project_2.png" alt="Nhận tư vấn" class="bg-img">
+                    <div class="overlay"></div>
+                    <div class="cta-banner-content">
+                        <div class="cta-banner-box">Đăng ký nhận tư vấn</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Info Row (Standalone) -->
+    <div class="contact-info-wrapper">
+        <div class="container">
+            <div class="contact-info-row" data-aos="fade-up">
+                <div class="info-item">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>0949.135.319</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>noithatxaydungthuanphat@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>Thời gian mở cửa: 08:00 - 18:00<br>(Làm việc cả thứ 7 &amp; Chủ Nhật)</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Văn phòng đại diện: Số 412 - Tầng 14, Đường<br>Nguyễn Thị Minh Khai, Phường 5, Quận 3, TP.
+                        HCM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <footer class="footer" id="lien-he">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="footer-title">GIỚI THIỆU</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Về Thuận Phát</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Video</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">DỊCH VỤ</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Cải tạo nhà</a></li>
+                        <li><a href="#">Thiết kế nội thất</a></li>
+                        <li><a href="#">Thi công nội thất</a></li>
+                        <li><a href="#">Kiến trúc & xây dựng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">BÁO GIÁ</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Thiết kế nội thất</a></li>
+                        <li><a href="#">Thi công nội thất</a></li>
+                        <li><a href="#">Tra giá theo nhu cầu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">HỖ TRỢ KHÁCH HÀNG</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Quy trình thi công nội thất</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Thanh toán - Vận chuyển</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">THEO DÕI CHÚNG TÔI</h4>
+                    <div class="social-icons" style="margin-bottom: 20px;">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                    <div
+                        style="border-radius: 4px; overflow: hidden; width: 100%; height: 200px; border: 1px solid rgba(197, 160, 89, 0.2);">
+                        <iframe
+                            src="https://maps.google.com/maps?q=412%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Minh%20Khai,%20Ph%C6%B0%E1%BB%9Dng%205,%20Qu%E1%BA%ADn%203,%20H%E1%BB%93%20Ch%C3%AD%20Minh&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center"
+                style="border-top: 1px solid rgba(197, 160, 89, 0.2); padding-top: 20px;">
+                <p>&copy; 2026 Công Ty TNHH Nội Thất Xây Dựng Thuận Phát</p>
+            </div>
+        </div>
+
+        <!-- ===== MOBILE FOOTER (chỉ hiển thị trên mobile) ===== -->
+        <div class="footer-mobile">
+
+            <!-- Tên thương hiệu -->
+            <div class="fm-brand">NỘI THẤT THUẬN PHÁT</div>
+
+            <!-- Thông tin liên hệ dọc -->
+            <div class="fm-contact">
+                <a href="tel:0949135319" class="fm-contact-item">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>0949.135.319</span>
+                </a>
+                <a href="mailto:noithatxaydungthuanphat@gmail.com" class="fm-contact-item">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>noithatxaydungthuanphat@gmail.com</span>
+                </a>
+                <div class="fm-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Số 412 – Tầng 14, Đường Nguyễn Thị Minh Khai, P.5, Q.3, TP.HCM</span>
+                </div>
+                <div class="fm-contact-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Thời gian mở cửa: 08:00 – 18:00 (Làm việc cả thứ 7 & Chủ Nhật)</span>
+                </div>
+            </div>
+
+            <!-- Accordion sitemap -->
+            <div class="fm-accordion">
+                <div class="fm-acc-item">
+                    <button class="fm-acc-title" onclick="fmToggle(this)">
+                        GIỚI THIỆU <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <ul class="fm-acc-body">
+                        <li><a href="#">Về Thuận Phát</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Video</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                    </ul>
+                </div>
+                <div class="fm-acc-item">
+                    <button class="fm-acc-title" onclick="fmToggle(this)">
+                        DỊCH VỤ <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <ul class="fm-acc-body">
+                        <li><a href="#">Cải tạo nhà</a></li>
+                        <li><a href="#">Thiết kế nội thất</a></li>
+                        <li><a href="#">Thi công nội thất</a></li>
+                        <li><a href="#">Kiến trúc & xây dựng</a></li>
+                    </ul>
+                </div>
+                <div class="fm-acc-item">
+                    <button class="fm-acc-title" onclick="fmToggle(this)">
+                        BÁO GIÁ <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <ul class="fm-acc-body">
+                        <li><a href="#">Thiết kế nội thất</a></li>
+                        <li><a href="#">Thi công nội thất</a></li>
+                        <li><a href="#">Tra giá theo nhu cầu</a></li>
+                    </ul>
+                </div>
+                <div class="fm-acc-item">
+                    <button class="fm-acc-title" onclick="fmToggle(this)">
+                        HỖ TRỢ KHÁCH HÀNG <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <ul class="fm-acc-body">
+                        <li><a href="#">Quy trình thi công nội thất</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Thanh toán - Vận chuyển</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="fm-badges">
+                <a href="https://id.gov.vn" target="_blank" class="fm-badge-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/40px-Flag_of_Vietnam.svg.png"
+                        alt="Bộ Công Thương" style="height:20px;margin-right:4px;vertical-align:middle;">
+                    <span>BỘ CÔNG THƯƠNG</span>
+                </a>
+                <a href="https://dmca.com" target="_blank" class="fm-badge-item">
+                    <img src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-07.png?ID=placeholder" alt="DMCA"
+                        style="height:35px;filter:grayscale(0.2);">
+                </a>
+                <a href="https://khonggianmang.vn" target="_blank" class="fm-badge-item">
+                    <span style="font-weight:800;font-size:13px;letter-spacing:1px;">NCSC<span
+                            style="color:var(--luxury-gold);">★</span>VN</span>
+                </a>
+            </div>
+
+            <!-- Social icons -->
+            <div class="fm-social">
+                <a href="#" class="fm-social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="fm-social-btn"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="fm-social-btn"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="fm-social-btn"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="fm-copyright">
+                <p class="fm-copyright-company">CÔNG TY TNHH NỘI THẤT XÂY DỰNG THUẬN PHÁT</p>
+                <p class="fm-copyright-text">© Copyright 2026 Nội Thất Thuận Phát</p>
+            </div>
+
+        </div>
+        <!-- ===== END MOBILE FOOTER ===== -->
+
+    </footer>
+
+    <!-- Floating Contact Widget -->
+    <div class="floating-widget">
+        <a href="#" class="widget-btn zalo-btn" title="Zalo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+        </a>
+        <a href="#" class="widget-btn messenger-btn" title="Messenger">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg"
+                alt="Messenger">
+        </a>
+        <a href="tel:0949135319" class="widget-btn phone-btn" title="Gọi điện">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <button class="widget-btn form-btn" id="openContactModal" title="Đăng ký tư vấn">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeContactModal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-grid">
+                <div class="modal-form-col">
+                    <h3 class="modal-title">THÔNG TIN LIÊN HỆ</h3>
+                    <form action="#" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Họ và tên" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Số điện thoại" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Địa chỉ">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Nội dung" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-gold w-100">GỬI THÔNG TIN <i
+                                class="fa-solid fa-arrow-right-long" style="margin-left: 10px;"></i></button>
+                    </form>
+                </div>
+                <div class="modal-img-col">
+                    <img src="images/project_2.png" alt="Luxury Interior">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="main.js"></script>
+    <script>
+        function fmToggle(btn) {
+            const item = btn.closest('.fm-acc-item');
+            const body = item.querySelector('.fm-acc-body');
+            const icon = btn.querySelector('i');
+            const isOpen = item.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.fm-acc-item.open').forEach(el => {
+                el.classList.remove('open');
+                el.querySelector('.fm-acc-body').style.maxHeight = null;
+                el.querySelector('i').style.transform = 'rotate(0deg)';
+            });
+            // Open clicked if was closed
+            if (!isOpen) {
+                item.classList.add('open');
+                body.style.maxHeight = body.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+    <script>
+        // Giữ cố định active theo trang, không đổi khi scroll
+        (function () {
+            const currentPage = location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.main-nav > ul > li > a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href') || '';
+                if (currentPage === 'index.html' && (href === '#home' || href === 'index.html')) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Override bất kỳ IntersectionObserver hay scroll listener nào từ main.js
+            const origObserver = window.IntersectionObserver;
+            // Chặn main.js gán lại active sau khi load
+            window.addEventListener('load', function () {
+                navLinks.forEach(link => link.classList.remove('active'));
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href') || '';
+                    if (currentPage === 'index.html' && (href === '#home' || href === 'index.html')) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

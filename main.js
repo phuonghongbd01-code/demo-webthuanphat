@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const updateSlider = (index) => {
             slides.forEach(slide => slide.classList.remove('active'));
-            if(dots.length > 0) dots.forEach(dot => dot.classList.remove('active'));
-            
+            if (dots.length > 0) dots.forEach(dot => dot.classList.remove('active'));
+
             slides[index].classList.add('active');
-            if(dots[index]) dots[index].classList.add('active');
+            if (dots[index]) dots[index].classList.add('active');
             currentSlide = index;
         };
 
@@ -59,8 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!isDragging) return;
             isDragging = false;
             sliderContainer.style.cursor = 'grab';
-            try { sliderContainer.releasePointerCapture(e.pointerId); } catch(err) {}
-            
+            try { sliderContainer.releasePointerCapture(e.pointerId); } catch (err) { }
+
             const endX = e.clientX;
             const diff = startX - endX;
 
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
-    
+
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', () => {
             mainNav.classList.toggle('active');
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 mainNav.style.padding = '20px';
                 mainNav.style.borderTop = '1px solid var(--luxury-gold)';
                 const ul = mainNav.querySelector('ul');
-                if(ul) {
+                if (ul) {
                     ul.style.flexDirection = 'column';
                     ul.style.gap = '15px';
                 }
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (testiTrack && testiPrev && testiNext) {
         let testiIndex = 0;
-        
+
         const updateTestiSlider = () => {
             testiTrack.style.transform = `translateX(-${testiIndex * 100}%)`;
         };
