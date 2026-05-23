@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bộ Sưu Tập | Thuận Phát</title>
-    <meta name="description" content="Khám phá bộ sưu tập nội thất gỗ óc chó thượng lưu và các xu hướng thiết kế nội thất mới nhất năm 2026 từ Thuận Phát.">
+    <meta name="description"
+        content="Khám phá bộ sưu tập nội thất gỗ óc chó thượng lưu và các xu hướng thiết kế nội thất mới nhất năm 2026 từ Thuận Phát.">
     <meta property="og:title" content="Bộ Sưu Tập | Thuận Phát">
     <meta property="og:type" content="website">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
 
     <style>
         /* ==================================================
            CSS ĐẶC THÙ CHO TRANG BỘ SƯU TẬP
            ================================================== */
-        
+
         /* ── Hero Banner ── */
         .bst-hero {
             position: relative;
@@ -77,7 +81,7 @@
             text-transform: uppercase;
             color: var(--luxury-gold);
             line-height: 1.15;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .scroll-down-btn {
@@ -97,9 +101,22 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-            40% { transform: translate(-50%, -10px); }
-            60% { transform: translate(-50%, -5px); }
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translate(-50%, 0);
+            }
+
+            40% {
+                transform: translate(-50%, -10px);
+            }
+
+            60% {
+                transform: translate(-50%, -5px);
+            }
         }
 
         /* ── Section 1: Slider Full-Width với Điểm chạm Hotspots ── */
@@ -130,7 +147,7 @@
             background-color: #0c0c0c;
             border-radius: 4px;
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
         }
 
         .bst-slide {
@@ -241,7 +258,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             transition: var(--transition-smooth);
         }
 
@@ -275,8 +292,15 @@
         }
 
         @keyframes pulseRing {
-            0% { transform: scale(0.9); opacity: 0.8; }
-            100% { transform: scale(2.4); opacity: 0; }
+            0% {
+                transform: scale(0.9);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(2.4);
+                opacity: 0;
+            }
         }
 
         /* Tooltip nhãn sản phẩm hiện lên khi hover */
@@ -298,7 +322,7 @@
             visibility: hidden;
             pointer-events: none;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
             z-index: 15;
         }
 
@@ -408,13 +432,16 @@
         }
 
         @keyframes cardFadeIn {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .trend-card:hover {
             border-color: rgba(197, 160, 89, 0.3);
             transform: translateY(-6px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
         }
 
         .trend-img-wrapper {
@@ -464,34 +491,101 @@
 
         /* Responsive */
         @media (max-width: 1200px) {
-            .trends-grid { grid-template-columns: repeat(3, 1fr); }
+            .trends-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
+
         @media (max-width: 991px) {
-            .bst-hero { padding-bottom: 70px; }
-            .bst-title { font-size: 44px; }
-            .bst-slider-wrapper { height: 60vh; }
-            .bst-slider-btn { width: 44px; height: 44px; }
-            .bst-slider-btn.prev { left: 15px; }
-            .bst-slider-btn.next { right: 15px; }
-            .bst-slider-dots { left: 20px; bottom: 20px; }
-            .bst-hotspot-tooltip { font-size: 11px; padding: 6px 12px; }
-            
-            .trends-grid { grid-template-columns: repeat(2, 1fr); }
-            .trends-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-            .trends-filters { gap: 15px; }
+            .bst-hero {
+                padding-bottom: 70px;
+            }
+
+            .bst-title {
+                font-size: 44px;
+            }
+
+            .bst-slider-wrapper {
+                height: 60vh;
+            }
+
+            .bst-slider-btn {
+                width: 44px;
+                height: 44px;
+            }
+
+            .bst-slider-btn.prev {
+                left: 15px;
+            }
+
+            .bst-slider-btn.next {
+                right: 15px;
+            }
+
+            .bst-slider-dots {
+                left: 20px;
+                bottom: 20px;
+            }
+
+            .bst-hotspot-tooltip {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+
+            .trends-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .trends-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .trends-filters {
+                gap: 15px;
+            }
         }
+
         @media (max-width: 768px) {
-            .bst-title { font-size: 36px; }
-            .bst-showcase { padding: 60px 0; }
-            .bst-showcase-title { font-size: 24px; margin-bottom: 30px; }
-            .bst-slider-wrapper { height: 50vh; min-height: 350px; }
-            .trends-grid { grid-template-columns: 1fr; }
-            .trends-title { font-size: 28px; }
-            .bst-hotspot-circle { width: 18px; height: 18px; }
-            .bst-hotspot-circle::after { display: none; }
+            .bst-title {
+                font-size: 36px;
+            }
+
+            .bst-showcase {
+                padding: 60px 0;
+            }
+
+            .bst-showcase-title {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+
+            .bst-slider-wrapper {
+                height: 50vh;
+                min-height: 350px;
+            }
+
+            .trends-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trends-title {
+                font-size: 28px;
+            }
+
+            .bst-hotspot-circle {
+                width: 18px;
+                height: 18px;
+            }
+
+            .bst-hotspot-circle::after {
+                display: none;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Header (Đồng bộ 100% hệ thống) -->
@@ -567,9 +661,9 @@
         <!-- 1. Hero Section (Full-Width, Full-Height) -->
         <section class="bst-hero" style="background-image: url('images/hero-bg.png');">
             <div class="bst-hero-overlay"></div>
-            <div class="container bst-hero-content" data-aos="fade-up">
+            <div class="container bst-hero-content" data-aos="fade-up" style="width: 100%; text-align: left;">
                 <div class="bst-breadcrumb">
-                    <a href="index.html">TRANG CHỦ</a> / <span>BỘ SƯU TẬP</span>
+                    <a href="index.html">GIỚI THIỆU</a> / <span>BỘ SƯU TẬP</span>
                 </div>
                 <h1 class="bst-title">BỘ SƯU TẬP</h1>
             </div>
@@ -582,13 +676,14 @@
         <section class="bst-showcase" id="showcase-section">
             <div class="container">
                 <h2 class="bst-showcase-title" data-aos="fade-up">KHÔNG GIAN SỐNG <span>THƯỢNG LƯU</span></h2>
-                
+
                 <div class="bst-slider-wrapper" data-aos="fade-up">
-                    
+
                     <!-- Slide 1: Phòng khách Luxury (Ảnh nền Unsplash gỗ óc chó tối sang) -->
-                    <div class="bst-slide active" style="background-image: url('https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1600&q=80');">
+                    <div class="bst-slide active"
+                        style="background-image: url('https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=1600&q=80');">
                         <div class="bst-slide-overlay"></div>
-                        
+
                         <!-- Hotspot 1: Sofa Da Bò Ý -->
                         <div class="bst-hotspot" style="top: 60%; left: 45%;">
                             <div class="bst-hotspot-circle"></div>
@@ -615,9 +710,10 @@
                     </div>
 
                     <!-- Slide 2: Phòng ăn Luxury (Ảnh nền Unsplash bếp gỗ óc chó cao cấp) -->
-                    <div class="bst-slide" style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80');">
+                    <div class="bst-slide"
+                        style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80');">
                         <div class="bst-slide-overlay"></div>
-                        
+
                         <!-- Hotspot 1: Bàn ăn 10 Ghế -->
                         <div class="bst-hotspot" style="top: 65%; left: 45%;">
                             <div class="bst-hotspot-circle"></div>
@@ -644,8 +740,10 @@
                     </div>
 
                     <!-- Mũi tên điều hướng -->
-                    <button class="bst-slider-btn prev" id="sliderPrevBtn"><i class="fa-solid fa-chevron-left"></i></button>
-                    <button class="bst-slider-btn next" id="sliderNextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+                    <button class="bst-slider-btn prev" id="sliderPrevBtn"><i
+                            class="fa-solid fa-chevron-left"></i></button>
+                    <button class="bst-slider-btn next" id="sliderNextBtn"><i
+                            class="fa-solid fa-chevron-right"></i></button>
 
                     <!-- Chỉ chỉ báo trang ở góc trái -->
                     <div class="bst-slider-dots">
@@ -662,7 +760,7 @@
             <div class="container">
                 <div class="trends-header" data-aos="fade-up">
                     <h2 class="trends-title">XU HƯỚNG THIẾT KẾ NỘI THẤT 2026</h2>
-                    
+
                     <div class="trends-filters">
                         <button class="trends-filter-btn active" data-filter="all">TẤT CẢ</button>
                         <button class="trends-filter-btn" data-filter="ban">BÀN</button>
@@ -719,7 +817,8 @@
                     </div>
                     <div class="info-item">
                         <i class="fa-solid fa-location-dot"></i>
-                        <span>Văn phòng đại diện: Số 412 - Tầng 14, Đường<br>Nguyễn Thị Minh Khai, Phường 5, Quận 3, TP. HCM</span>
+                        <span>Văn phòng đại diện: Số 412 - Tầng 14, Đường<br>Nguyễn Thị Minh Khai, Phường 5, Quận 3, TP.
+                            HCM</span>
                     </div>
                 </div>
             </div>
@@ -775,7 +874,8 @@
                         <a href="#"><i class="fa-brands fa-youtube"></i></a>
                         <a href="#"><i class="fa-brands fa-twitter"></i></a>
                     </div>
-                    <div style="border-radius: 4px; overflow: hidden; width: 100%; height: 200px; border: 1px solid rgba(197, 160, 89, 0.2);">
+                    <div
+                        style="border-radius: 4px; overflow: hidden; width: 100%; height: 200px; border: 1px solid rgba(197, 160, 89, 0.2);">
                         <iframe
                             src="https://maps.google.com/maps?q=412%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Minh%20Khai,%20Ph%C6%B0%E1%BB%9Dng%205,%20Qu%E1%BA%ADn%203,%20H%E1%BB%93%20Ch%C3%AD%20Minh&t=&z=16&ie=UTF8&iwloc=&output=embed"
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
@@ -783,7 +883,8 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom text-center" style="border-top: 1px solid rgba(197, 160, 89, 0.2); padding-top: 20px;">
+            <div class="footer-bottom text-center"
+                style="border-top: 1px solid rgba(197, 160, 89, 0.2); padding-top: 20px;">
                 <p>&copy; 2026 Công Ty TNHH Nội Thất Xây Dựng Thuận Phát</p>
             </div>
         </div>
@@ -869,7 +970,8 @@
                         style="height:35px;filter:grayscale(0.2);">
                 </a>
                 <a href="https://khonggianmang.vn" target="_blank" class="fm-badge-item">
-                    <span style="font-weight:800;font-size:13px;letter-spacing:1px;">NCSC<span style="color:var(--luxury-gold);">★</span>VN</span>
+                    <span style="font-weight:800;font-size:13px;letter-spacing:1px;">NCSC<span
+                            style="color:var(--luxury-gold);">★</span>VN</span>
                 </a>
             </div>
 
@@ -893,7 +995,8 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
         </a>
         <a href="#" class="widget-btn messenger-btn" title="Messenger">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" alt="Messenger">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg"
+                alt="Messenger">
         </a>
         <a href="tel:0949135319" class="widget-btn phone-btn" title="Gọi điện">
             <i class="fa-solid fa-phone"></i>
@@ -926,7 +1029,8 @@
                         <div class="form-group">
                             <textarea placeholder="Nội dung" rows="4" required></textarea>
                         </div>
-                        <button type="submit" class="btn-gold w-100">GỬI THÔNG TIN <i class="fa-solid fa-arrow-right-long" style="margin-left: 10px;"></i></button>
+                        <button type="submit" class="btn-gold w-100">GỬI THÔNG TIN <i
+                                class="fa-solid fa-arrow-right-long" style="margin-left: 10px;"></i></button>
                     </form>
                 </div>
                 <div class="modal-img-col">
@@ -947,13 +1051,13 @@
             const body = item.querySelector('.fm-acc-body');
             const icon = btn.querySelector('i');
             const isOpen = item.classList.contains('open');
-            
+
             document.querySelectorAll('.fm-acc-item.open').forEach(el => {
                 el.classList.remove('open');
                 el.querySelector('.fm-acc-body').style.maxHeight = null;
                 el.querySelector('i').style.transform = 'rotate(0deg)';
             });
-            
+
             if (!isOpen) {
                 item.classList.add('open');
                 body.style.maxHeight = body.scrollHeight + 'px';
@@ -982,7 +1086,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const contactModal = document.getElementById('contactModal');
             const openCtaModal = document.getElementById('openCtaModal');
-            if(contactModal && openCtaModal) {
+            if (contactModal && openCtaModal) {
                 openCtaModal.addEventListener('click', (e) => {
                     e.preventDefault();
                     contactModal.classList.add('active');
@@ -1010,7 +1114,7 @@
                 currentSlide = index;
             };
 
-            if(prevBtn && nextBtn) {
+            if (prevBtn && nextBtn) {
                 prevBtn.addEventListener('click', () => {
                     let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
                     changeSlide(prevIndex);
@@ -1088,7 +1192,7 @@
 
         function renderTrends() {
             const grid = document.getElementById('trendsGrid');
-            if(!grid) return;
+            if (!grid) return;
 
             const filtered = trendsData.filter(item => {
                 return currentFilter === 'all' || item.category === currentFilter;
@@ -1144,4 +1248,5 @@
         });
     </script>
 </body>
+
 </html>
