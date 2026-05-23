@@ -23,8 +23,8 @@
         /* ── Page Banner ── */
         .page-banner {
             position: relative;
-            height: 70vh;
-            min-height: 500px;
+            height: 100vh;
+            min-height: 600px;
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -70,12 +70,13 @@
         }
 
         .page-title {
-            font-size: 48px;
+            font-family: 'Playfair Display', serif !important;
+            font-size: 60px;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            font-family: var(--font-heading);
             color: var(--text-main);
+            line-height: 1.15;
         }
 
         .scroll-down-btn {
@@ -95,22 +96,9 @@
         }
 
         @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translate(-50%, 0);
-            }
-
-            40% {
-                transform: translate(-50%, -10px);
-            }
-
-            60% {
-                transform: translate(-50%, -5px);
-            }
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
         }
 
         /* ── General Section Style ── */
@@ -244,37 +232,27 @@
             transform: scale(1.06);
         }
 
-        /* ── Staggered Team Sections (03 and 02) ── */
+        .faded-number {
+            display: none;
+        }
+
+        /* ── Staggered Team Sections ── */
         .team-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: flex-start;
+            gap: 60px;
+            align-items: center;
         }
 
         .team-content-col {
             position: relative;
         }
 
-        .faded-number {
-            position: absolute;
-            top: -90px;
-            left: -35px;
-            font-size: 200px;
-            font-weight: 900;
-            font-family: var(--font-heading);
-            color: rgba(197, 160, 89, 0.05);
-            line-height: 1;
-            z-index: 0;
-            pointer-events: none;
-            user-select: none;
-        }
-
         .team-title {
-            font-size: 38px;
+            font-size: 30px;
             font-family: var(--font-heading);
             color: var(--text-main);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             position: relative;
             z-index: 1;
             line-height: 1.3;
@@ -284,29 +262,62 @@
             font-style: italic;
             font-weight: 400;
             color: var(--luxury-gold);
-            font-size: 36px;
+            font-size: 28px;
             display: inline-block;
             margin-left: 5px;
             font-family: var(--font-heading);
         }
 
         .team-desc {
-            font-size: 16px;
-            line-height: 1.9;
+            font-size: 14px;
+            line-height: 1.85;
             color: var(--text-muted);
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             position: relative;
             z-index: 1;
         }
 
-        /* Staggered Images layout for Section 3 (Design) */
-        .staggered-images-design {
+        /* ── Staff Section Layout ── */
+        .staff-layout {
             display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: 30px;
-            align-items: flex-end;
-            margin-top: 30px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 24px;
+            align-items: start;
         }
+
+        .staff-text {
+            grid-column: 1;
+            grid-row: 1;
+            padding-right: 20px;
+        }
+
+        .staff-img1 {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .staff-img1 img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .staff-img2 {
+            grid-column: 2;
+            grid-row: 1 / 3;
+        }
+
+        .staff-img2 img {
+            width: 100%;
+            height: 100%;
+            min-height: 520px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        /* ── Staggered Images (for construct section) ── */
 
         .img-vertical {
             width: 100%;
@@ -460,8 +471,8 @@
                             <li><a href="gioi-thieu.html">VỀ THUẬN PHÁT</a></li>
                             <li><a href="nha-may-san-xuat.html">NHÀ MÁY SẢN XUẤT</a></li>
                             <li><a href="nhan-su.html" class="active">NHÂN SỰ</a></li>
-                            <li><a href="gioi-thieu.html#gioi-thieu-kien-truc-su">GIỚI THIỆU VỀ KIẾN TRÚC SƯ</a></li>
-                            <li><a href="gioi-thieu.html#bo-suu-tap">BỘ SƯU TẬP</a></li>
+                            <li><a href="gioi-thieu-ve-kien-truc-su.html">GIỚI THIỆU VỀ KIẾN TRÚC SƯ</a></li>
+                            <li><a href="bo-suu-tap.html">BỘ SƯU TẬP</a></li>
                         </ul>
                     </li>
                     <li class="has-simple-dropdown">
@@ -582,12 +593,11 @@
             </div>
         </section>
 
-        <!-- 4. Section 3: Đội ngũ Nhân viên Thiết kế (Số 03) -->
+        <!-- 4. Section 3: Đội ngũ Nhân viên Thiết kế -->
         <section class="ns-section" id="staff-section">
             <div class="container">
-                <div class="team-grid">
-                    <div class="team-content-col" data-aos="fade-right">
-                        <div class="faded-number">03</div>
+                <div class="staff-layout">
+                    <div class="staff-text" data-aos="fade-right">
                         <h2 class="team-title">ĐỘI NGŨ <span class="cursive">nhân viên</span><br>THUẬN PHÁT</h2>
                         <p class="team-desc">
                             Thuận Phát tự hào sở hữu những kiến trúc sư đầy tài năng và sức trẻ, được đào tạo bài bản từ
@@ -596,25 +606,22 @@
                             thiết kế của chúng tôi luôn mang lại những trải nghiệm hình ảnh chân thực cùng giải pháp
                             không gian tối ưu nhất.
                         </p>
-                        <img src="images/project_2.png" alt="Kiến trúc sư làm việc" class="img-vertical">
                     </div>
-                    <div class="team-img-col" data-aos="fade-left" style="margin-top: 80px;">
-                        <img src="images/project_1.png" alt="Hội ý thiết kế" class="img-horizontal">
+                    <div class="staff-img1" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images/project_2.png" alt="Kiến trúc sư làm việc">
+                    </div>
+                    <div class="staff-img2" data-aos="fade-left">
+                        <img src="images/project_1.png" alt="Hội ý thiết kế">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. Section 4: Đội ngũ Thi công sản xuất (Số 02) -->
-        <section class="ns-section" id="construct-section">
+        <!-- 5. Section 4: Đội ngũ Thi công sản xuất -->
+        <section class="ns-section" id="construct-section" style="padding-bottom: 30px;">
             <div class="container">
                 <div class="team-grid">
-                    <div class="team-img-col" data-aos="fade-right">
-                        <img src="images/service_manufacturing.png" alt="Xưởng sản xuất gỗ Thuận Phát"
-                            class="img-horizontal" style="margin-bottom: 30px;">
-                    </div>
-                    <div class="team-content-col" data-aos="fade-left">
-                        <div class="faded-number">02</div>
+                    <div class="team-content-col" data-aos="fade-right">
                         <h2 class="team-title">ĐỘI NGŨ THI CÔNG<br>VÀ SẢN XUẤT</h2>
                         <p class="team-desc">
                             Để hiện thực hóa trọn vẹn ý tưởng trên bản vẽ thành những tác phẩm hoàn mỹ ngoài thực tế,
@@ -623,11 +630,10 @@
                             máy cùng đôi bàn tay tài hoa, khéo léo của các nghệ nhân mộc đảm bảo tính chính xác cực cao
                             và chất lượng tinh xảo đến từng mối ghép nhỏ nhất.
                         </p>
-                        <div class="staggered-images-construct">
-                            <div></div> <!-- Empty placeholder/spacer or can place structural layout -->
-                            <img src="images/service_construction.png" alt="Lắp ráp tại công trình" class="img-vertical"
-                                style="margin-top: -30px;">
-                        </div>
+                    </div>
+                    
+                    <div class="team-img-col" data-aos="fade-left">
+                        <img src="images/service_manufacturing.png" alt="Xưởng sản xuất" style="width:100%; height:480px; object-fit:cover; border-radius:4px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);">
                     </div>
                 </div>
             </div>

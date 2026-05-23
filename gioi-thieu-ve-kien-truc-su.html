@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTS. Lưu Phúc Lộc | Thuận Phát</title>
+    <meta name="description"
+        content="Kiến trúc sư Lưu Phúc Lộc - Nhà sáng lập, CEO Thuận Phát với 20 năm kinh nghiệm kiến tạo nội thất cao cấp và các công trình độc bản đẳng cấp.">
+    <meta property="og:title" content="KTS. Lưu Phúc Lộc | Thuận Phát">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ==================================================
+           CSS ĐẶC THÙ CHO TRANG KIẾN TRÚC SƯ
+           ================================================== */
+
+        /* ── KTS Hero Banner (Full-width, Full-height) ── */
+        .kts-hero {
+            position: relative;
+            height: 100vh;
+            min-height: 650px;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        .kts-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(15, 15, 15, 0.8) 50%, rgba(15, 15, 15, 0.95) 100%);
+            z-index: 1;
+        }
+
+        .kts-hero .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 60px;
+            align-items: center;
+            height: 80%;
+            width: 100%;
+        }
+
+        /* Bố cục chữ xếp chồng như bản vẽ */
+        .kts-hero-text-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            min-height: 380px;
+        }
+
+        .kts-hero-desc {
+            font-size: 15px;
+            line-height: 1.9;
+            color: #E0E0E0;
+            max-width: 95%;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .kts-hero-details {
+            margin-top: auto;
+        }
+
+        .kts-breadcrumb {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .kts-breadcrumb a {
+            color: var(--text-muted);
+        }
+
+        .kts-breadcrumb a:hover {
+            color: var(--luxury-gold);
+        }
+
+        .kts-breadcrumb span {
+            color: var(--luxury-gold);
+        }
+
+        .kts-title {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            color: var(--luxury-gold);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .kts-subtitle {
+            font-family: var(--font-text);
+            font-size: 26px;
+            color: var(--text-main);
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .kts-hero-img-col {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100%;
+        }
+
+        .kts-hero-portrait-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 460px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .kts-hero-portrait-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 75vh;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.8));
+        }
+
+        /* Vòm cong phát sáng vàng óng sau chân dung KTS */
+        .kts-hero-arch-line {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 92%;
+            height: 95%;
+            border: 2px solid rgba(197, 160, 89, 0.4);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0 / 45% 45% 0 0;
+            z-index: 1;
+            box-shadow: 0 0 30px rgba(197, 160, 89, 0.15);
+            pointer-events: none;
+        }
+
+        .kts-hero-arch-line::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 0;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0 / 45% 45% 0 0;
+        }
+
+        /* Nút trượt cuộn xuống */
+        /* Nút trượt cuộn xuống đồng bộ */
+        .kts-hero-scroll-btn {
+            position: absolute;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #E0E0E0;
+            font-size: 16px;
+            z-index: 2;
+            width: 46px;
+            height: 46px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            /* Viền tròn mờ */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+            animation: bounce 2s infinite;
+        }
+
+        .kts-hero-scroll-btn:hover {
+            color: var(--luxury-gold);
+            border-color: var(--luxury-gold);
+            /* Chuyển màu vàng đồng khi di chuột */
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translate(-50%, 0);
+            }
+
+            40% {
+                transform: translate(-50%, -10px);
+            }
+
+            60% {
+                transform: translate(-50%, -5px);
+            }
+        }
+
+        /* ── Section: Passion (20 Năm "Say Nghề") ── */
+        .kts-passion {
+            padding: 120px 0;
+            background-color: var(--bg-main);
+        }
+
+        .passion-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .passion-img-container {
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .passion-img-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--luxury-gold);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .passion-img-container img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .passion-img-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .passion-text-block h3 {
+            font-family: var(--font-heading);
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--luxury-gold);
+            margin: 25px 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .passion-text-block h4 {
+            font-family: var(--font-text);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 35px 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            line-height: 1.5;
+        }
+
+        .passion-text-block p {
+            font-size: 15px;
+            line-height: 1.85;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .passion-text-block p.quote-highlight {
+            font-size: 18px;
+            line-height: 1.8;
+            font-style: italic;
+            color: #F0F0F0;
+            border-left: 2px solid var(--luxury-gold);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* ── Section: Challenge (Dám Thử Thách) ── */
+        .kts-challenge {
+            padding: 120px 0;
+            background-color: var(--bg-section);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .challenge-text-block h3 {
+            font-family: var(--font-heading);
+            font-size: 30px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 35px;
+            line-height: 1.4;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .challenge-text-block p {
+            font-size: 15px;
+            line-height: 1.85;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        /* Nút màu vàng đồng óng ánh */
+        .btn-gold-solid {
+            display: inline-flex;
+            align-items: center;
+            background: var(--luxury-gradient);
+            color: #FFFFFF;
+            padding: 14px 32px;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.25);
+            transition: var(--transition-smooth);
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-gold-solid i {
+            margin-left: 10px;
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-gold-solid:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.45);
+        }
+
+        .btn-gold-solid:hover i {
+            transform: translateX(5px);
+        }
+
+        .challenge-img-container {
+            position: relative;
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            z-index: 2;
+        }
+
+        .challenge-img-container img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .challenge-img-container:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Nền họa tiết sóng địa hình vàng mờ */
+        .challenge-wave-svg {
+            position: absolute;
+            right: -5%;
+            top: 20%;
+            width: 45%;
+            height: auto;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ── Section: Projects ── */
+        .kts-projects {
+            padding: 120px 0;
+            background-color: var(--bg-main);
+        }
+
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 30px;
+        }
+
+        .projects-title {
+            font-family: var(--font-heading);
+            font-size: 38px;
+            color: var(--luxury-gold);
+            line-height: 1.35;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .project-filters {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            padding-bottom: 10px;
+            position: relative;
+            transition: var(--transition-smooth);
+            letter-spacing: 1.2px;
+        }
+
+        .filter-btn:hover {
+            color: var(--text-main);
+        }
+
+        .filter-btn.active {
+            color: var(--luxury-gold);
+        }
+
+        .filter-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--luxury-gold);
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
+        }
+
+        /* Lưới dự án: 4 cột x 2 dòng = 8 ô */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            min-height: 720px;
+            transition: opacity 0.4s ease;
+            align-content: start;
+        }
+
+
+        .project-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: cardFadeIn 0.5s forwards ease;
+        }
+
+        @keyframes cardFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card:hover {
+            border-color: rgba(197, 160, 89, 0.35);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background-color: #151515;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.08);
+        }
+
+        .project-info {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-name {
+            font-family: var(--font-text);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            line-height: 1.5;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-height: 42px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 18px;
+            margin-top: auto;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .meta-item {
+            font-weight: 300;
+        }
+
+        .meta-item span {
+            color: var(--text-main);
+            font-weight: 600;
+            display: block;
+            margin-top: 4px;
+            font-size: 13px;
+        }
+
+        /* Phân trang */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 60px;
+        }
+
+        .page-btn {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            background: transparent;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            border-color: var(--luxury-gold);
+            color: var(--luxury-gold);
+            background-color: rgba(197, 160, 89, 0.03);
+            transform: translateY(-2px);
+        }
+
+        .page-btn.active {
+            border-color: var(--luxury-gold);
+            color: var(--text-main);
+            background: var(--luxury-gradient);
+            box-shadow: 0 4px 10px rgba(197, 160, 89, 0.2);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+                min-height: 960px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .kts-hero {
+                height: auto;
+                min-height: auto;
+                padding: 140px 0 80px;
+            }
+
+            .kts-hero .container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .kts-hero-text-block {
+                min-height: auto;
+                text-align: center;
+            }
+
+            .kts-hero-desc {
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .kts-hero-img-col {
+                justify-content: center;
+            }
+
+            .kts-hero-portrait-wrapper {
+                max-width: 380px;
+            }
+
+            .kts-hero-scroll-btn {
+                display: none;
+            }
+
+            .passion-grid,
+            .challenge-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .challenge-grid>*:nth-child(1) {
+                order: 2;
+            }
+
+            .challenge-grid>*:nth-child(2) {
+                order: 1;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                min-height: 1440px;
+            }
+
+            .projects-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .project-filters {
+                gap: 15px;
+            }
+
+            .challenge-wave-svg {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .kts-title {
+                font-size: 38px;
+            }
+
+            .kts-subtitle {
+                font-size: 20px;
+            }
+
+            .passion-img-container img,
+            .challenge-img-container img {
+                height: 350px;
+            }
+
+            .passion-text-block h3 {
+                font-size: 30px;
+            }
+
+            .challenge-text-block h3 {
+                font-size: 24px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .projects-title {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header (Đồng bộ 100% nhân sự) -->
+    <header id="main-header" class="header">
+        <div class="container header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo-thuanphat.png" alt="Thuận Phát Logo" class="logo-img"
+                        style="filter: brightness(0) invert(1);">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">TRANG CHỦ</a></li>
+                    <li class="has-simple-dropdown">
+                        <a href="gioi-thieu.html" class="active">GIỚI THIỆU <i class="fa-solid fa-chevron-down"
+                                style="font-size:0.8em;margin-left:5px;"></i></a>
+                        <ul class="simple-dropdown">
+                            <li><a href="gioi-thieu.html">VỀ THUẬN PHÁT</a></li>
+                            <li><a href="nha-may-san-xuat.html">NHÀ MÁY SẢN XUẤT</a></li>
+                            <li><a href="nhan-su.html">NHÂN SỰ</a></li>
+                            <li><a href="gioi-thieu-ve-kien-truc-su.html" class="active">GIỚI THIỆU VỀ KIẾN TRÚC SƯ</a>
+                            </li>
+                            <li><a href="bo-suu-tap.html">BỘ SƯU TẬP</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-simple-dropdown">
+                        <a href="index.html#du-an">DỰ ÁN <i class="fa-solid fa-chevron-down"
+                                style="font-size:0.8em;margin-left:5px;"></i></a>
+                        <ul class="simple-dropdown">
+                            <li><a href="index.html#du-an-thi-cong">DỰ ÁN THI CÔNG</a></li>
+                            <li><a href="index.html#du-an-thiet-ke">DỰ ÁN THIẾT KẾ</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-simple-dropdown">
+                        <a href="index.html#bao-gia">BÁO GIÁ <i class="fa-solid fa-chevron-down"
+                                style="font-size:0.8em;margin-left:5px;"></i></a>
+                        <ul class="simple-dropdown">
+                            <li><a href="index.html#bao-gia-thiet-ke">THIẾT KẾ NỘI THẤT</a></li>
+                            <li><a href="index.html#bao-gia-thi-cong">THI CÔNG NỘI THẤT</a></li>
+                            <li><a href="index.html#tra-gia-nhu-cau">TRA GIÁ THEO NHU CẦU</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-simple-dropdown">
+                        <a href="index.html#cam-nang">CẨM NANG NỘI THẤT <i class="fa-solid fa-chevron-down"
+                                style="font-size:0.8em;margin-left:5px;"></i></a>
+                        <ul class="simple-dropdown">
+                            <li><a href="index.html#tin-tuc">TIN TỨC</a></li>
+                            <li><a href="index.html#phan-hoi-khach-hang">PHẢN HỒI TỪ KHÁCH HÀNG</a></li>
+                            <li><a href="index.html#xu-huong-noi-that">XU HƯỚNG NỘI THẤT MỚI NHẤT</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-simple-dropdown">
+                        <a href="index.html#kien-truc-xay-dung">KIẾN TRÚC & XÂY DỰNG <i class="fa-solid fa-chevron-down"
+                                style="font-size:0.8em;margin-left:5px;"></i></a>
+                        <ul class="simple-dropdown">
+                            <li><a href="index.html#ho-so-thiet-ke">HỒ SƠ THIẾT KẾ KIẾN TRÚC</a></li>
+                            <li><a href="index.html#quy-trinh-xay-dung">QUY TRÌNH XÂY DỰNG</a></li>
+                            <li><a href="index.html#vat-lieu-xay-dung">VẬT LIỆU XÂY DỰNG CAO CẤP</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#lien-he">LIÊN HỆ</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn-gold icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- 1. Hero Section (Full-width, Full-height) -->
+        <section class="kts-hero" style="background-image: url('images/hero-bg.png');">
+            <div class="kts-hero-overlay"></div>
+            <div class="container">
+                <div class="kts-hero-text-block" data-aos="fade-right">
+                    <p class="kts-hero-desc">Không chỉ được biết đến là CEO, là nhà sáng lập và vận hành doanh nghiệp,
+                        ông Lưu Phúc Lộc còn là Kiến trúc sư tài năng, người có 20 năm kinh nghiệm trong lĩnh vực thiết
+                        kế & thi công nội thất cao cấp.</p>
+
+                    <div class="kts-hero-details">
+                        <div class="kts-breadcrumb">
+                            <a href="index.html">TRANG CHỦ</a> / <span>KIẾN TRÚC SƯ LƯU PHÚC LỘC</span>
+                        </div>
+                        <h1 class="kts-title">KTS. LƯU PHÚC LỘC</h1>
+                        <h2 class="kts-subtitle">20 NĂM LÀM NỘI THẤT CAO CẤP</h2>
+                    </div>
+                </div>
+                <div class="kts-hero-img-col" data-aos="fade-left">
+                    <div class="kts-hero-portrait-wrapper">
+                        <!-- Tự động sử dụng ceo.png có sẵn nếu ceo-loc.png bị lỗi/không có trên máy -->
+                        <img src="images/ceo-loc.png" alt="KTS Lưu Phúc Lộc" onerror="handleImgError(this, 'ceo')">
+                        <div class="kts-hero-arch-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#passion-section" class="kts-hero-scroll-btn">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- 2. Section: Passion (Hơn 14 Năm Với Nghề) -->
+        <section class="kts-passion" id="passion-section">
+            <div class="container">
+                <div class="passion-grid">
+                    <div class="passion-img-col" data-aos="fade-right">
+                        <div class="passion-img-container">
+                            <img src="images/loc-sitting.png" alt="KTS Lưu Phúc Lộc ngồi"
+                                onerror="handleImgError(this, 'sitting')">
+                        </div>
+                    </div>
+                    <div class="passion-text-block" data-aos="fade-left">
+                        <p class="quote-highlight">Tôi nghĩ không chỉ với một kiến trúc sư đâu mà với bất cứ ngành nghề
+                            gì, điều quan trọng nhất chính là phải có niềm đam mê và nhiệt huyết với chính công việc mà
+                            mình đã lựa chọn.</p>
+
+                        <h3>HƠN 14 NĂM VỚI NGHỀ</h3>
+
+                        <h4>ĐIỀU GÌ LÀ QUAN TRỌNG NHẤT ĐỂ TẠO NÊN SỰ THÀNH CÔNG CỦA MỘT KIẾN TRÚC SƯ?</h4>
+                        <p>Tôi nghĩ không chỉ với một kiến trúc sư đâu mà với bất cứ ngành nghề gì, điều quan trọng nhất
+                            chính là phải có niềm đam mê và nhiệt huyết với chính công việc mà mình đã lựa chọn.</p>
+
+                        <h4>HỌC HỎI KHÔNG NGỪNG</h4>
+                        <p>Bản thân tôi với rất nhiều năm làm nghề, ngoài việc trau dồi kiến thức thường xuyên thì ngọn
+                            lửa đam mê chính là điều mà tôi phải luôn gìn giữ cũng như thúc đẩy để phát triển.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Section: Challenge (Dám Thử Thách) -->
+        <section class="kts-challenge">
+            <!-- SVG hình vẽ sóng contour nền tối óng ánh sang trọng -->
+            <svg class="challenge-wave-svg" viewBox="0 0 100 100" fill="none" stroke="rgba(197, 160, 89, 0.4)"
+                stroke-width="0.3">
+                <path d="M 0,20 Q 25,10 50,20 T 100,20" />
+                <path d="M 0,30 Q 25,20 50,30 T 100,30" />
+                <path d="M 0,40 Q 25,30 50,40 T 100,40" />
+                <path d="M 0,50 Q 25,40 50,50 T 100,50" />
+                <path d="M 0,60 Q 25,50 50,60 T 100,60" />
+                <path d="M 0,70 Q 25,60 50,70 T 100,70" />
+            </svg>
+
+            <div class="container">
+                <div class="challenge-grid">
+                    <div class="challenge-text-block" data-aos="fade-right">
+                        <h3>DÁM THỬ THÁCH ĐỂ MANG LẠI NHỮNG GIÁ TRỊ TỐT NHẤT CHO KHÁCH HÀNG</h3>
+                        <p>Nội thất là mảng này khá kén khách hàng. Bản thân tôi lại lấy điểm này làm ưu thế, tôi dám
+                            chọn nội thất cao cấp nghĩa là dám chọn thử thách, những yêu cầu và sự kỹ tính của khách
+                            hàng. Từ đó chúng tôi sẽ có được nhiều sản phẩm tốt hơn, chất lượng và thẩm mỹ cao hơn.</p>
+                        <p>Khi tư vấn cho khách hàng, mục đích của tôi không chỉ là mình bán được hàng, có được khách mà
+                            tôi muốn mang lại những giá trị tốt nhất cho khách hàng.</p>
+                        <button class="btn-gold-solid" id="openContactModalChallenge">PROFILE KIẾN TRÚC SƯ <i
+                                class="fa-solid fa-arrow-right-long"></i></button>
+                    </div>
+                    <div class="challenge-img-col" data-aos="fade-left">
+                        <div class="challenge-img-container">
+                            <img src="images/loc-discuss.png" alt="KTS tư vấn thảo luận"
+                                onerror="handleImgError(this, 'discuss')">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Section: Projects (Các Công Trình Tiêu Biểu - Dynamic Filter & Pagination) -->
+        <section class="kts-projects">
+            <div class="container">
+                <div class="projects-header" data-aos="fade-up">
+                    <h2 class="projects-title">KTS. LƯU PHÚC LỘC<br>VÀ CÁC CÔNG TRÌNH TIÊU BIỂU</h2>
+
+                    <div class="project-filters">
+                        <button class="filter-btn active" data-filter="all">XEM TẤT CẢ</button>
+                        <button class="filter-btn" data-filter="biet-thu">BIỆT THỰ</button>
+                        <button class="filter-btn" data-filter="chung-cu">CHUNG CƯ</button>
+                        <button class="filter-btn" data-filter="nha-pho">NHÀ PHỐ</button>
+                        <button class="filter-btn" data-filter="van-phong">VĂN PHÒNG</button>
+                    </div>
+                </div>
+
+                <!-- Lưới 4 cột x 2 dòng hiển thị 8 dự án -->
+                <div class="projects-grid" id="projectGrid" data-aos="fade-up">
+                    <!-- Javascript tự động điền danh sách dự án -->
+                </div>
+
+                <!-- Nút Phân trang hoạt động tương tác -->
+                <div class="pagination" data-aos="fade-up">
+                    <!-- Javascript tự động dựng pagination -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CTA Banners + Contact Info (Đồng bộ nhân sự) -->
+        <div style="background: var(--bg-main);">
+            <div class="container">
+                <div class="cta-banners-grid" data-aos="fade-up">
+                    <a href="#lien-he" class="cta-banner" id="ctaKtsBtn">
+                        <img src="images/ceo.png" alt="Tư vấn KTS" class="bg-img">
+                        <div class="overlay gradient-overlay"></div>
+                        <div class="cta-banner-content">
+                            <div class="cta-banner-box">Đặt lịch tư vấn với KTS</div>
+                        </div>
+                    </a>
+                    <a href="https://zalo.me/" target="_blank" class="cta-banner">
+                        <img src="images/project_2.png" alt="Nhận tư vấn" class="bg-img">
+                        <div class="overlay"></div>
+                        <div class="cta-banner-content">
+                            <div class="cta-banner-box">Đăng ký nhận tư vấn</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Info Row -->
+        <div class="contact-info-wrapper">
+            <div class="container">
+                <div class="contact-info-row" data-aos="fade-up">
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <span>0949.135.319</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>noithatxaydungthuanphat@gmail.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <span>Thời gian mở cửa: 08:00 - 18:00<br>(Làm việc cả thứ 7 &amp; Chủ Nhật)</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Văn phòng đại diện: Số 412 - Tầng 14, Đường<br>Nguyễn Thị Minh Khai, Phường 5, Quận 3, TP.
+                            HCM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer (Đồng bộ 100% nhân sự) -->
+    <footer class="footer" id="lien-he">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="footer-title">GIỚI THIỆU</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Về Thuận Phát</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Video</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">DỊCH VỤ</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Cải tạo nhà</a></li>
+                        <li><a href="#">Thiết kế nội thất</a></li>
+                        <li><a href="#">Thi công nội thất</a></li>
+                        <li><a href="#">Kiến trúc & xây dựng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">BÁO GIÁ</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Thiết kế nội thất</a></li>
+                        <li><a href="#">Thi công nội thất</a></li>
+                        <li><a href="#">Tra giá theo nhu cầu</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">HỖ TRỢ KHÁCH HÀNG</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Quy trình thi công nội thất</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Thanh toán - Vận chuyển</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">THEO DÕI CHÚNG TÔI</h4>
+                    <div class="social-icons" style="margin-bottom: 20px;">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                    <div
+                        style="border-radius: 4px; overflow: hidden; width: 100%; height: 200px; border: 1px solid rgba(197, 160, 89, 0.2);">
+                        <iframe
+                            src="https://maps.google.com/maps?q=412%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Minh%20Khai,%20Ph%C6%B0%E1%BB%9Dng%205,%20Qu%E1%BA%ADn%203,%20H%E1%BB%93%20Ch%C3%AD%20Minh&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center"
+                style="border-top: 1px solid rgba(197, 160, 89, 0.2); padding-top: 20px;">
+                <p>&copy; 2026 Công Ty TNHH Nội Thất Xây Dựng Thuận Phát</p>
+            </div>
+        </div>
+
+        <!-- ===== MOBILE FOOTER (chỉ hiển thị trên mobile) ===== -->
+        <div class="footer-mobile">
+            <div class="fm-brand">NỘI THẤT THUẬN PHÁT</div>
+            <div class="fm-contact">
+                <a href="tel:0949135319" class="fm-contact-item">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>0949.135.319</span>
+                </a>
+                <a href="mailto:noithatxaydungthuanphat@gmail.com" class="fm-contact-item">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>noithatxaydungthuanphat@gmail.com</span>
+                </a>
+                <div class="fm-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Số 412 – Tầng 14, Đường Nguyễn Thị Minh Khai, P.5, Q.3, TP.HCM</span>
+                </div>
+                <div class="fm-contact-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Thời gian mở cửa: 08:00 – 18:00 (Làm việc cả thứ 7 & Chủ Nhật)</span>
+                </div>
+            </div>
+
+            <!-- Accordion sitemap mobile -->
+            <div class="fm-accordion">
+                <div class="fm-acc-item">
+                    <button class="fm-acc-title" onclick="fmToggle(this)">
+                        GIỚI THIỆU <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <ul class="fm-acc-body">
+                        <li><a href="#">Về Thuận Phát</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Video</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                    </ul>
+                </div>
+                <div class="fm-acc-item">
+                    <button class="fm-acc-title" onclick="fmToggle(this)">
+                        DỊCH VỤ <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <ul class="fm-acc-body">
+                        <li><a href="#">Cải tạo nhà</a></li>
+                        <li><a href="#">Thiết kế nội thất</a></li>
+                        <li><a href="#">Thi công nội thất</a></li>
+                        <li><a href="#">Kiến trúc & xây dựng</a></li>
+                    </ul>
+                </div>
+                <div class="fm-acc-item">
+                    <button class="fm-acc-title" onclick="fmToggle(this)">
+                        BÁO GIÁ <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <ul class="fm-acc-body">
+                        <li><a href="#">Thiết kế nội thất</a></li>
+                        <li><a href="#">Thi công nội thất</a></li>
+                        <li><a href="#">Tra giá theo nhu cầu</a></li>
+                    </ul>
+                </div>
+                <div class="fm-acc-item">
+                    <button class="fm-acc-title" onclick="fmToggle(this)">
+                        HỖ TRỢ KHÁCH HÀNG <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <ul class="fm-acc-body">
+                        <li><a href="#">Quy trình thi công nội thất</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Thanh toán - Vận chuyển</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="fm-badges">
+                <a href="https://id.gov.vn" target="_blank" class="fm-badge-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/40px-Flag_of_Vietnam.svg.png"
+                        alt="Bộ Công Thương" style="height:20px;margin-right:4px;vertical-align:middle;">
+                    <span>BỘ CÔNG THƯƠNG</span>
+                </a>
+                <a href="https://dmca.com" target="_blank" class="fm-badge-item">
+                    <img src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-07.png?ID=placeholder" alt="DMCA"
+                        style="height:35px;filter:grayscale(0.2);">
+                </a>
+                <a href="https://khonggianmang.vn" target="_blank" class="fm-badge-item">
+                    <span style="font-weight:800;font-size:13px;letter-spacing:1px;">NCSC<span
+                            style="color:var(--luxury-gold);">★</span>VN</span>
+                </a>
+            </div>
+
+            <!-- Social icons -->
+            <div class="fm-social">
+                <a href="#" class="fm-social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="fm-social-btn"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="fm-social-btn"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="fm-social-btn"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="fm-copyright">
+                <p class="fm-copyright-company">CÔNG TY TNHH NỘI THẤT XÂY DỰNG THUẬN PHÁT</p>
+                <p class="fm-copyright-text">© Copyright 2026 Nội Thất Thuận Phát</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Widget (Đồng bộ nhân sự) -->
+    <div class="floating-widget">
+        <a href="#" class="widget-btn zalo-btn" title="Zalo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+        </a>
+        <a href="#" class="widget-btn messenger-btn" title="Messenger">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg"
+                alt="Messenger">
+        </a>
+        <a href="tel:0949135319" class="widget-btn phone-btn" title="Gọi điện">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <button class="widget-btn form-btn" id="openContactModal" title="Đăng ký tư vấn">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+    </div>
+
+    <!-- Contact Modal (Đồng bộ nhân sự) -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeContactModal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-grid">
+                <div class="modal-form-col">
+                    <h3 class="modal-title">THÔNG TIN LIÊN HỆ</h3>
+                    <form action="#" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Họ và tên" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Số điện thoại" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Địa chỉ">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Nội dung" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-gold w-100">GỬI THÔNG TIN <i
+                                class="fa-solid fa-arrow-right-long" style="margin-left: 10px;"></i></button>
+                    </form>
+                </div>
+                <div class="modal-img-col">
+                    <img src="images/project_2.png" alt="Luxury Interior">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS Library & main.js -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        // Toggle mobile footer accordion
+        function fmToggle(btn) {
+            const item = btn.closest('.fm-acc-item');
+            const body = item.querySelector('.fm-acc-body');
+            const icon = btn.querySelector('i');
+            const isOpen = item.classList.contains('open');
+
+            // Close all
+            document.querySelectorAll('.fm-acc-item.open').forEach(el => {
+                el.classList.remove('open');
+                el.querySelector('.fm-acc-body').style.maxHeight = null;
+                el.querySelector('i').style.transform = 'rotate(0deg)';
+            });
+
+            // Open clicked
+            if (!isOpen) {
+                item.classList.add('open');
+                body.style.maxHeight = body.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Logic thay thế ảnh lỗi thông minh bằng ảnh Unsplash độ phân giải cao cực đẹp
+        function handleImgError(img, type) {
+            const fallbacks = {
+                'ceo': 'images/ceo.png', // Sử dụng ảnh CEO local có sẵn
+                'sitting': 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80',
+                'discuss': 'https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&w=800&q=80',
+                'biet-thu': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80',
+                'chung-cu': 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80',
+                'nha-pho': 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+                'van-phong': 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80'
+            };
+            img.src = fallbacks[type] || 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80';
+            img.onerror = null;
+        }
+
+        // Đè trạng thái active cho menu Giới thiệu
+        (function () {
+            const navLinks = document.querySelectorAll('.main-nav > ul > li > a');
+            const forceActive = () => {
+                navLinks.forEach(link => {
+                    const text = link.textContent.trim();
+                    if (text === 'GIỚI THIỆU') {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            };
+            window.addEventListener('load', forceActive);
+            window.addEventListener('scroll', forceActive);
+        })();
+
+        // Kích hoạt Modal ở các nút tùy chỉnh trong trang
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactModal = document.getElementById('contactModal');
+            const openKtsBtn = document.getElementById('openContactModalChallenge');
+            const ctaKtsBtn = document.getElementById('ctaKtsBtn');
+
+            if (contactModal) {
+                if (openKtsBtn) {
+                    openKtsBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        contactModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+                }
+                if (ctaKtsBtn) {
+                    ctaKtsBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        contactModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+                }
+            }
+        });
+    </script>
+
+    <!-- Script Xử lý Lưới dự án động: Bộ lọc + Phân trang 2 dòng x 4 ô (8 dự án) -->
+    <script>
+        // Dữ liệu 16 dự án chi tiết mô phỏng hoạt động phân trang và bộ lọc cực mượt
+        const projectsData = [
+            {
+                title: "DỰ ÁN THIẾT KẾ BIỆT THỰ STARLAKE CÔ LIỆU",
+                client: "Cô Liệu",
+                area: "83m2",
+                style: "Hiện đại",
+                type: "Biệt thự",
+                category: "biet-thu",
+                image: "images/project_1.png"
+            },
+            {
+                title: "DỰ ÁN THIẾT KẾ NỘI THẤT BIỆT THỰ VINHOMES STAR CITY ANH TÙNG",
+                client: "Anh Tùng",
+                area: "115m2",
+                style: "Hiện đại",
+                type: "Biệt thự",
+                category: "biet-thu",
+                image: "images/project_2.png"
+            },
+            {
+                title: "DỰ ÁN THI CÔNG NỘI THẤT BIỆT THỰ AN LẠC GREEN SYMPHONY",
+                client: "Chị Oanh",
+                area: "98m2",
+                style: "Hiện đại",
+                type: "Biệt thự",
+                category: "biet-thu",
+                image: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "CĂN HỘ CHUNG CƯ LUXURY VINHOMES METROPOLIS",
+                client: "Anh Hùng",
+                area: "110m2",
+                style: "Luxury",
+                type: "Chung cư",
+                category: "chung-cu",
+                image: "https://images.unsplash.com/photo-1545464693-f1798a373343?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "NHÀ PHỐ HIỆN ĐẠI KHU ĐÔ THỊ SALA QUẬN 2",
+                client: "Chị Vy",
+                area: "120m2",
+                style: "Hiện đại",
+                type: "Nhà phố",
+                category: "nha-pho",
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "VĂN PHÒNG LÀM VIỆC CAO CẤP TECHCOM BANK",
+                client: "Techcombank",
+                area: "350m2",
+                style: "Tối giản",
+                type: "Văn phòng",
+                category: "van-phong",
+                image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "DUPLEX CĂN HỘ CAO CẤP MASTERI THẢO ĐIỀN",
+                client: "Chị Lan",
+                area: "145m2",
+                style: "Indochine",
+                type: "Chung cư",
+                category: "chung-cu",
+                image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "BIỆT THỰ SINH THÁI ECOPARK GRAND THE ISLAND",
+                client: "Chú Bình",
+                area: "380m2",
+                style: "Hiện đại",
+                type: "Biệt thự",
+                category: "biet-thu",
+                image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "PENTHOUSE ĐẲNG CẤP LANDMARK 81",
+                client: "Anh Minh",
+                area: "220m2",
+                style: "Hiện đại Luxury",
+                type: "Chung cư",
+                category: "chung-cu",
+                image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "DỰ ÁN THIẾT KẾ VĂN PHÒNG ĐẠI DIỆN SHISEIDO",
+                client: "Shiseido",
+                area: "180m2",
+                style: "Hiện đại",
+                type: "Văn phòng",
+                category: "van-phong",
+                image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "THI CÔNG TRỌN GÓI NHÀ PHỐ TÂN CỔ ĐIỂN VẠN PHÚC CITY",
+                client: "Anh Tiến",
+                area: "135m2",
+                style: "Tân cổ điển",
+                type: "Nhà phố",
+                category: "nha-pho",
+                image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "BIỆT THỰ PHỐ MẶT TIỀN 3 TẦNG KĐT CIPUTRA",
+                client: "Chị Trâm",
+                area: "160m2",
+                style: "Hiện đại",
+                type: "Nhà phố",
+                category: "nha-pho",
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "VĂN PHÒNG LÀM VIỆC TẬP ĐOÀN BẤT ĐỘNG SẢN VINGROUP",
+                client: "Vingroup",
+                area: "450m2",
+                style: "Hiện đại",
+                type: "Văn phòng",
+                category: "van-phong",
+                image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "CĂN HỘ CHUNG CƯ 3 PHÒNG NGỦ ROYAL CITY",
+                client: "Cô Hạnh",
+                area: "125m2",
+                style: "Tân cổ điển",
+                type: "Chung cư",
+                category: "chung-cu",
+                image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "DỰ ÁN THIẾT KẾ VĂN PHÒNG CO-WORKING SPACE UP",
+                client: "UP Co-working",
+                area: "600m2",
+                style: "Sáng tạo",
+                type: "Văn phòng",
+                category: "van-phong",
+                image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                title: "BIỆT THỰ VƯỜN NGHỈ DƯỠNG MŨI NÉ HILLS",
+                client: "Anh Tuấn",
+                area: "450m2",
+                style: "Nhiệt đới",
+                type: "Biệt thự",
+                category: "biet-thu",
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        const itemsPerPage = 8; // 2 dòng x 4 ô
+        let currentPage = 1;
+        let currentFilter = 'all';
+
+        // Hàm render lưới dự án theo bộ lọc và số trang
+        function renderProjects() {
+            const grid = document.getElementById('projectGrid');
+            if (!grid) return;
+
+            // Lọc theo category
+            const filtered = projectsData.filter(proj => {
+                return currentFilter === 'all' || proj.category === currentFilter;
+            });
+
+            // Tính tổng số trang
+            const totalItems = filtered.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+
+            // Ràng buộc trang hiện tại không vượt quá tổng số trang
+            if (currentPage > totalPages) {
+                currentPage = totalPages;
+            }
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+
+            // Cắt mảng hiển thị trang hiện tại
+            const pageItems = filtered.slice(startIndex, endIndex);
+
+            // Hiệu ứng mờ nhòe nhẹ khi chuyển trang/lọc
+            grid.style.opacity = '0';
+
+            setTimeout(() => {
+                grid.innerHTML = '';
+
+                if (pageItems.length === 0) {
+                    grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 80px 0; color: var(--text-muted); font-size:16px;">Không có dự án nào thuộc danh mục này.</div>`;
+                    grid.style.opacity = '1';
+                    renderPagination(totalPages);
+                    return;
+                }
+
+                pageItems.forEach((proj, idx) => {
+                    const card = document.createElement('div');
+                    card.className = 'project-card';
+                    // Hiệu ứng AOS mượt mà từng ô
+                    card.style.animationDelay = `${idx * 0.05}s`;
+
+                    card.innerHTML = `
+                        <div class="project-img">
+                            <img src="${proj.image}" alt="${proj.title}" onerror="handleImgError(this, '${proj.category}')">
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-name">${proj.title}</h3>
+                            <div class="project-meta">
+                                <div class="meta-item">Khách hàng: <span>${proj.client}</span></div>
+                                <div class="meta-item">Diện tích: <span>${proj.area}</span></div>
+                                <div class="meta-item">Phong cách: <span>${proj.style}</span></div>
+                                <div class="meta-item">Loại hình: <span>${proj.type}</span></div>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+
+                grid.style.opacity = '1';
+                renderPagination(totalPages);
+            }, 200);
+        }
+
+        // Dựng thanh phân trang (Pagination)
+        function renderPagination(totalPages) {
+            const paginationContainer = document.querySelector('.pagination');
+            if (!paginationContainer) return;
+
+            paginationContainer.innerHTML = '';
+
+            // Nút Quay lại (chevron left)
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'page-btn';
+            prevBtn.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderProjects();
+                    scrollToProjects();
+                }
+            });
+            paginationContainer.appendChild(prevBtn);
+
+            // Nút số trang
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                pageBtn.innerText = i;
+                pageBtn.addEventListener('click', () => {
+                    if (currentPage !== i) {
+                        currentPage = i;
+                        renderProjects();
+                        scrollToProjects();
+                    }
+                });
+                paginationContainer.appendChild(pageBtn);
+            }
+
+            // Nút Kế tiếp (chevron right)
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'page-btn';
+            nextBtn.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderProjects();
+                    scrollToProjects();
+                }
+            });
+            paginationContainer.appendChild(nextBtn);
+        }
+
+        // Tự động cuộn mượt lên đầu danh sách dự án khi chuyển trang
+        function scrollToProjects() {
+            const section = document.querySelector('.kts-projects');
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Gán sự kiện cho các tab lọc
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    currentFilter = btn.getAttribute('data-filter');
+                    currentPage = 1; // Reset về trang 1
+                    renderProjects();
+                });
+            });
+
+            // Lần chạy đầu tiên
+            renderProjects();
+        });
+    </script>
+</body>
+
+</html>

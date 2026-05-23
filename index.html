@@ -51,8 +51,8 @@
                             <li><a href="gioi-thieu.html">VỀ THUẬN PHÁT</a></li>
                             <li><a href="nha-may-san-xuat.html">NHÀ MÁY SẢN XUẤT</a></li>
                             <li><a href="nhan-su.html">NHÂN SỰ</a></li>
-                            <li><a href="gioi-thieu.html#gioi-thieu-kien-truc-su">GIỚI THIỆU VỀ KIẾN TRÚC SƯ</a></li>
-                            <li><a href="gioi-thieu.html#bo-suu-tap">BỘ SƯU TẬP</a></li>
+                            <li><a href="gioi-thieu-ve-kien-truc-su.html">GIỚI THIỆU VỀ KIẾN TRÚC SƯ</a></li>
+                            <li><a href="bo-suu-tap.html">BỘ SƯU TẬP</a></li>
                         </ul>
                     </li>
                     <li class="has-simple-dropdown">
@@ -477,8 +477,8 @@
         </section>
         </main>
 
-        <!-- 8. CTA Banners -->
-        <section class="pre-footer-contact">
+         <!-- CTA Banners + Contact Info (one block) -->
+        <div style="background: var(--bg-main);">
             <div class="container">
                 <div class="cta-banners-grid" data-aos="fade-up">
                     <a href="#lien-he" class="cta-banner">
@@ -497,11 +497,9 @@
                     </a>
                 </div>
             </div>
-        </section>
+        </div>
 
-        </main>
-
-        <!-- Contact Info Row -->
+        <!-- Contact Info Row (Standalone) -->
         <div class="contact-info-wrapper">
             <div class="container">
                 <div class="contact-info-row" data-aos="fade-up">
@@ -514,7 +512,7 @@
                         <span>noithatxaydungthuanphat@gmail.com</span>
                     </div>
                     <div class="info-item">
-                        <i class="fa-solid fa-clock"></i>
+                        <i class="fa-solid fa-phone-volume"></i>
                         <span>Thời gian mở cửa: 08:00 - 18:00<br>(Làm việc cả thứ 7 &amp; Chủ Nhật)</span>
                     </div>
                     <div class="info-item">
@@ -526,7 +524,10 @@
             </div>
         </div>
 
-        <!-- Footer -->
+
+
+
+
         <footer class="footer" id="lien-he">
             <div class="container">
                 <div class="footer-grid">
@@ -568,14 +569,14 @@
                     </div>
                     <div class="footer-col">
                         <h4 class="footer-title">THEO DÕI CHÚNG TÔI</h4>
-                        <div class="social-icons">
+                        <div class="social-icons" style="margin-bottom: 20px;">
                             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                             <a href="#"><i class="fa-brands fa-tiktok"></i></a>
                             <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
                         </div>
-                        <h4 class="footer-title">BẢN ĐỒ</h4>
-                        <div class="footer-map">
+                        <div
+                            style="border-radius: 4px; overflow: hidden; width: 100%; height: 200px; border: 1px solid rgba(197, 160, 89, 0.2);">
                             <iframe
                                 src="https://maps.google.com/maps?q=412%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Minh%20Khai,%20Ph%C6%B0%E1%BB%9Dng%205,%20Qu%E1%BA%ADn%203,%20H%E1%BB%93%20Ch%C3%AD%20Minh&t=&z=16&ie=UTF8&iwloc=&output=embed"
                                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
@@ -583,10 +584,120 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-bottom text-center">
-                    <p>&copy; 2026 Thuận Phát. All rights reserved. Designed by Neo-TCH.</p>
+                <div class="footer-bottom text-center"
+                    style="border-top: 1px solid rgba(197, 160, 89, 0.2); padding-top: 20px;">
+                    <p>&copy; 2026 Công Ty TNHH Nội Thất Xây Dựng Thuận Phát</p>
                 </div>
             </div>
+
+            <!-- ===== MOBILE FOOTER (chỉ hiển thị trên mobile) ===== -->
+            <div class="footer-mobile">
+
+                <!-- Tên thương hiệu -->
+                <div class="fm-brand">NỘI THẤT THUẬN PHÁT</div>
+
+                <!-- Thông tin liên hệ dọc -->
+                <div class="fm-contact">
+                    <a href="tel:0949135319" class="fm-contact-item">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <span>0949.135.319</span>
+                    </a>
+                    <a href="mailto:noithatxaydungthuanphat@gmail.com" class="fm-contact-item">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>noithatxaydungthuanphat@gmail.com</span>
+                    </a>
+                    <div class="fm-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Số 412 – Tầng 14, Đường Nguyễn Thị Minh Khai, P.5, Q.3, TP.HCM</span>
+                    </div>
+                    <div class="fm-contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Thời gian mở cửa: 08:00 – 18:00 (Làm việc cả thứ 7 & Chủ Nhật)</span>
+                    </div>
+                </div>
+
+                <!-- Accordion sitemap -->
+                <div class="fm-accordion">
+                    <div class="fm-acc-item">
+                        <button class="fm-acc-title" onclick="fmToggle(this)">
+                            GIỚI THIỆU <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <ul class="fm-acc-body">
+                            <li><a href="#">Về Thuận Phát</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                            <li><a href="#">Tuyển dụng</a></li>
+                            <li><a href="#">Video</a></li>
+                            <li><a href="#">Tin tức</a></li>
+                        </ul>
+                    </div>
+                    <div class="fm-acc-item">
+                        <button class="fm-acc-title" onclick="fmToggle(this)">
+                            DỊCH VỤ <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <ul class="fm-acc-body">
+                            <li><a href="#">Cải tạo nhà</a></li>
+                            <li><a href="#">Thiết kế nội thất</a></li>
+                            <li><a href="#">Thi công nội thất</a></li>
+                            <li><a href="#">Kiến trúc & xây dựng</a></li>
+                        </ul>
+                    </div>
+                    <div class="fm-acc-item">
+                        <button class="fm-acc-title" onclick="fmToggle(this)">
+                            BÁO GIÁ <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <ul class="fm-acc-body">
+                            <li><a href="#">Thiết kế nội thất</a></li>
+                            <li><a href="#">Thi công nội thất</a></li>
+                            <li><a href="#">Tra giá theo nhu cầu</a></li>
+                        </ul>
+                    </div>
+                    <div class="fm-acc-item">
+                        <button class="fm-acc-title" onclick="fmToggle(this)">
+                            HỖ TRỢ KHÁCH HÀNG <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <ul class="fm-acc-body">
+                            <li><a href="#">Quy trình thi công nội thất</a></li>
+                            <li><a href="#">Chính sách bảo hành</a></li>
+                            <li><a href="#">Thanh toán - Vận chuyển</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Trust badges -->
+                <div class="fm-badges">
+                    <a href="https://id.gov.vn" target="_blank" class="fm-badge-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/40px-Flag_of_Vietnam.svg.png"
+                            alt="Bộ Công Thương" style="height:20px;margin-right:4px;vertical-align:middle;">
+                        <span>BỘ CÔNG THƯƠNG</span>
+                    </a>
+                    <a href="https://dmca.com" target="_blank" class="fm-badge-item">
+                        <img src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-07.png?ID=placeholder" alt="DMCA"
+                            style="height:35px;filter:grayscale(0.2);">
+                    </a>
+                    <a href="https://khonggianmang.vn" target="_blank" class="fm-badge-item">
+                        <span style="font-weight:800;font-size:13px;letter-spacing:1px;">NCSC<span
+                                style="color:var(--luxury-gold);">★</span>VN</span>
+                    </a>
+                </div>
+
+                <!-- Social icons -->
+                <div class="fm-social">
+                    <a href="#" class="fm-social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="fm-social-btn"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="fm-social-btn"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="fm-social-btn"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="fm-copyright">
+                    <p class="fm-copyright-company">CÔNG TY TNHH NỘI THẤT XÂY DỰNG THUẬN PHÁT</p>
+                    <p class="fm-copyright-text">© Copyright 2026 Nội Thất Thuận Phát</p>
+                </div>
+
+            </div>
+            <!-- ===== END MOBILE FOOTER ===== -->
+
         </footer>
 
         <!-- Floating Contact Widget -->
@@ -614,13 +725,23 @@
                     <div class="modal-form-col">
                         <h3 class="modal-title">THÔNG TIN LIÊN HỆ</h3>
                         <form action="#" class="contact-form">
-                            <div class="form-group"><input type="text" placeholder="Họ và tên" required></div>
-                            <div class="form-group"><input type="tel" placeholder="Số điện thoại" required></div>
-                            <div class="form-group"><input type="text" placeholder="Địa chỉ"></div>
-                            <div class="form-group"><input type="email" placeholder="Email"></div>
-                            <div class="form-group"><textarea placeholder="Nội dung" rows="4" required></textarea></div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Họ và tên" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" placeholder="Số điện thoại" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="Địa chỉ">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="Nội dung" rows="4" required></textarea>
+                            </div>
                             <button type="submit" class="btn-gold w-100">GỬI THÔNG TIN <i
-                                    class="fa-solid fa-arrow-right-long" style="margin-left:10px;"></i></button>
+                                    class="fa-solid fa-arrow-right-long" style="margin-left: 10px;"></i></button>
                         </form>
                     </div>
                     <div class="modal-img-col">
@@ -630,8 +751,56 @@
             </div>
         </div>
 
+        <!-- AOS Library -->
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="main.js"></script>
+        <script>
+            function fmToggle(btn) {
+                const item = btn.closest('.fm-acc-item');
+                const body = item.querySelector('.fm-acc-body');
+                const icon = btn.querySelector('i');
+                const isOpen = item.classList.contains('open');
+                // Close all
+                document.querySelectorAll('.fm-acc-item.open').forEach(el => {
+                    el.classList.remove('open');
+                    el.querySelector('.fm-acc-body').style.maxHeight = null;
+                    el.querySelector('i').style.transform = 'rotate(0deg)';
+                });
+                // Open clicked if was closed
+                if (!isOpen) {
+                    item.classList.add('open');
+                    body.style.maxHeight = body.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            }
+        </script>
+        <script>
+            // Giữ cố định active theo trang, không đổi khi scroll
+            (function () {
+                const currentPage = location.pathname.split('/').pop() || 'index.html';
+                const navLinks = document.querySelectorAll('.main-nav > ul > li > a');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const href = link.getAttribute('href') || '';
+                    if (currentPage === 'index.html' && (href === '#home' || href === 'index.html')) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Override bất kỳ IntersectionObserver hay scroll listener nào từ main.js
+                const origObserver = window.IntersectionObserver;
+                // Chặn main.js gán lại active sau khi load
+                window.addEventListener('load', function () {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    navLinks.forEach(link => {
+                        const href = link.getAttribute('href') || '';
+                        if (currentPage === 'index.html' && (href === '#home' || href === 'index.html')) {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+            })();
+        </script>
 </body>
 
 </html>
