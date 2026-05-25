@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     // Initialize AOS
     AOS.init({
@@ -147,23 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', () => {
             mainNav.classList.toggle('active');
-            if (mainNav.classList.contains('active')) {
-                mainNav.style.display = 'block';
-                mainNav.style.position = 'absolute';
-                mainNav.style.top = '100%';
-                mainNav.style.left = '0';
-                mainNav.style.width = '100%';
-                mainNav.style.background = 'rgba(15, 15, 15, 0.95)';
-                mainNav.style.padding = '20px';
-                mainNav.style.borderTop = '1px solid var(--luxury-gold)';
-                const ul = mainNav.querySelector('ul');
-                if (ul) {
-                    ul.style.flexDirection = 'column';
-                    ul.style.gap = '15px';
-                }
-            } else {
-                mainNav.style.display = 'none';
-            }
         });
     }
 
