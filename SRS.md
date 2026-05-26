@@ -83,3 +83,4 @@ Trang chủ bao gồm các khối (Sections) chính được sắp xếp từ tr
 Khi bổ sung một trang con mới (ví dụ: `about.html`, `services.html`):
 1. Tham chiếu Header và Footer từ tài liệu này (sử dụng lại mã HTML chuẩn).
 2. Xây dựng nội dung phần `<main>` theo cấu trúc Grid, áp dụng các class tiện ích đã định nghĩa trong `style.css` (`btn-gold`, `section-title`, `section-padding`).
+3. Đảm bảo tuân thủ nghiêm ngặt cấp bậc thẻ Heading (H1 -> H2 -> H3) để duy trì cấu trúc ngữ nghĩa và tối ưu SEO.
