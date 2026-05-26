@@ -146,3 +146,4 @@ Dưới đây là cấu trúc Semantic HTML và thẻ Heading (H-tags) từ trê
 - **Thẻ Meta Dynamic:** Kế thừa logic từ `Modules/Post` (Bài viết SEO), Trang chủ cũng phải cho phép Admin custom `meta_title`, `meta_description`, và `og:image` từ trong Database.
 
 > **Ghi chú cho AI Agent:** Khi tạo cấu trúc Blade cho trang `index.blade.php`, vui lòng tuân thủ nghiêm ngặt cấp bậc thẻ Heading (H1 -> H2 -> H3) như đã định nghĩa. Tuyệt đối không dùng H-tag để style chữ lớn, chỉ dùng cho cấu trúc ngữ nghĩa (semantic).
+- **Tối ưu hóa On-page SEO:** Tất cả liên kết nội bộ (Internal Links) từ trang chủ đến các trang con (Dịch vụ, Dự án, Tin tức) phải có thuộc tính `title` mô tả rõ ràng để tăng cường SEO.
