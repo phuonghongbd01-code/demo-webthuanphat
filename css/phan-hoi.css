@@ -1,0 +1,116 @@
+/* CSS for phan-hoi-khach-hang.html */
+.page-banner {
+    margin-top: 80px;
+    height: 40vh;
+    min-height: 300px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.page-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.4) 100%);
+}
+
+.page-banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.breadcrumbs {
+    color: var(--text-muted);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.breadcrumbs a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.breadcrumbs a:hover {
+    color: var(--luxury-gold);
+}
+
+.breadcrumbs span {
+    color: var(--luxury-gold);
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: var(--luxury-gold);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.testimonials-grid-section {
+    padding: 80px 0;
+    background-color: var(--bg-main);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card-grid {
+    background: var(--bg-card);
+    padding: 30px;
+    border: 1px solid var(--border-dark);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.testi-card-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.testi-avatar-grid {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--luxury-gold);
+}
+
+.testi-name-grid {
+    font-size: 18px;
+    color: var(--luxury-gold);
+    margin: 0;
+}
+
+.testi-role-grid {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin: 5px 0 0 0;
+}
+
+.quote-icon-grid {
+    font-size: 24px;
+    color: rgba(197, 160, 89, 0.2);
+    margin-bottom: 10px;
+}
+
+.testi-text-grid {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text-main);
+    line-height: 1.7;
+    margin: 0;
+}
