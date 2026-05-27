@@ -228,6 +228,25 @@
     text-shadow: 0 0 10px rgba(197, 160, 89, 0.2);
 }
 
+/* ======= HEADER ACTIONS ======= */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50% !important; /* To override btn-gold's border-radius */
+    padding: 0 !important; /* To override btn-gold's padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: var(--luxury-gold);
+}
+
 /* ======= MENU TOGGLE (MOBILE) ======= */
 .menu-toggle {
     display: none;
@@ -380,9 +399,31 @@
 .widget-btn:hover {
     transform: scale(1.1);
 }
-.zalo-btn { background: #0068FF; }
-.messenger-btn { background: #0084FF; }
-.phone-btn { background: #00C853; }
+@keyframes shakeWidget {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(15deg); }
+    20% { transform: rotate(-15deg); }
+    30% { transform: rotate(15deg); }
+    40% { transform: rotate(-15deg); }
+    50% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.zalo-btn { 
+    background: #ffffff !important; 
+    border: 2px solid #ffffff;
+    animation: shakeWidget 1.5s infinite ease-in-out;
+}
+.messenger-btn { 
+    background: #ffffff !important; 
+    border: 2px solid #ffffff;
+    animation: shakeWidget 1.5s infinite ease-in-out;
+    animation-delay: 0.75s;
+}
+.phone-btn, .form-btn { 
+    background: #D5B174 !important; 
+    color: #4A2E15 !important;
+}
 @media (max-width: 768px) {
     .floating-widget {
         bottom: 20px;
