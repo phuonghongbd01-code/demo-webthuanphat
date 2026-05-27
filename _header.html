@@ -1,0 +1,81 @@
+<style>
+    /* Fix: Ngăn các mục menu trong header bị xuống hàng không mong muốn,
+       đảm bảo tính thẩm mỹ trên tất cả các trang. */
+    .main-nav ul li a {
+        white-space: nowrap;
+    }
+
+    /* Fix: Thêm khoảng cách giữa menu và nút search để tránh bị dính chữ */
+    .header-actions {
+        margin-left: 24px;
+        flex-shrink: 0;
+        /* Ngăn co lại trên màn hình hẹp */
+    }
+</style>
+<header id="main-header" class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo-thuanphat.png" alt="Thuận Phát Logo" class="logo-img"
+                    style="filter: brightness(0) invert(1);">
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">TRANG CHỦ</a></li>
+                <li class="has-simple-dropdown">
+                    <a href="gioi-thieu.html">GIỚI THIỆU <i class="fa-solid fa-chevron-down"
+                            style="font-size: 0.8em; margin-left: 5px;"></i></a>
+                    <ul class="simple-dropdown">
+                        <li><a href="gioi-thieu.html">VỀ THUẬN PHÁT</a></li>
+                        <li><a href="nha-may-san-xuat.html">NHÀ MÁY SẢN XUẤT</a></li>
+                        <li><a href="nhan-su.html">NHÂN SỰ</a></li>
+                        <li><a href="gioi-thieu-ve-kien-truc-su.html">GIỚI THIỆU VỀ KIẾN TRÚC SƯ</a></li>
+                        <li><a href="bo-suu-tap.html">BỘ SƯU TẬP</a></li>
+                    </ul>
+                </li>
+                <li class="has-simple-dropdown">
+                    <a href="du-an-thi-cong.html">DỰ ÁN <i class="fa-solid fa-chevron-down"
+                            style="font-size: 0.8em; margin-left: 5px;"></i></a>
+                    <ul class="simple-dropdown">
+                        <li><a href="du-an-thi-cong.html">DỰ ÁN THI CÔNG</a></li>
+                        <li><a href="du-an-thiet-ke.html">DỰ ÁN THIẾT KẾ</a></li>
+                    </ul>
+                </li>
+                <li class="has-simple-dropdown">
+                    <a href="index.html#bao-gia">BÁO GIÁ <i class="fa-solid fa-chevron-down"
+                            style="font-size:0.8em;margin-left:5px;"></i></a>
+                    <ul class="simple-dropdown">
+                        <li><a href="index.html#bao-gia-thiet-ke">THIẾT KẾ NỘI THẤT</a></li>
+                        <li><a href="index.html#bao-gia-thi-cong">THI CÔNG NỘI THẤT</a></li>
+                        <li><a href="index.html#tra-gia-nhu-cau">TRA GIÁ THEO NHU CẦU</a></li>
+                    </ul>
+                </li>
+                <li class="has-simple-dropdown">
+                    <a href="tin-tuc.html">CẨM NANG NỘI THẤT <i class="fa-solid fa-chevron-down"
+                            style="font-size:0.8em;margin-left:5px;"></i></a>
+                    <ul class="simple-dropdown">
+                        <li><a href="tin-tuc.html">TIN TỨC</a></li>
+                        <li><a href="phan-hoi-khach-hang.html">PHẢN HỒI TỪ KHÁCH HÀNG</a></li>
+                        <li><a href="xu-huong-noi-that.html">XU HƯỚNG NỘI THẤT MỚI NHẤT</a></li>
+                    </ul>
+                </li>
+                <li class="has-simple-dropdown">
+                    <a href="index.html#kien-truc-xay-dung">KIẾN TRÚC & XÂY DỰNG <i class="fa-solid fa-chevron-down"
+                            style="font-size:0.8em;margin-left:5px;"></i></a>
+                    <ul class="simple-dropdown">
+                        <li><a href="index.html#ho-so-thiet-ke">HỒ SƠ THIẾT KẾ KIẾN TRÚC</a></li>
+                        <li><a href="index.html#quy-trinh-xay-dung">QUY TRÌNH XÂY DỰNG</a></li>
+                        <li><a href="index.html#vat-lieu-xay-dung">VẬT LIỆU XÂY DỰNG CAO CẤP</a></li>
+                    </ul>
+                </li>
+                <li><a href="cai-tao-nha.html">CẢI TẠO NHÀ</a></li>
+                <li><a href="lien-he.html">LIÊN HỆ</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn-gold icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+</header>

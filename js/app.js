@@ -252,4 +252,14 @@ document.addEventListener("DOMContentLoaded", () => {
             updateTestiSlider();
         });
     }
+
+    // Search Icon Click Event (Placeholder)
+    const searchBtn = document.querySelector('.icon-btn');
+    if (searchBtn) {
+        searchBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // TODO: Implement search functionality or toggle search modal here
+            console.log("Search button clicked");
+        });
+    }
 });
