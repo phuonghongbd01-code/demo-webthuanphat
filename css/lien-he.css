@@ -207,6 +207,7 @@
 .map-section {
     width: 100%;
     display: block;
+    padding-bottom: 80px; /* Thêm khoảng trống dưới map, tránh đè lên footer */
     background-color: var(--bg-main);
 }
 

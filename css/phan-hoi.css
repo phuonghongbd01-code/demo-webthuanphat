@@ -1,15 +1,16 @@
 /* CSS for phan-hoi-khach-hang.html */
 .page-banner {
     margin-top: 80px;
-    height: 40vh;
-    min-height: 300px;
+    height: 85vh;
+    min-height: 550px;
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
 .page-banner-overlay {
@@ -21,6 +22,7 @@
 .page-banner-content {
     position: relative;
     z-index: 2;
+    padding: 60px;
 }
 
 .breadcrumbs {

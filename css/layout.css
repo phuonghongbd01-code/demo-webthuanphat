@@ -312,9 +312,12 @@
     border-top: 1px solid rgba(197, 160, 89, 0.2);
 }
 
-.footer-grid {
+.footer-main-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    /* Điều chỉnh lại tỷ lệ các cột để cân bằng thị giác.
+       Cột đầu tiên (Giới thiệu) và các cột có nội dung phức tạp hơn (Hỗ trợ, Theo dõi)
+       sẽ được cấp thêm không gian để tạo ra một bố cục cân đối và hài hòa hơn. */
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr 1.4fr;
     gap: 30px;
     margin-bottom: 40px;
 }
@@ -369,13 +372,24 @@
 }
 
 @media (max-width: 991px) {
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .footer-main-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* Cải thiện bố cục trên tablet cho 5 cột */
+    }
+
+    /* --- Custom Footer Accordion Styles for Mobile --- */
+    .site-footer .footer-accordion-item .footer-heading-title {
+        color: var(--luxury-gold);
+        border-bottom-color: var(--luxury-gold);
+    }
+
+    .site-footer .footer-accordion-item .footer-heading-title .mobile-dropdown-icon {
+        color: var(--luxury-gold);
     }
 }
 
 @media (max-width: 576px) {
-    .footer-grid {
+    .footer-main-grid {
         grid-template-columns: 1fr;
     }
 }
@@ -476,8 +490,17 @@
 
 @media (max-width: 768px) {
     .floating-widget {
-        bottom: 20px;
-        right: 20px;
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background: #ffffff;
+        padding: 8px 10px;
+        border-radius: 40px;
+        /* Bo tròn mạnh để tạo thành dạng viên thuốc (pill) */
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
         gap: 10px;
     }
 
@@ -485,11 +508,20 @@
         width: 40px;
         height: 40px;
         font-size: 18px;
+        animation: none !important;
+        /* Tắt hiệu ứng rung lắc trên mobile */
     }
 
     .widget-btn img {
         width: 18px;
         height: 18px;
+    }
+
+    /* Điều chỉnh lại nút Zalo/Messenger cho nền trắng */
+    .floating-widget .zalo-btn,
+    .floating-widget .messenger-btn {
+        background: transparent !important;
+        border: none !important;
     }
 }
 
