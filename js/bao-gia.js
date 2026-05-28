@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 1; i <= 9; i++) {
             content += `
                 <div class="grid-item">
-                    <img src="images/project_${i % 3 + 1}.png" alt="Dự án ${i}">
+                    <img src="images/project_${i % 2 + 1}.png" alt="Dự án ${i}">
                     <div class="grid-item-content">
                         <h4>Dự án ${prefix} ${i}</h4>
                         <p>Khách hàng: Anh A <br> Diện tích: 100m2</p>
