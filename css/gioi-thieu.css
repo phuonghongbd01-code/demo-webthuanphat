@@ -1,20 +1,5 @@
 
-/* ── Page Banner ── */
-        .page-banner {
-            position: relative;
-            height: 100vh;
-            min-height: 600px;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: flex-end;
-            padding-bottom: 80px;
-        }
 
-        .page-banner .page-title {
-            font-family: var(--font-heading) !important;
-        }
 
         /* ── About Pillars (mục lục) ── */
         .about-pillars {
@@ -565,16 +550,7 @@
         }
 
         @media (max-width: 768px) {
-            /* Page Banner */
-            .page-banner {
-                height: 70vh;
-                min-height: 450px;
-                padding-bottom: 60px;
-                background-attachment: scroll; /* Fix background on iOS */
-            }
-            .page-banner .page-title {
-                font-size: 32px !important;
-            }
+
 
             /* Pillars (Mục lục) */
             .about-pillars {

@@ -17,52 +17,7 @@
     /* Viền mờ */
 }
 
-/* Banner Liên Hệ */
-.contact-hero-banner {
-    margin-top: 80px;
-    height: 40vh;
-    min-height: 300px;
-    background: linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 1)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-}
 
-.relative-container {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
-
-.hero-page-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: var(--luxury-gold);
-    margin-top: 15px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.breadcrumb {
-    color: var(--text-muted);
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.breadcrumb a {
-    color: var(--text-main);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.breadcrumb a:hover {
-    color: var(--luxury-gold);
-}
-
-.breadcrumb span {
-    color: var(--luxury-gold);
-}
 
 /* Bố cục thân trang - NỀN TỐI */
 .contact-page-wrapper {
@@ -207,7 +162,7 @@
 .map-section {
     width: 100%;
     display: block;
-    padding-bottom: 80px; /* Thêm khoảng trống dưới map, tránh đè lên footer */
+    padding-bottom: 100px; /* Thêm khoảng trống dưới map, tránh đè lên footer */
     background-color: var(--bg-main);
 }
 
@@ -238,7 +193,5 @@
         padding: 30px 20px;
     }
 
-    .hero-page-title {
-        font-size: 28px;
-    }
+
 }
