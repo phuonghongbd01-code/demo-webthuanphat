@@ -32,18 +32,26 @@
     <div id="header-placeholder"></div>
 
     <main style="padding-top: 80px;">
+        <!-- Banner -->
         <section class="page-banner" style="background-image: url('images/project_2.png');">
             <div class="page-banner-overlay"></div>
             <div class="container page-banner-content" data-aos="fade-up">
-                <h1 class="page-title">DỰ ÁN THI CÔNG</h1>
-                <div class="breadcrumbs" style="margin-top: 10px;">
-                    <a href="index.html">TRANG CHỦ</a> / <span>DỰ ÁN THI CÔNG</span>
+                <!-- Dòng nhỏ ở trên -->
+                <div class="breadcrumbs">
+                    <a href="#">DỰ ÁN</a> / <span>DỰ ÁN THI CÔNG</span>
                 </div>
+                <!-- Dòng chữ to ở dưới -->
+                <h1 class="page-title">DỰ ÁN THI CÔNG</h1>
             </div>
+
+            <!-- Nút mũi tên cuộn xuống -->
+            <a href="#danh-sach-du-an" class="scroll-down-btn">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
         </section>
 
-        <!-- TABS -->
-        <section class="tabs-section">
+        <!-- Nhớ thêm id="danh-sach-du-an" vào section tab bên dưới để mũi tên có thể cuộn tới đúng chỗ -->
+        <section class="tabs-section" id="danh-sach-du-an">
             <ul class="tab-list" role="tablist">
                 <li><button class="tab-btn active" data-tab="all">Xem Tất Cả</button></li>
                 <li><button class="tab-btn" data-tab="biet-thu">Biệt Thự</button></li>
@@ -53,12 +61,10 @@
             </ul>
         </section>
 
-        <!-- GRID -->
         <section class="grid-section">
             <div class="card-grid" id="cardGrid"></div>
         </section>
 
-        <!-- PAGINATION -->
         <div class="pagination" id="pagination"></div>
     </main>
 
