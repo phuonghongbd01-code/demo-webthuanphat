@@ -61,14 +61,54 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Sticky header
+        // Sticky header & Scroll Spy
         const header = document.getElementById('main-header');
-        if (header) {
+        const sections = document.querySelectorAll('section');
+
+        if (header || sections.length > 0) {
             window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 80) {
-                    header.classList.add('sticky');
-                } else {
-                    header.classList.remove('sticky');
+                const scrollY = window.pageYOffset || window.scrollY;
+
+                // Sticky Header (uses .scrolled to match css/layout.css)
+                if (header) {
+                    if (scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                }
+
+                // Scroll Spy (updates active class as user scrolls through sections)
+                if (sections.length > 0 && navLinks.length > 0) {
+                    let current = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.clientHeight;
+                        if (scrollY >= (sectionTop - sectionHeight / 3)) {
+                            current = section.getAttribute('id');
+                        }
+                    });
+
+                    navLinks.forEach(a => {
+                        a.classList.remove('active');
+                        let parentLi = a.closest('.has-simple-dropdown');
+                        if (parentLi) {
+                            let parentLink = parentLi.querySelector('a');
+                            if (parentLink) parentLink.classList.remove('active');
+                        }
+                    });
+
+                    navLinks.forEach(a => {
+                        const href = a.getAttribute('href');
+                        if (current && href && href.includes(current)) {
+                            a.classList.add('active');
+                            let parentLi = a.closest('.has-simple-dropdown');
+                            if (parentLi) {
+                                let parentLink = parentLi.querySelector('a');
+                                if (parentLink) parentLink.classList.add('active');
+                            }
+                        }
+                    });
                 }
             }, { passive: true });
         }
