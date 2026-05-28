@@ -18,7 +18,9 @@ body.news-page-dark {
     color: var(--text-white);
 }
 
-.container {
+.filter-section .container,
+.featured-post-section .container,
+.news-list-section .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
@@ -32,57 +34,7 @@ body.news-page-dark {
     position: relative;
 }
 
-/* 1. BANNER (Standardized to match project pages) */
-.news-page-dark .page-banner {
-    margin-top: 80px;
-    height: 85vh;
-    min-height: 550px;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
 
-.news-page-dark .page-banner-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0.2) 70%);
-}
-
-.news-page-dark .page-banner-content {
-    position: relative;
-    z-index: 2;
-    padding: 60px;
-}
-
-.news-page-dark .breadcrumb {
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    color: var(--text-gray);
-    margin-bottom: 10px;
-}
-
-.news-page-dark .breadcrumb a {
-    color: var(--text-white);
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.news-page-dark .breadcrumb a:hover {
-    color: var(--gold);
-}
-
-.news-page-dark .page-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin: 0;
-}
 
 /* 2. THANH FILTER & SEARCH (Space-between) */
 .filter-section {
@@ -319,11 +271,7 @@ body.news-page-dark {
     }
 }
 
-@media (max-width: 576px) {
-    .page-title {
-        font-size: 32px;
-    }
-
+@media (max-width: 767px) {
     /* Lưới 8 tin thành 1 cột trên Mobile */
     .news-grid-8 {
         grid-template-columns: 1fr;
