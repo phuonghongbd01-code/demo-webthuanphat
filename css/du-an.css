@@ -1,38 +1,4 @@
-/* ── PAGE BANNER ── */
-.du-an-page .page-banner {
-    height: 85vh;
-    min-height: 550px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    text-align: left;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
 
-.du-an-page .page-banner-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0.2) 70%);
-}
-
-.du-an-page .page-banner-content {
-    position: relative;
-    z-index: 2;
-    padding: 60px;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-.du-an-page {
-    background: #0d0d0d;
-}
 
 /* ── TABS ── */
 .tabs-section {
