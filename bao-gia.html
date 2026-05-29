@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Giá | Thuận Phát</title>
+    <meta name="description"
+        content="Báo giá chi tiết các dịch vụ thiết kế và thi công nội thất cao cấp tại Thuận Phát.">
+
+    <meta property="og:title" content="Báo Giá | Thuận Phát">
+    <meta property="og:description"
+        content="Báo giá chi tiết các dịch vụ thiết kế và thi công nội thất cao cấp tại Thuận Phát.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/du-an.css"> <!-- Tái sử dụng CSS từ trang dự án cho banner -->
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/bao-gia.css">
+</head>
+
+<body class="bao-gia-page">
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <main style="padding-top: 80px;">
+        <section class="page-banner" style="background-image: url('images/project_1.png');">
+            <div class="page-banner-overlay"></div>
+            <div class="container page-banner-content" data-aos="fade-up">
+                <h1 class="page-title">BÁO GIÁ</h1>
+                <div class="breadcrumbs" style="margin-top: 10px;">
+                    <a href="index.html">TRANG CHỦ</a> / <span>BÁO GIÁ</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-page-content">
+            <div class="pricing-nav-wrapper">
+                <div class="pricing-dropdown">
+                    <button class="dropbtn">THIẾT KẾ NỘI THẤT ▼</button>
+                    <div class="pricing-dropdown-content">
+                        <button onclick="showSection('thiet-ke')">THIẾT KẾ NỘI THẤT</button>
+                        <button onclick="showSection('thi-cong')">THI CÔNG NỘI THẤT</button>
+                        <button onclick="showSection('tra-gia')">TRA GIÁ THEO NHU CẦU</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <!-- SECTION: THIẾT KẾ -->
+                <div id="thiet-ke" class="section-container">
+                    <div class="banner"></div>
+                    <div class="editable-text">
+                        <h3>Giới thiệu dịch vụ thiết kế</h3>
+                        <p>Đây là nội dung văn bản có thể chỉnh sửa được từ hệ thống quản trị. Nội thất Thuận Phát cung
+                            cấp giải pháp thiết kế thẩm mỹ, chi phí hợp lý.</p>
+                    </div>
+
+                    <h3 class="section-title-underline">BẢNG BÁO GIÁ THIẾT KẾ</h3>
+                    <p class="pdf-note">* Dữ liệu dưới đây được tự động trích xuất từ file PDF tải lên.</p>
+                    <table class="pricing-table">
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Kích thước</th>
+                            <th>Chất liệu</th>
+                            <th>Đơn giá (VNĐ/m)</th>
+                        </tr>
+                        <tr>
+                            <td>Bếp dưới chữ L</td>
+                            <td>4000x890x610</td>
+                            <td>MDF chống ẩm</td>
+                            <td>2,980,000</td>
+                        </tr>
+                        <tr>
+                            <td>Bếp trên chữ L</td>
+                            <td>4250x1310x350</td>
+                            <td>MDF chống ẩm</td>
+                            <td>3,280,000</td>
+                        </tr>
+                    </table>
+
+                    <h3 class="section-title-underline" style="margin-top: 60px;">DỰ ÁN THIẾT KẾ ĐÃ THỰC HIỆN</h3>
+                    <div class="grid-3x3" id="tk-projects"></div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button class="btn-more" onclick="scrollToTrends()">Xem thêm xu hướng <i
+                                class="fa-solid fa-arrow-down" style="margin-left: 8px;"></i></button>
+                    </div>
+
+                    <h3 id="xu-huong" class="section-title-underline" style="margin-top: 60px; padding-top: 20px;">XU
+                        HƯỚNG NỘI THẤT MỚI NHẤT</h3>
+                    <p>Nội dung các xu hướng thiết kế năm nay...</p>
+                </div>
+
+                <!-- SECTION: THI CÔNG -->
+                <div id="thi-cong" class="section-container">
+                    <h3 class="section-title-underline">CÁC GÓI THI CÔNG NỘI THẤT</h3>
+                    <div class="package-container">
+                        <div class="package-box" onclick="openPDF('pdf_300m.pdf')">Gói 300 Triệu</div>
+                        <div class="package-box" onclick="openPDF('pdf_400m.pdf')">Gói 400 Triệu</div>
+                        <div class="package-box" onclick="openPDF('pdf_500m.pdf')">Gói 500 Triệu</div>
+                    </div>
+
+                    <h3 class="section-title-underline" style="margin-top: 60px;">DỰ ÁN THI CÔNG ĐÃ THỰC HIỆN</h3>
+                    <div class="grid-3x3" id="tc-projects"></div>
+
+                    <h3 class="section-title-underline" style="margin-top: 60px;">VIDEO DỰ ÁN THỰC TẾ</h3>
+                    <div class="video-grid">
+                        <div class="video-item"><img src="images/project_1.png" alt=""><i
+                                class="fa-solid fa-play play-icon"></i></div>
+                        <div class="video-item"><img src="images/project_2.png" alt=""><i
+                                class="fa-solid fa-play play-icon"></i></div>
+                        <div class="video-item"><img src="images/service_construction.png" alt=""><i
+                                class="fa-solid fa-play play-icon"></i></div>
+                        <div class="video-item"><img src="images/service_manufacturing.png" alt=""><i
+                                class="fa-solid fa-play play-icon"></i></div>
+                    </div>
+                </div>
+
+                <!-- SECTION: TRA GIÁ -->
+                <div id="tra-gia" class="section-container">
+                    <h3 class="section-title-underline">TRA GIÁ THEO NHU CẦU</h3>
+                    <div class="form-group">
+                        <label for="service-type">Chọn dịch vụ cần tra giá:</label>
+                        <select id="service-type" onchange="toggleForm()">
+                            <option value="">-- Vui lòng chọn --</option>
+                            <option value="thiet-ke">Thiết kế nội thất</option>
+                            <option value="thi-cong">Thi công nội thất</option>
+                        </select>
+                    </div>
+
+                    <div id="form-thiet-ke" style="display: none;">
+                        <div class="form-group"><label for="area">Diện tích nhà (m2):</label><input type="number"
+                                id="area" placeholder="Nhập số m2 (VD: 100)"></div>
+                        <div class="form-group"><label for="style">Phong cách thiết kế:</label><select id="style">
+                                <option value="150000">Tối giản (150k/m2)</option>
+                                <option value="180000">Hiện đại (180k/m2)</option>
+                                <option value="200000">Bắc Âu (200k/m2)</option>
+                                <option value="250000">Tân cổ điển (250k/m2)</option>
+                                <option value="280000">Hiện Đại Sang Trọng (280k/m2)</option>
+                                <option value="300000">Cổ điển (300k/m2)</option>
+                                <option value="350000">Indochine (350k/m2)</option>
+                                <option value="400000">Luxury (400k/m2)</option>
+                            </select></div>
+                        <button class="btn-more" onclick="calculatePrice()">Tra giá</button>
+                        <div id="result-tk" class="result-box"></div>
+                    </div>
+
+                    <div id="form-thi-cong" style="display: none;">
+                        <div class="form-group"><label for="package-type">Chọn gói thi công:</label><select
+                                id="package-type">
+                                <option value="pdf_300m.pdf">Gói 300 triệu</option>
+                                <option value="pdf_400m.pdf">Gói 400 triệu</option>
+                                <option value="pdf_500m.pdf">Gói 500 triệu</option>
+                            </select></div>
+                        <button class="btn-more" onclick="openPackagePDF()">Tra giá</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/bao-gia.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cải Tạo Nhà | Thuận Phát</title>
+    <meta name="description"
+        content="Khám phá các dự án cải tạo nhà chuyên nghiệp của Thuận Phát. Biệt thự, nhà phố, chung cư, văn phòng – tái sinh không gian sống đẳng cấp.">
+
+    <meta property="og:title" content="Cải Tạo Nhà | Thuận Phát">
+    <meta property="og:description" content="Khám phá các dự án cải tạo nhà chuyên nghiệp của Thuận Phát.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/du-an.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body class="du-an-page">
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <!-- Banner Hero -->
+        <section class="page-banner" style="background-image: url('images/project_2.png');">
+            <div class="page-banner-overlay"></div>
+            <div class="container page-banner-content" data-aos="fade-up">
+                <!-- Breadcrumb -->
+                <div class="breadcrumbs">
+                    <a href="index.html">TRANG CHỦ</a> / <span>CẢI TẠO NHÀ</span>
+                </div>
+                <!-- Tiêu đề chính -->
+                <h1 class="page-title">CẢI TẠO NHÀ</h1>
+            </div>
+
+            <!-- Nút cuộn xuống -->
+            <a href="#danh-sach-du-an" class="scroll-down-btn">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </section>
+
+        <!-- TABS Filter -->
+        <section class="tabs-section" id="danh-sach-du-an">
+            <ul class="tab-list" role="tablist">
+                <li><button class="tab-btn active" data-tab="all">Xem Tất Cả</button></li>
+                <li><button class="tab-btn" data-tab="biet-thu">Biệt Thự</button></li>
+                <li><button class="tab-btn" data-tab="nha-pho">Nhà Phố</button></li>
+                <li><button class="tab-btn" data-tab="chung-cu">Chung Cư</button></li>
+                <li><button class="tab-btn" data-tab="van-phong">Văn Phòng</button></li>
+            </ul>
+        </section>
+
+        <!-- GRID dự án -->
+        <section class="grid-section">
+            <div class="card-grid" id="cardGrid"></div>
+        </section>
+
+        <!-- PHÂN TRANG -->
+        <div class="pagination" id="pagination"></div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/cai-tao-nha.js"></script>
+
+</body>
+
+</html>

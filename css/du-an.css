@@ -199,6 +199,10 @@
     border: none;
     cursor: pointer;
     transition: background 0.25s, color 0.25s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .overlay-btn.quote {
@@ -324,29 +328,46 @@
 
 @media (max-width: 767px) {
     .tab-list {
-        gap: 20px;
+        gap: 16px;
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     .tab-btn {
-        font-size: 12px;
+        font-size: 11px;
     }
 }
 
 @media (max-width: 575px) {
 
-    .tabs-section,
+    .tabs-section {
+        padding: 20px 15px 0;
+    }
+
     .grid-section {
         padding: 20px 15px 0;
     }
 
+    /* Mobile: 1 cột, xếp chồng tuần tự */
     .card-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
     }
 
     .overlay-btn {
         padding: 10px 18px;
         font-size: 11px;
+    }
+
+    /* Pagination nhỏ hơn trên mobile */
+    .pagination {
+        gap: 6px;
+        padding: 16px 0 48px;
+    }
+
+    .page-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
     }
 }
