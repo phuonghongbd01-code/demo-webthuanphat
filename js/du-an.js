@@ -23,7 +23,7 @@ const PROJECTS = [
   { title: "DỰ ÁN THIẾT KẾ VĂN PHÒNG CO-WORKING UP", customer: "UP", area: "600m²", style: "Sáng tạo", type: "van-phong", img: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&q=80" },
 ];
 
-const PER_PAGE = 18;
+const PER_PAGE = 9;
 let currentTab = 'all';
 let currentPage = 1;
 
@@ -55,8 +55,8 @@ function renderCards() {
       <div class="card-image-wrap">
         <img src="${p.img}" alt="${p.title}" loading="lazy">
         <div class="card-overlay">
-          <button class="overlay-btn quote">Báo Giá</button>
-          <button class="overlay-btn detail">Xem Chi Tiết</button>
+          <a href="bao-gia.html" class="overlay-btn quote">Báo Giá</a>
+          <a href="du-an-chi-tiet.html" class="overlay-btn detail">Xem Chi Tiết</a>
         </div>
       </div>
       <div class="card-body">
