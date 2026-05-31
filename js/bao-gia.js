@@ -3,13 +3,29 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // Hàm chuyển đổi giữa các Tab Menu
-    window.showSection = function (sectionId) {
+    window.showSection = function (sectionId, clickedButton) {
+        // 1. Handle content sections
         document.querySelectorAll('.section-container').forEach(el => {
             el.classList.remove('active-section');
         });
         const targetSection = document.getElementById(sectionId);
         if (targetSection) {
             targetSection.classList.add('active-section');
+        }
+
+        // 2. Handle tab buttons
+        if (clickedButton) {
+            document.querySelectorAll('.pricing-tabs .tab-link').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            clickedButton.classList.add('active');
+        }
+
+        // Cập nhật lại vị trí của các phần tử AOS sau khi chuyển tab.
+        // Điều này khắc phục lỗi footer CTA không hiển thị ở các tab có nội dung ngắn.
+        if (typeof AOS !== 'undefined') {
+            // Một độ trễ nhỏ để đảm bảo DOM đã cập nhật hoàn toàn
+            setTimeout(() => AOS.refresh(), 50);
         }
     }
 
@@ -31,14 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
             `;
         }
         container.innerHTML = content;
-    }
-
-    // Hàm cuộn trang đến phần Xu hướng nội thất
-    window.scrollToTrends = function () {
-        const trendsSection = document.getElementById('xu-huong');
-        if (trendsSection) {
-            trendsSection.scrollIntoView({ behavior: 'smooth' });
-        }
     }
 
     // Hàm mở file PDF (Mô phỏng nhảy trang)
@@ -94,17 +102,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Xử lý hash trên URL khi tải trang
     function handleHash() {
         const hash = window.location.hash.substring(1);
-        if (hash) {
-            showSection(hash);
-            // Cập nhật dropdown button text nếu cần
-            const buttonText = document.querySelector(`.pricing-dropdown-content button[onclick="showSection('${hash}')"]`);
-            if (buttonText) {
-                document.querySelector('.pricing-dropdown .dropbtn').innerHTML = `${buttonText.innerText} ▼`;
-            }
-        } else {
-            // Mặc định hiển thị tab đầu tiên
-            showSection('thiet-ke');
-        }
+        const sectionId = hash || 'thiet-ke'; // Mặc định là 'thiet-ke'
+
+        const targetButton = document.querySelector(`.tab-link[onclick*="'${sectionId}'"]`);
+        showSection(sectionId, targetButton);
     }
 
     // Render grids
@@ -116,4 +117,169 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Handle hash changes (e.g., user clicks back/forward)
     window.addEventListener('hashchange', handleHash);
+
+    // ========================================================
+    // ==== PDF VIEWER WITH INDEXEDDB PERSISTENCE ====
+    // ========================================================
+
+    // Check if pdfjsLib is available
+    if (typeof pdfjsLib === 'undefined') {
+        console.error("PDF.js is not loaded. Please include the library.");
+        return;
+    }
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const loading = document.getElementById('loading');
+    const pdfViewer = document.getElementById('pdf-viewer');
+
+    // Only run PDF viewer code if the elements exist on the page
+    if (!dropZone || !fileInput || !loading || !pdfViewer) {
+        return;
+    }
+
+    // ==== KHỞI TẠO CƠ SỞ DỮ LIỆU INDEXEDDB ĐỂ LƯU FILE ====
+    const dbName = "PDFStoreDB_ThuanPhat";
+    const storeName = "pdfFiles";
+    let db;
+
+    const request = indexedDB.open(dbName, 1);
+
+    request.onupgradeneeded = function (event) {
+        db = event.target.result;
+        if (!db.objectStoreNames.contains(storeName)) {
+            db.createObjectStore(storeName);
+        }
+    };
+
+    request.onsuccess = function (event) {
+        db = event.target.result;
+        // Mỗi khi load lại web, tự động lấy file cũ ra hiển thị
+        loadSavedPDF();
+    };
+
+    request.onerror = function (event) {
+        console.error("Lỗi khi mở IndexedDB:", event.target.errorCode);
+    };
+
+    // Lưu file vào DB
+    function savePDFToDB(arrayBuffer) {
+        if (!db) return;
+        const transaction = db.transaction([storeName], "readwrite");
+        const store = transaction.objectStore(storeName);
+        // Ghi đè file mới với key là 'current_pdf_baogia'
+        store.put(arrayBuffer, 'current_pdf_baogia');
+    }
+
+    // Lấy file từ DB
+    function loadSavedPDF() {
+        if (!db) return;
+        const transaction = db.transaction([storeName], "readonly");
+        const store = transaction.objectStore(storeName);
+        const getRequest = store.get('current_pdf_baogia');
+
+        getRequest.onsuccess = function (event) {
+            const arrayBuffer = event.target.result;
+            if (arrayBuffer) {
+                const typedarray = new Uint8Array(arrayBuffer);
+                renderPDFData(typedarray);
+            }
+        };
+        getRequest.onerror = function (event) {
+            console.error("Lỗi khi lấy PDF từ IndexedDB:", event.target.errorCode);
+        }
+    }
+    // ========================================================
+
+    // SỰ KIỆN KÉO THẢ VÀ CHỌN FILE
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+
+        const file = e.dataTransfer.files[0];
+        if (file && file.type === "application/pdf") {
+            processNewFile(file);
+        } else {
+            alert("Vui lòng chỉ tải lên file có định dạng PDF.");
+        }
+    });
+
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            processNewFile(file);
+        }
+    });
+
+    // HÀM XỬ LÝ FILE MỚI KHI NGƯỜI DÙNG KÉO VÀO
+    function processNewFile(file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            const arrayBuffer = e.target.result;
+            const typedarray = new Uint8Array(arrayBuffer);
+
+            // 1. Hiển thị PDF lên màn hình
+            renderPDFData(typedarray);
+
+            // 2. Lưu ngầm file đó vào bộ nhớ trình duyệt
+            savePDFToDB(arrayBuffer);
+        };
+
+        reader.readAsArrayBuffer(file);
+    }
+
+    // HÀM VẼ PDF TỪ DỮ LIỆU NHỊ PHÂN
+    async function renderPDFData(typedarray) {
+        loading.style.display = 'block';
+        pdfViewer.innerHTML = '';
+        pdfViewer.style.display = 'none';
+
+        try {
+            const pdf = await pdfjsLib.getDocument({ data: typedarray }).promise;
+
+            // Render thành công: Ẩn vùng drop, hiện vùng xem PDF
+            pdfViewer.style.display = 'flex';
+            dropZone.style.display = 'none';
+
+            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                const page = await pdf.getPage(pageNum);
+                const scale = 1.5;
+                const viewport = page.getViewport({ scale: scale });
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                canvas.className = 'pdf-page-canvas';
+                pdfViewer.appendChild(canvas);
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                await page.render(renderContext).promise;
+            }
+        } catch (error) {
+            console.error("Lỗi khi render PDF:", error);
+            alert("Đã xảy ra lỗi khi cố gắng hiển thị file này. Vui lòng thử lại với file khác.");
+
+            // Render thất bại: Ẩn vùng xem PDF, hiện lại vùng drop
+            pdfViewer.style.display = 'none';
+            dropZone.style.display = 'block';
+        } finally {
+            loading.style.display = 'none';
+        }
+    }
 });

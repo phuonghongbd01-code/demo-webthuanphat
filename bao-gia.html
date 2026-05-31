@@ -19,6 +19,8 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -37,65 +39,46 @@
         <section class="page-banner" style="background-image: url('images/project_1.png');">
             <div class="page-banner-overlay"></div>
             <div class="container page-banner-content" data-aos="fade-up">
-                <h1 class="page-title">BÁO GIÁ</h1>
-                <div class="breadcrumbs" style="margin-top: 10px;">
+                <div class="breadcrumbs">
                     <a href="index.html">TRANG CHỦ</a> / <span>BÁO GIÁ</span>
                 </div>
+                <h1 class="page-title">BÁO GIÁ</h1>
             </div>
         </section>
 
         <section class="pricing-page-content">
             <div class="pricing-nav-wrapper">
-                <div class="pricing-dropdown">
-                    <button class="dropbtn">THIẾT KẾ NỘI THẤT ▼</button>
-                    <div class="pricing-dropdown-content">
-                        <button onclick="showSection('thiet-ke')">THIẾT KẾ NỘI THẤT</button>
-                        <button onclick="showSection('thi-cong')">THI CÔNG NỘI THẤT</button>
-                        <button onclick="showSection('tra-gia')">TRA GIÁ THEO NHU CẦU</button>
-                    </div>
+                <div class="pricing-tabs">
+                    <button class="tab-link" onclick="showSection('thiet-ke', this)">THIẾT KẾ NỘI THẤT</button>
+                    <button class="tab-link" onclick="showSection('thi-cong', this)">THI CÔNG NỘI THẤT</button>
+                    <button class="tab-link" onclick="showSection('tra-gia', this)">TRA GIÁ THEO NHU CẦU</button>
                 </div>
             </div>
 
             <div class="container">
                 <!-- SECTION: THIẾT KẾ -->
                 <div id="thiet-ke" class="section-container">
-                    <div class="banner"></div>
                     <div class="editable-text">
                         <h3>Giới thiệu dịch vụ thiết kế</h3>
                         <p>Đây là nội dung văn bản có thể chỉnh sửa được từ hệ thống quản trị. Nội thất Thuận Phát cung
                             cấp giải pháp thiết kế thẩm mỹ, chi phí hợp lý.</p>
                     </div>
 
-                    <h3 class="section-title-underline">BẢNG BÁO GIÁ THIẾT KẾ</h3>
-                    <p class="pdf-note">* Dữ liệu dưới đây được tự động trích xuất từ file PDF tải lên.</p>
-                    <table class="pricing-table">
-                        <tr>
-                            <th>Sản phẩm</th>
-                            <th>Kích thước</th>
-                            <th>Chất liệu</th>
-                            <th>Đơn giá (VNĐ/m)</th>
-                        </tr>
-                        <tr>
-                            <td>Bếp dưới chữ L</td>
-                            <td>4000x890x610</td>
-                            <td>MDF chống ẩm</td>
-                            <td>2,980,000</td>
-                        </tr>
-                        <tr>
-                            <td>Bếp trên chữ L</td>
-                            <td>4250x1310x350</td>
-                            <td>MDF chống ẩm</td>
-                            <td>3,280,000</td>
-                        </tr>
-                    </table>
+                    <h3 class="section-title-underline">BẢNG BÁO GIÁ CHI TIẾT (PDF)</h3>
+                    <p class="pdf-note">* Kéo & thả file báo giá PDF vào khung dưới đây để xem. Dữ liệu sẽ được tự động
+                        lưu lại cho lần truy cập sau.</p>
+
+                    <div id="drop-zone">
+                        <p>Kéo và thả file PDF của bạn vào đây, hoặc <span>nhấn để chọn file</span></p>
+                        <input type="file" id="file-input" accept="application/pdf" style="display: none;">
+                    </div>
+
+                    <div id="loading" class="loader">Đang tải và dựng PDF, vui lòng đợi...</div>
+
+                    <div id="pdf-viewer"></div>
 
                     <h3 class="section-title-underline" style="margin-top: 60px;">DỰ ÁN THIẾT KẾ ĐÃ THỰC HIỆN</h3>
                     <div class="grid-3x3" id="tk-projects"></div>
-
-                    <div style="text-align: center; margin-top: 30px;">
-                        <button class="btn-more" onclick="scrollToTrends()">Xem thêm xu hướng <i
-                                class="fa-solid fa-arrow-down" style="margin-left: 8px;"></i></button>
-                    </div>
 
                     <h3 id="xu-huong" class="section-title-underline" style="margin-top: 60px; padding-top: 20px;">XU
                         HƯỚNG NỘI THẤT MỚI NHẤT</h3>
