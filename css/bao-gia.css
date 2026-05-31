@@ -16,53 +16,10 @@
     color: #a7a7a7;
 }
 
-/* Tab Navigation */
-.pricing-nav-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.pricing-tabs {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-.pricing-tabs .tab-link {
-    background-color: transparent;
-    color: var(--text-gray, #a7a7a7);
-    padding: 12px 25px;
-    font-size: 16px;
-    font-weight: 600;
-    border: 2px solid #2a2a2a;
-    cursor: pointer;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-.pricing-tabs .tab-link:hover {
-    color: #fff;
-    border-color: var(--luxury-gold, #c5a059);
-}
-
-.pricing-tabs .tab-link.active {
-    background-color: var(--luxury-gold, #c5a059);
-    color: white;
-    border-color: var(--luxury-gold, #c5a059);
-}
-
 /* Layout nội dung chính */
 .section-container {
-    display: none;
-    background: transparent;
-}
-
-.active-section {
     display: block;
+    background: transparent;
     animation: fadeIn 0.5s;
 }
 

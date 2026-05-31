@@ -4,14 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Báo Giá Thiết Kế Nội Thất | Thuận Phát</title>
+    <title>Quy Trình Xây Dựng | Thuận Phát</title>
     <meta name="description"
-        content="Báo giá chi tiết dịch vụ thiết kế nội thất cao cấp tại Thuận Phát. Xem bảng giá PDF và các dự án đã thực hiện.">
-
-    <meta property="og:title" content="Báo Giá Thiết Kế Nội Thất | Thuận Phát">
-    <meta property="og:description"
-        content="Báo giá chi tiết các dịch vụ thiết kế và thi công nội thất cao cấp tại Thuận Phát.">
-    <meta property="og:type" content="website">
+        content="Tìm hiểu quy trình xây dựng chuyên nghiệp tại Thuận Phát, từ khâu chuẩn bị đến hoàn thiện, đảm bảo chất lượng và tiến độ.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,61 +20,73 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/du-an.css"> <!-- Tái sử dụng CSS từ trang dự án cho banner -->
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/du-an.css">
     <link rel="stylesheet" href="css/bao-gia.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <style>
+        .page-description {
+            font-size: 16px;
+            color: #e0e0e0;
+            margin-bottom: 15px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 
-<body class="bao-gia-page">
+<body class="du-an-page bao-gia-page">
 
     <!-- Header -->
     <div id="header-placeholder"></div>
 
-    <main style="padding-top: 80px;">
-        <section class="page-banner" style="background-image: url('images/project_1.png');">
+    <main>
+        <!-- Banner -->
+        <section class="page-banner" style="background-image: url('images/service_construction.png');">
             <div class="page-banner-overlay"></div>
             <div class="container page-banner-content" data-aos="fade-up">
                 <div class="breadcrumbs">
-                    <a href="index.html">TRANG CHỦ</a> / <a href="bao-gia.html">BÁO GIÁ</a> / <span>THIẾT KẾ NỘI
-                        THẤT</span>
+                    <a href="index.html">TRANG CHỦ</a> / <span>QUY TRÌNH XÂY DỰNG</span>
                 </div>
-                <h1 class="page-title">BÁO GIÁ THIẾT KẾ NỘI THẤT</h1>
+                <p class="page-description">
+                    Quy trình xây dựng minh bạch, chuyên nghiệp là cam kết của Thuận Phát để mang đến những công trình
+                    chất lượng, đúng tiến độ và tối ưu chi phí.
+                </p>
+                <h1 class="page-title">QUY TRÌNH XÂY DỰNG</h1>
             </div>
         </section>
 
-        <section class="pricing-page-content">
-            <div class="container">
-                <!-- SECTION: THIẾT KẾ -->
-                <div id="thiet-ke" class="section-container">
-                    <div class="editable-text">
-                        <h3>Giới thiệu dịch vụ thiết kế</h3>
-                        <p>Đây là nội dung văn bản có thể chỉnh sửa được từ hệ thống quản trị. Nội thất Thuận Phát cung
-                            cấp giải pháp thiết kế thẩm mỹ, chi phí hợp lý.</p>
-                    </div>
+        <!-- Projects Section -->
+        <section class="tabs-section" id="danh-sach-du-an">
+            <ul class="tab-list" role="tablist">
+                <li><button class="tab-btn active" data-tab="all">Xem Tất Cả</button></li>
+                <li><button class="tab-btn" data-tab="biet-thu">Biệt Thự</button></li>
+                <li><button class="tab-btn" data-tab="nha-pho">Nhà Phố</button></li>
+                <li><button class="tab-btn" data-tab="chung-cu">Chung Cư</button></li>
+                <li><button class="tab-btn" data-tab="van-phong">Văn Phòng</button></li>
+            </ul>
+        </section>
+        <section class="grid-section">
+            <div class="card-grid" id="cardGrid"></div>
+        </section>
+        <div class="pagination" id="pagination"></div>
 
-                    <h3 class="section-title-underline">BẢNG BÁO GIÁ CHI TIẾT (PDF)</h3>
+        <!-- Pricing Section -->
+        <section class="pricing-page-content" style="padding-top: 80px;">
+            <div class="container">
+                <div id="thiet-ke" class="section-container">
+                    <h3 class="section-title-underline">BẢNG BÁO GIÁ XÂY DỰNG PHẦN THÔ (PDF)</h3>
                     <p class="pdf-note">* Kéo & thả file báo giá PDF vào khung dưới đây để xem. Dữ liệu sẽ được tự động
                         lưu lại cho lần truy cập sau.</p>
-
                     <div id="drop-zone">
                         <p>Kéo và thả file PDF của bạn vào đây, hoặc <span>nhấn để chọn file</span></p>
                         <input type="file" id="file-input" accept="application/pdf" style="display: none;">
                     </div>
-
                     <div id="loading" class="loader">Đang tải và dựng PDF, vui lòng đợi...</div>
-
                     <div id="pdf-viewer"></div>
-
-                    <h3 class="section-title-underline" style="margin-top: 60px;">DỰ ÁN THIẾT KẾ ĐÃ THỰC HIỆN</h3>
-                    <div class="grid-3x3" id="tk-projects"></div>
-
-                    <h3 id="xu-huong" class="section-title-underline" style="margin-top: 60px; padding-top: 20px;">XU
-                        HƯỚNG NỘI THẤT MỚI NHẤT</h3>
-                    <p>Nội dung các xu hướng thiết kế năm nay...</p>
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
@@ -88,6 +95,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/app.js"></script>
     <script src="js/layout.js"></script>
+    <script src="js/du-an.js"></script>
     <script src="js/bao-gia.js"></script>
 
 </body>

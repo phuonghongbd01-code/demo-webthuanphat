@@ -2,33 +2,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Hàm chuyển đổi giữa các Tab Menu
-    window.showSection = function (sectionId, clickedButton) {
-        // 1. Handle content sections
-        document.querySelectorAll('.section-container').forEach(el => {
-            el.classList.remove('active-section');
-        });
-        const targetSection = document.getElementById(sectionId);
-        if (targetSection) {
-            targetSection.classList.add('active-section');
-        }
-
-        // 2. Handle tab buttons
-        if (clickedButton) {
-            document.querySelectorAll('.pricing-tabs .tab-link').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            clickedButton.classList.add('active');
-        }
-
-        // Cập nhật lại vị trí của các phần tử AOS sau khi chuyển tab.
-        // Điều này khắc phục lỗi footer CTA không hiển thị ở các tab có nội dung ngắn.
-        if (typeof AOS !== 'undefined') {
-            // Một độ trễ nhỏ để đảm bảo DOM đã cập nhật hoàn toàn
-            setTimeout(() => AOS.refresh(), 50);
-        }
-    }
-
     // Hàm sinh HTML tự động cho lưới 9 ô (Dự án 3x3)
     function renderGrid(containerId, prefix) {
         let container = document.getElementById(containerId);
@@ -99,24 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Xử lý hash trên URL khi tải trang
-    function handleHash() {
-        const hash = window.location.hash.substring(1);
-        const sectionId = hash || 'thiet-ke'; // Mặc định là 'thiet-ke'
-
-        const targetButton = document.querySelector(`.tab-link[onclick*="'${sectionId}'"]`);
-        showSection(sectionId, targetButton);
-    }
-
     // Render grids
     renderGrid('tk-projects', 'Thiết kế');
     renderGrid('tc-projects', 'Thi công');
-
-    // Handle initial page load
-    handleHash();
-
-    // Handle hash changes (e.g., user clicks back/forward)
-    window.addEventListener('hashchange', handleHash);
 
     // ========================================================
     // ==== PDF VIEWER WITH INDEXEDDB PERSISTENCE ====
