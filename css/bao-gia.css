@@ -309,7 +309,7 @@
     }
 }
 
-/* === PDF Viewer Styles === */
+/* === PDF Viewer Styles (Trang Khách – Chỉ Đọc) === */
 .loader {
     text-align: center;
     color: var(--luxury-gold, #c5a059);
@@ -320,34 +320,40 @@
     padding: 20px;
 }
 
-#drop-zone {
-    border: 2px dashed var(--luxury-gold, #c5a059);
-    border-radius: 8px;
-    padding: 40px 20px;
+/* Thông báo khi admin chưa cài đặt PDF */
+.pdf-empty-notice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 60px 30px;
     text-align: center;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
+    background: #1a1a1a;
+    border-radius: 10px;
+    border: 1px solid #2a2a2a;
     margin-top: 20px;
 }
 
-#drop-zone.dragover {
-    background-color: #2a2a2a;
-    border-color: #fff;
-    transform: scale(1.01);
+.pdf-empty-notice i {
+    font-size: 56px;
+    color: #333;
 }
 
-#drop-zone p {
-    margin: 0;
-    font-size: 16px;
-    color: #a7a7a7;
+.pdf-empty-notice p {
+    font-size: 15px;
+    color: #666;
+    max-width: 400px;
+    line-height: 1.6;
 }
 
-#drop-zone span {
-    color: var(--luxury-gold, #c5a059);
-    font-weight: 600;
-    text-decoration: underline;
+/* === PDF Section: cùng lề với container của trang === */
+.pdf-section-fullwidth {
+    max-width: var(--container-width, 1300px);
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 #pdf-viewer {
@@ -355,16 +361,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 24px;
     width: 100%;
-    background-color: #222;
-    padding: 20px 0;
-    border-radius: 8px;
+    background-color: #1a1a1a;
+    padding: 30px 20px;
+    border-radius: 10px;
     display: none;
     flex-grow: 1;
     overflow-y: auto;
-    height: 70vh;
-    border: 1px solid #333;
+    min-height: 85vh;
+    border: 1px solid #2a2a2a;
 }
 
 /* Scrollbar styling for PDF viewer */
@@ -388,9 +394,11 @@
 }
 
 .pdf-page-canvas {
-    max-width: 95%;
+    width: 100%;
+    max-width: 100%;
     height: auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.7);
     background-color: white;
     flex-shrink: 0;
+    border-radius: 2px;
 }

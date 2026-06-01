@@ -1,4 +1,5 @@
 // js/bao-gia.js
+// Trang KHÁCH: Chỉ hiển thị PDF do admin cấu hình - KHÔNG có chức năng upload/kéo thả
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -22,10 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
         container.innerHTML = content;
     }
 
-    // Hàm mở file PDF (Mô phỏng nhảy trang)
+    // Hàm mở file PDF (Mô phỏng nhảy trang - dùng cho trang thi công)
     window.openPDF = function (pdfName) {
         alert("Hệ thống sẽ chuyển hướng hoặc mở popup hiển thị file báo giá: " + pdfName);
-        // Code thực tế: window.open('path/to/pdfs/' + pdfName, '_blank');
     }
 
     // Logic xử lý form mục Tra giá theo nhu cầu
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('form-thi-cong').style.display = (type === 'thi-cong') ? 'block' : 'none';
         const resultBox = document.getElementById('result-tk');
         if (resultBox) {
-            resultBox.style.display = 'none'; // reset kết quả
+            resultBox.style.display = 'none';
         }
     }
 
@@ -77,167 +77,127 @@ document.addEventListener('DOMContentLoaded', function () {
     renderGrid('tc-projects', 'Thi công');
 
     // ========================================================
-    // ==== PDF VIEWER WITH INDEXEDDB PERSISTENCE ====
+    // ==== PDF VIEWER - CHỈ ĐỌC (KHÁCH HÀNG) ====
     // ========================================================
 
-    // Check if pdfjsLib is available
+    const pdfViewer = document.getElementById('pdf-viewer');
+    const pdfLoading = document.getElementById('pdf-loading');
+    const pdfEmpty = document.getElementById('pdf-empty');
+
+    // Nếu trang không có PDF viewer thì bỏ qua
+    if (!pdfViewer) return;
+
+    // Check pdfjsLib
     if (typeof pdfjsLib === 'undefined') {
-        console.error("PDF.js is not loaded. Please include the library.");
+        console.error("PDF.js chưa được tải.");
         return;
     }
 
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-    const dropZone = document.getElementById('drop-zone');
-    const fileInput = document.getElementById('file-input');
-    const loading = document.getElementById('loading');
-    const pdfViewer = document.getElementById('pdf-viewer');
+    // ---- LẤY CẤU HÌNH PDF TỪ ADMIN (lưu trong localStorage) ----
+    // Admin lưu: { type: 'url', value: 'path/to/file.pdf' }
+    //         hoặc { type: 'data', value: ArrayBuffer (base64) }
+    const adminConfig = getPDFConfig();
 
-    // Only run PDF viewer code if the elements exist on the page
-    if (!dropZone || !fileInput || !loading || !pdfViewer) {
+    if (!adminConfig) {
+        // Không có config: admin chưa cài đặt PDF
+        if (pdfEmpty) pdfEmpty.style.display = 'flex';
         return;
     }
 
-    // ==== KHỞI TẠO CƠ SỞ DỮ LIỆU INDEXEDDB ĐỂ LƯU FILE ====
-    const dbName = "PDFStoreDB_ThuanPhat";
-    const storeName = "pdfFiles";
-    let db;
+    // Có config -> load PDF
+    loadPDFFromConfig(adminConfig);
 
-    const request = indexedDB.open(dbName, 1);
-
-    request.onupgradeneeded = function (event) {
-        db = event.target.result;
-        if (!db.objectStoreNames.contains(storeName)) {
-            db.createObjectStore(storeName);
-        }
-    };
-
-    request.onsuccess = function (event) {
-        db = event.target.result;
-        // Mỗi khi load lại web, tự động lấy file cũ ra hiển thị
-        loadSavedPDF();
-    };
-
-    request.onerror = function (event) {
-        console.error("Lỗi khi mở IndexedDB:", event.target.errorCode);
-    };
-
-    // Lưu file vào DB
-    function savePDFToDB(arrayBuffer) {
-        if (!db) return;
-        const transaction = db.transaction([storeName], "readwrite");
-        const store = transaction.objectStore(storeName);
-        // Ghi đè file mới với key là 'current_pdf_baogia'
-        store.put(arrayBuffer, 'current_pdf_baogia');
-    }
-
-    // Lấy file từ DB
-    function loadSavedPDF() {
-        if (!db) return;
-        const transaction = db.transaction([storeName], "readonly");
-        const store = transaction.objectStore(storeName);
-        const getRequest = store.get('current_pdf_baogia');
-
-        getRequest.onsuccess = function (event) {
-            const arrayBuffer = event.target.result;
-            if (arrayBuffer) {
-                const typedarray = new Uint8Array(arrayBuffer);
-                renderPDFData(typedarray);
-            }
-        };
-        getRequest.onerror = function (event) {
-            console.error("Lỗi khi lấy PDF từ IndexedDB:", event.target.errorCode);
+    // ---- HÀM LẤY CONFIG CỦA ADMIN ----
+    function getPDFConfig() {
+        try {
+            const raw = localStorage.getItem('thuanphat_baogia_thietke_config');
+            if (!raw) return null;
+            return JSON.parse(raw);
+        } catch (e) {
+            return null;
         }
     }
-    // ========================================================
 
-    // SỰ KIỆN KÉO THẢ VÀ CHỌN FILE
-    dropZone.addEventListener('click', () => fileInput.click());
-
-    dropZone.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        dropZone.classList.add('dragover');
-    });
-
-    dropZone.addEventListener('dragleave', () => {
-        dropZone.classList.remove('dragover');
-    });
-
-    dropZone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        dropZone.classList.remove('dragover');
-
-        const file = e.dataTransfer.files[0];
-        if (file && file.type === "application/pdf") {
-            processNewFile(file);
-        } else {
-            alert("Vui lòng chỉ tải lên file có định dạng PDF.");
-        }
-    });
-
-    fileInput.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            processNewFile(file);
-        }
-    });
-
-    // HÀM XỬ LÝ FILE MỚI KHI NGƯỜI DÙNG KÉO VÀO
-    function processNewFile(file) {
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-            const arrayBuffer = e.target.result;
-            const typedarray = new Uint8Array(arrayBuffer);
-
-            // 1. Hiển thị PDF lên màn hình
-            renderPDFData(typedarray);
-
-            // 2. Lưu ngầm file đó vào bộ nhớ trình duyệt
-            savePDFToDB(arrayBuffer);
-        };
-
-        reader.readAsArrayBuffer(file);
-    }
-
-    // HÀM VẼ PDF TỪ DỮ LIỆU NHỊ PHÂN
-    async function renderPDFData(typedarray) {
-        loading.style.display = 'block';
-        pdfViewer.innerHTML = '';
+    // ---- HÀM LOAD PDF THEO CONFIG ----
+    async function loadPDFFromConfig(config) {
+        if (pdfLoading) pdfLoading.style.display = 'block';
         pdfViewer.style.display = 'none';
+        if (pdfEmpty) pdfEmpty.style.display = 'none';
 
         try {
-            const pdf = await pdfjsLib.getDocument({ data: typedarray }).promise;
+            let pdfData;
 
-            // Render thành công: Ẩn vùng drop, hiện vùng xem PDF
-            pdfViewer.style.display = 'flex';
-            dropZone.style.display = 'none';
-
-            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
-                const page = await pdf.getPage(pageNum);
-                const scale = 1.5;
-                const viewport = page.getViewport({ scale: scale });
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-                canvas.className = 'pdf-page-canvas';
-                pdfViewer.appendChild(canvas);
-                const renderContext = {
-                    canvasContext: context,
-                    viewport: viewport
-                };
-                await page.render(renderContext).promise;
+            if (config.type === 'url') {
+                // Load từ URL/đường dẫn file
+                pdfData = { url: config.value };
+            } else if (config.type === 'data') {
+                // Load từ dữ liệu binary đã lưu (IndexedDB)
+                const arrayBuffer = await loadFromIndexedDB();
+                if (!arrayBuffer) throw new Error("Không tìm thấy dữ liệu PDF trong bộ nhớ.");
+                pdfData = { data: new Uint8Array(arrayBuffer) };
+            } else {
+                throw new Error("Loại cấu hình không hợp lệ.");
             }
-        } catch (error) {
-            console.error("Lỗi khi render PDF:", error);
-            alert("Đã xảy ra lỗi khi cố gắng hiển thị file này. Vui lòng thử lại với file khác.");
 
-            // Render thất bại: Ẩn vùng xem PDF, hiện lại vùng drop
-            pdfViewer.style.display = 'none';
-            dropZone.style.display = 'block';
+            await renderPDF(pdfData);
+
+        } catch (error) {
+            console.error("Lỗi khi tải PDF báo giá:", error);
+            if (pdfEmpty) {
+                pdfEmpty.style.display = 'flex';
+                pdfEmpty.querySelector('p').textContent = 'Không thể tải bảng báo giá. Vui lòng liên hệ trực tiếp để được hỗ trợ.';
+            }
         } finally {
-            loading.style.display = 'none';
+            if (pdfLoading) pdfLoading.style.display = 'none';
+        }
+    }
+
+    // ---- LOAD DỮ LIỆU TỪ INDEXEDDB ----
+    function loadFromIndexedDB() {
+        return new Promise((resolve, reject) => {
+            const dbName = "PDFStoreDB_ThuanPhat_Admin";
+            const storeName = "pdfFiles";
+            const request = indexedDB.open(dbName, 1);
+
+            request.onsuccess = function (event) {
+                const db = event.target.result;
+                if (!db.objectStoreNames.contains(storeName)) {
+                    resolve(null);
+                    return;
+                }
+                const transaction = db.transaction([storeName], "readonly");
+                const store = transaction.objectStore(storeName);
+                const getRequest = store.get('baogia_thietke');
+                getRequest.onsuccess = (e) => resolve(e.target.result || null);
+                getRequest.onerror = () => resolve(null);
+            };
+            request.onerror = () => resolve(null);
+            request.onupgradeneeded = function(event) {
+                // DB mới, chưa có data
+            };
+        });
+    }
+
+    // ---- RENDER PDF LÊN MÀN HÌNH ----
+    async function renderPDF(pdfData) {
+        pdfViewer.innerHTML = '';
+        const pdf = await pdfjsLib.getDocument(pdfData).promise;
+
+        pdfViewer.style.display = 'flex';
+
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+            const page = await pdf.getPage(pageNum);
+            const scale = 1.8;
+            const viewport = page.getViewport({ scale });
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            canvas.className = 'pdf-page-canvas';
+            pdfViewer.appendChild(canvas);
+            await page.render({ canvasContext: context, viewport }).promise;
         }
     }
 });
