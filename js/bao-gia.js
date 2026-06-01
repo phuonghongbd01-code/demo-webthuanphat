@@ -1,17 +1,7 @@
 // js/bao-gia.js
+// Trang KHÁCH: Chỉ hiển thị PDF do admin cấu hình - KHÔNG có chức năng upload/kéo thả
 
 document.addEventListener('DOMContentLoaded', function () {
-
-    // Hàm chuyển đổi giữa các Tab Menu
-    window.showSection = function (sectionId) {
-        document.querySelectorAll('.section-container').forEach(el => {
-            el.classList.remove('active-section');
-        });
-        const targetSection = document.getElementById(sectionId);
-        if (targetSection) {
-            targetSection.classList.add('active-section');
-        }
-    }
 
     // Hàm sinh HTML tự động cho lưới 9 ô (Dự án 3x3)
     function renderGrid(containerId, prefix) {
@@ -33,18 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
         container.innerHTML = content;
     }
 
-    // Hàm cuộn trang đến phần Xu hướng nội thất
-    window.scrollToTrends = function () {
-        const trendsSection = document.getElementById('xu-huong');
-        if (trendsSection) {
-            trendsSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-
-    // Hàm mở file PDF (Mô phỏng nhảy trang)
+    // Hàm mở file PDF (Mô phỏng nhảy trang - dùng cho trang thi công)
     window.openPDF = function (pdfName) {
         alert("Hệ thống sẽ chuyển hướng hoặc mở popup hiển thị file báo giá: " + pdfName);
-        // Code thực tế: window.open('path/to/pdfs/' + pdfName, '_blank');
     }
 
     // Logic xử lý form mục Tra giá theo nhu cầu
@@ -54,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('form-thi-cong').style.display = (type === 'thi-cong') ? 'block' : 'none';
         const resultBox = document.getElementById('result-tk');
         if (resultBox) {
-            resultBox.style.display = 'none'; // reset kết quả
+            resultBox.style.display = 'none';
         }
     }
 
@@ -91,29 +72,132 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Xử lý hash trên URL khi tải trang
-    function handleHash() {
-        const hash = window.location.hash.substring(1);
-        if (hash) {
-            showSection(hash);
-            // Cập nhật dropdown button text nếu cần
-            const buttonText = document.querySelector(`.pricing-dropdown-content button[onclick="showSection('${hash}')"]`);
-            if (buttonText) {
-                document.querySelector('.pricing-dropdown .dropbtn').innerHTML = `${buttonText.innerText} ▼`;
-            }
-        } else {
-            // Mặc định hiển thị tab đầu tiên
-            showSection('thiet-ke');
-        }
-    }
-
     // Render grids
     renderGrid('tk-projects', 'Thiết kế');
     renderGrid('tc-projects', 'Thi công');
 
-    // Handle initial page load
-    handleHash();
+    // ========================================================
+    // ==== PDF VIEWER - CHỈ ĐỌC (KHÁCH HÀNG) ====
+    // ========================================================
 
-    // Handle hash changes (e.g., user clicks back/forward)
-    window.addEventListener('hashchange', handleHash);
+    const pdfViewer = document.getElementById('pdf-viewer');
+    const pdfLoading = document.getElementById('pdf-loading');
+    const pdfEmpty = document.getElementById('pdf-empty');
+
+    // Nếu trang không có PDF viewer thì bỏ qua
+    if (!pdfViewer) return;
+
+    // Check pdfjsLib
+    if (typeof pdfjsLib === 'undefined') {
+        console.error("PDF.js chưa được tải.");
+        return;
+    }
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+    // ---- LẤY CẤU HÌNH PDF TỪ ADMIN (lưu trong localStorage) ----
+    // Admin lưu: { type: 'url', value: 'path/to/file.pdf' }
+    //         hoặc { type: 'data', value: ArrayBuffer (base64) }
+    const adminConfig = getPDFConfig();
+
+    if (!adminConfig) {
+        // Không có config: admin chưa cài đặt PDF
+        if (pdfEmpty) pdfEmpty.style.display = 'flex';
+        return;
+    }
+
+    // Có config -> load PDF
+    loadPDFFromConfig(adminConfig);
+
+    // ---- HÀM LẤY CONFIG CỦA ADMIN ----
+    function getPDFConfig() {
+        try {
+            const raw = localStorage.getItem('thuanphat_baogia_thietke_config');
+            if (!raw) return null;
+            return JSON.parse(raw);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    // ---- HÀM LOAD PDF THEO CONFIG ----
+    async function loadPDFFromConfig(config) {
+        if (pdfLoading) pdfLoading.style.display = 'block';
+        pdfViewer.style.display = 'none';
+        if (pdfEmpty) pdfEmpty.style.display = 'none';
+
+        try {
+            let pdfData;
+
+            if (config.type === 'url') {
+                // Load từ URL/đường dẫn file
+                pdfData = { url: config.value };
+            } else if (config.type === 'data') {
+                // Load từ dữ liệu binary đã lưu (IndexedDB)
+                const arrayBuffer = await loadFromIndexedDB();
+                if (!arrayBuffer) throw new Error("Không tìm thấy dữ liệu PDF trong bộ nhớ.");
+                pdfData = { data: new Uint8Array(arrayBuffer) };
+            } else {
+                throw new Error("Loại cấu hình không hợp lệ.");
+            }
+
+            await renderPDF(pdfData);
+
+        } catch (error) {
+            console.error("Lỗi khi tải PDF báo giá:", error);
+            if (pdfEmpty) {
+                pdfEmpty.style.display = 'flex';
+                pdfEmpty.querySelector('p').textContent = 'Không thể tải bảng báo giá. Vui lòng liên hệ trực tiếp để được hỗ trợ.';
+            }
+        } finally {
+            if (pdfLoading) pdfLoading.style.display = 'none';
+        }
+    }
+
+    // ---- LOAD DỮ LIỆU TỪ INDEXEDDB ----
+    function loadFromIndexedDB() {
+        return new Promise((resolve, reject) => {
+            const dbName = "PDFStoreDB_ThuanPhat_Admin";
+            const storeName = "pdfFiles";
+            const request = indexedDB.open(dbName, 1);
+
+            request.onsuccess = function (event) {
+                const db = event.target.result;
+                if (!db.objectStoreNames.contains(storeName)) {
+                    resolve(null);
+                    return;
+                }
+                const transaction = db.transaction([storeName], "readonly");
+                const store = transaction.objectStore(storeName);
+                const getRequest = store.get('baogia_thietke');
+                getRequest.onsuccess = (e) => resolve(e.target.result || null);
+                getRequest.onerror = () => resolve(null);
+            };
+            request.onerror = () => resolve(null);
+            request.onupgradeneeded = function(event) {
+                // DB mới, chưa có data
+            };
+        });
+    }
+
+    // ---- RENDER PDF LÊN MÀN HÌNH ----
+    async function renderPDF(pdfData) {
+        pdfViewer.innerHTML = '';
+        const pdf = await pdfjsLib.getDocument(pdfData).promise;
+
+        pdfViewer.style.display = 'flex';
+
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+            const page = await pdf.getPage(pageNum);
+            const scale = 1.8;
+            const viewport = page.getViewport({ scale });
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            canvas.className = 'pdf-page-canvas';
+            pdfViewer.appendChild(canvas);
+            await page.render({ canvasContext: context, viewport }).promise;
+        }
+    }
 });

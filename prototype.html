@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trình xem PDF - Có lưu trữ tự động</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh; 
+        }
+
+        /* Vùng kéo thả */
+        #drop-zone {
+            border: 2px dashed #3b82f6;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            background-color: #eff6ff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        #drop-zone.dragover {
+            background-color: #dbeafe;
+            border-color: #2563eb;
+            transform: scale(1.01);
+        }
+
+        #drop-zone p {
+            margin: 0;
+            font-size: 16px;
+            color: #4b5563;
+        }
+
+        #drop-zone span {
+            color: #2563eb;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .loader {
+            text-align: center;
+            color: #2563eb;
+            font-weight: 600;
+            margin-top: 15px;
+            display: none;
+            flex-shrink: 0;
+        }
+
+        /* KHUNG HIỂN THỊ PDF */
+        #pdf-viewer {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; 
+            width: 100%;
+            background-color: #525659; 
+            padding: 20px 0;
+            border-radius: 8px;
+            display: none;
+            
+            flex-grow: 1;
+            overflow-y: auto;
+            height: 500px;
+        }
+
+        /* Làm đẹp thanh cuộn */
+        #pdf-viewer::-webkit-scrollbar { width: 12px; }
+        #pdf-viewer::-webkit-scrollbar-track { background: #333; border-radius: 0 8px 8px 0; }
+        #pdf-viewer::-webkit-scrollbar-thumb { background: #888; border-radius: 6px; border: 2px solid #333; }
+        #pdf-viewer::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+        .pdf-page-canvas {
+            max-width: 95%;
+            height: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            background-color: white;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 style="text-align: center; margin-top: 0;">Trình Xem Dữ Liệu PDF</h2>
+        
+        <div id="drop-zone">
+            <p>Kéo và thả file PDF của bạn vào đây, hoặc <span>nhấn để chọn file</span></p>
+            <input type="file" id="file-input" accept="application/pdf" style="display: none;">
+        </div>
+
+        <div id="loading" class="loader">Đang tải và dựng PDF, vui lòng đợi...</div>
+
+        <div id="pdf-viewer"></div>
+    </div>
+
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const loading = document.getElementById('loading');
+        const pdfViewer = document.getElementById('pdf-viewer');
+
+        // ==== KHỞI TẠO CƠ SỞ DỮ LIỆU INDEXEDDB ĐỂ LƯU FILE ====
+        const dbName = "PDFStoreDB";
+        const storeName = "pdfFiles";
+        let db;
+
+        const request = indexedDB.open(dbName, 1);
+
+        request.onupgradeneeded = function(event) {
+            db = event.target.result;
+            if (!db.objectStoreNames.contains(storeName)) {
+                db.createObjectStore(storeName);
+            }
+        };
+
+        request.onsuccess = function(event) {
+            db = event.target.result;
+            // Mỗi khi load lại web, tự động lấy file cũ ra hiển thị
+            loadSavedPDF();
+        };
+
+        request.onerror = function(event) {
+            console.error("Lỗi khi mở IndexedDB:", event.target.errorCode);
+        };
+
+        // Lưu file vào DB
+        function savePDFToDB(arrayBuffer) {
+            const transaction = db.transaction([storeName], "readwrite");
+            const store = transaction.objectStore(storeName);
+            // Ghi đè file mới với key là 'current_pdf'
+            store.put(arrayBuffer, 'current_pdf'); 
+        }
+
+        // Lấy file từ DB
+        function loadSavedPDF() {
+            const transaction = db.transaction([storeName], "readonly");
+            const store = transaction.objectStore(storeName);
+            const getRequest = store.get('current_pdf');
+
+            getRequest.onsuccess = function(event) {
+                const arrayBuffer = event.target.result;
+                if (arrayBuffer) {
+                    const typedarray = new Uint8Array(arrayBuffer);
+                    renderPDFData(typedarray);
+                }
+            };
+        }
+        // ========================================================
+
+        // SỰ KIỆN KÉO THẢ VÀ CHỌN FILE
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            
+            const file = e.dataTransfer.files[0];
+            if (file && file.type === "application/pdf") {
+                processNewFile(file);
+            } else {
+                alert("Vui lòng chỉ tải lên file có định dạng PDF.");
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                processNewFile(file);
+            }
+        });
+
+        // HÀM XỬ LÝ FILE MỚI KHI NGƯỜI DÙNG KÉO VÀO
+        function processNewFile(file) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const arrayBuffer = e.target.result;
+                const typedarray = new Uint8Array(arrayBuffer);
+                
+                // 1. Hiển thị PDF lên màn hình
+                renderPDFData(typedarray);
+                
+                // 2. Lưu ngầm file đó vào bộ nhớ trình duyệt
+                savePDFToDB(arrayBuffer);
+            };
+
+            reader.readAsArrayBuffer(file);
+        }
+
+        // HÀM VẼ PDF TỪ DỮ LIỆU NHỊ PHÂN
+        async function renderPDFData(typedarray) {
+            loading.style.display = 'block';
+            pdfViewer.style.display = 'none';
+            pdfViewer.innerHTML = ''; 
+
+            try {
+                const pdf = await pdfjsLib.getDocument({ data: typedarray }).promise;
+                pdfViewer.style.display = 'flex'; 
+
+                for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                    const page = await pdf.getPage(pageNum);
+                    
+                    const scale = 1.5; 
+                    const viewport = page.getViewport({ scale: scale });
+
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    canvas.className = 'pdf-page-canvas';
+
+                    pdfViewer.appendChild(canvas);
+
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+                    
+                    await page.render(renderContext).promise;
+                }
+            } catch (error) {
+                console.error("Lỗi:", error);
+                alert("Đã xảy ra lỗi khi cố gắng hiển thị file này.");
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
