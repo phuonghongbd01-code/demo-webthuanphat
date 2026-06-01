@@ -61,6 +61,24 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
+        // Mobile dropdown toggle for parent items (hamburger menu)
+        const navDropdownToggles = document.querySelectorAll('.main-nav .has-simple-dropdown > a');
+        navDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                if (window.innerWidth <= 991) {
+                    e.preventDefault();
+                    const parentLi = this.parentElement;
+                    parentLi.classList.toggle('open');
+                    // Close other open dropdowns
+                    document.querySelectorAll('.main-nav .has-simple-dropdown.open').forEach(openLi => {
+                        if (openLi !== parentLi) {
+                            openLi.classList.remove('open');
+                        }
+                    });
+                }
+            });
+        });
+
         // Sticky header & Scroll Spy
         const header = document.getElementById('main-header');
         const sections = document.querySelectorAll('section');

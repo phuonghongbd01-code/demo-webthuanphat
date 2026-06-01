@@ -353,11 +353,11 @@
         transition: max-height 0.4s ease-out;
     }
 
-    .footer-accordion-item.active .footer-collapse-content {
+    .footer-accordion-item.open .footer-collapse-content {
         padding-top: 20px;
     }
 
-    .footer-accordion-item.active .mobile-dropdown-icon i {
+    .footer-accordion-item.open .mobile-dropdown-icon i {
         transform: rotate(180deg);
     }
 

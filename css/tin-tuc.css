@@ -236,7 +236,7 @@ body.news-page-dark {
 /* =========================================================
    RESPONSIVE (Điện thoại & Tablet)
    ========================================================= */
-@media (max-width: 992px) {
+
 
     /* Thanh filter chuyển thành dọc */
     .filter-bar {
@@ -246,10 +246,32 @@ body.news-page-dark {
     }
 
     .news-tabs {
-        width: 100%;
-        overflow-x: auto;
-        /* Cuộn ngang nếu tab dài */
-    }
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    /* Ensure tabs are scrollable on mobile */
+}
+
+.news-tabs li {
+    flex: 0 0 auto;
+}
+
+.news-tabs a {
+    white-space: nowrap;
+    padding: 8px 12px;
+    background: var(--bg-dark);
+    border-radius: 4px;
+    color: var(--text-white);
+    text-decoration: none;
+}
+
+.news-tabs a.active {
+    background: var(--gold);
+    color: var(--bg-dark);
+}
 
     .news-search-box {
         width: 100%;

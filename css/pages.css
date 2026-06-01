@@ -818,3 +818,176 @@ html.snap-page {
         margin: 10px auto;
     }
 }
+
+/* ======= CEO BANNER ======= */
+.ceo-banner {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    background-color: #0f0f0f;
+    overflow: hidden;
+}
+
+.ceo-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(10, 10, 10, 0.95) 30%, rgba(10, 10, 10, 0.4) 100%);
+    z-index: 1;
+}
+
+.ceo-banner-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 80px;
+}
+
+.ceo-banner-left {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 40px;
+}
+
+.ceo-banner-desc {
+    font-size: 15px;
+    color: #e0e0e0;
+    line-height: 1.8;
+    margin-bottom: 60px;
+    font-family: var(--font-text), sans-serif;
+    font-weight: 300;
+}
+
+.ceo-banner-breadcrumbs {
+    font-family: var(--font-text), sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #888888;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.ceo-banner-breadcrumbs a {
+    color: #888888;
+    transition: var(--transition-smooth);
+}
+
+.ceo-banner-breadcrumbs a:hover {
+    color: var(--luxury-gold);
+}
+
+.ceo-banner-title {
+    font-family: var(--font-heading) !important;
+    font-weight: 600;
+    font-size: 48px;
+    text-transform: uppercase;
+    color: var(--luxury-gold) !important;
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
+}
+
+.ceo-banner-subtitle {
+    font-family: var(--font-heading) !important;
+    font-weight: 400;
+    font-size: 32px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.ceo-banner-right {
+    flex: 0 0 50%;
+    max-width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.ceo-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.ceo-arch {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 500px;
+    border: 2px solid rgba(197, 160, 89, 0.3);
+    border-radius: 175px 175px 0 0;
+    border-bottom: none;
+    z-index: 1;
+}
+
+.ceo-hero-img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+}
+
+@media (max-width: 991px) {
+    .ceo-banner-content {
+        flex-direction: column;
+        padding-top: 120px;
+    }
+    .ceo-banner-left, .ceo-banner-right {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+    .ceo-banner-desc {
+        margin-bottom: 30px;
+    }
+    .ceo-arch {
+        width: 250px;
+        height: 350px;
+        border-radius: 125px 125px 0 0;
+    }
+    .ceo-banner-overlay {
+        background: linear-gradient(to bottom, rgba(10, 10, 10, 0.9) 40%, rgba(10, 10, 10, 0.4) 100%);
+    }
+}
+
+@media (max-width: 767px) {
+    .ceo-banner-title {
+        font-size: 32px;
+    }
+    .ceo-banner-subtitle {
+        font-size: 20px;
+    }
+    .ceo-banner-desc {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    .ceo-arch {
+        width: 200px;
+        height: 280px;
+        border-radius: 100px 100px 0 0;
+    }
+    .ceo-hero-img {
+        max-width: 300px;
+    }
+}
