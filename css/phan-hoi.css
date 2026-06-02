@@ -1,64 +1,121 @@
 /* CSS for phan-hoi-khach-hang.html */
 
-
-.testimonials-grid-section {
-    padding: 80px 0;
+/* 1. BÀI VIẾT NỔI BẬT (FEATURED) - DÙNG CHUNG COMPONENT SPLIT-CARD */
+/* (Tái sử dụng từ trang tin tức để đồng bộ) */
+.news-featured-section {
+    padding: 80px 0 50px 0;
     background-color: var(--bg-main);
 }
 
-.testimonials-grid {
+.news-featured-section .split-card {
+    padding: 0;
+    background: none;
+}
+
+.news-featured-section .split-content {
+    padding-left: 50px;
+}
+
+.news-featured-section .split-title {
+    font-size: 26px;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.news-featured-section .split-desc {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+.featured-meta {
+    font-size: 13px;
+    color: var(--luxury-gold);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.news-featured-section .split-btn i {
+    transition: transform 0.3s ease;
+}
+
+.news-featured-section .split-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* 2. LƯỚI PHẢN HỒI KHÁCH HÀNG */
+.testimonials-grid-section {
+    /* Giảm padding-top vì đã có section ở trên */
+    padding: 0 0 80px 0;
+    background-color: var(--bg-main);
+}
+
+/* --- Bố cục lưới và card giống trang Tin Tức --- */
+.news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
 }
 
-.testimonial-card-grid {
-    background: var(--bg-card);
-    padding: 30px;
-    border: 1px solid var(--border-dark);
-    border-radius: 4px;
+.news-card {
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
 
-.testi-card-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.card-img-link {
+    display: block;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 4px;
 }
 
-.testi-avatar-grid {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+.card-img-link img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border: 2px solid var(--luxury-gold);
+    transition: transform 0.5s ease;
 }
 
-.testi-name-grid {
-    font-size: 18px;
-    color: var(--luxury-gold);
+.news-card:hover .card-img-link img {
+    transform: scale(1.08);
+}
+
+/* --- Nội dung card giống hệt trang Tin Tức --- */
+.card-title {
+    font-size: 16px;
+    line-height: 1.4;
     margin: 0;
 }
 
-.testi-role-grid {
-    font-size: 12px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    margin: 5px 0 0 0;
-}
-
-.quote-icon-grid {
-    font-size: 24px;
-    color: rgba(197, 160, 89, 0.2);
-    margin-bottom: 10px;
-}
-
-.testi-text-grid {
-    font-size: 15px;
-    font-style: italic;
+.card-title a {
     color: var(--text-main);
-    line-height: 1.7;
-    margin: 0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.card-title a:hover {
+    color: var(--luxury-gold);
+}
+
+/* RESPONSIVE */
+@media (max-width: 767px) {
+    .news-featured-section .split-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 }

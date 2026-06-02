@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Báo Giá Kiến Trúc & Xây Dựng | Thuận Phát</title>
-    <meta name="description"
-        content="Bảng báo giá các dịch vụ kiến trúc và xây dựng cao cấp tại Thuận Phát.">
+    <meta name="description" content="Bảng báo giá các dịch vụ kiến trúc và xây dựng cao cấp tại Thuận Phát.">
 
     <meta property="og:title" content="Báo Giá Kiến Trúc & Xây Dựng | Thuận Phát">
     <meta property="og:description"
@@ -40,58 +39,115 @@
             <div class="page-banner-overlay"></div>
             <div class="container page-banner-content" data-aos="fade-up">
                 <div class="breadcrumbs">
-                    <a href="index.html">TRANG CHỦ</a> / <a href="gioi-thieu-ktxd.html">KIẾN TRÚC & XÂY DỰNG</a> / <span>BÁO GIÁ</span>
+                    <a href="index.html">TRANG CHỦ</a> / <a href="gioi-thieu-ktxd.html">KIẾN TRÚC & XÂY DỰNG</a> /
+                    <span>BÁO GIÁ</span>
                 </div>
                 <h1 class="page-title">BÁO GIÁ KIẾN TRÚC & XÂY DỰNG</h1>
             </div>
             <!-- Nút mũi tên cuộn xuống -->
-            <a href="#noi-dung-tra-gia" class="scroll-down-btn">
+            <a href="#noi-dung-bao-gia" class="scroll-down-btn">
                 <i class="fa-solid fa-chevron-down"></i>
             </a>
         </section>
 
-        <section class="pricing-page-content" id="noi-dung-tra-gia">
+        <section class="pricing-page-content" id="noi-dung-bao-gia">
+
+            <!-- Phần text giới thiệu (trong container) -->
             <div class="container">
-                <!-- SECTION: TRA GIÁ -->
-                <div id="tra-gia" class="section-container">
-                    <h3 class="section-title-underline">TRA GIÁ THEO NHU CẦU</h3>
-                    <div class="form-group">
-                        <label for="service-type">Chọn dịch vụ cần tra giá:</label>
-                        <select id="service-type" onchange="toggleForm()">
-                            <option value="">-- Vui lòng chọn --</option>
-                            <option value="thiet-ke">Thiết kế kiến trúc</option>
-                            <option value="thi-cong">Xây dựng trọn gói</option>
-                        </select>
+                <div id="thiet-ke" class="section-container">
+                    <div class="editable-text">
+                        <h3>Giới thiệu dịch vụ Kiến trúc & Xây dựng</h3>
+                        <p>Nội thất Thuận Phát cung cấp giải pháp toàn diện từ thiết kế kiến trúc đến thi công xây dựng
+                            trọn gói, đảm bảo chất lượng và tiến độ.</p>
+                    </div>
+                    <h3 class="section-title-underline">BẢNG BÁO GIÁ CHI TIẾT</h3>
+                </div>
+            </div>
+
+            <!-- PDF Viewer: FULL WIDTH – thoát khỏi container, chiếm hết chiều ngang -->
+            <div class="pdf-section-fullwidth">
+                <div id="pdf-loading" class="loader">Đang tải bảng báo giá, vui lòng đợi...</div>
+                <div id="pdf-viewer"></div>
+                <div id="pdf-empty" class="pdf-empty-notice" style="display:none;">
+                    <i class="fa-regular fa-file-pdf"></i>
+                    <p>Bảng báo giá đang được cập nhật. Vui lòng liên hệ trực tiếp để được tư vấn.</p>
+                </div>
+            </div>
+
+            <!-- Phần dưới PDF (trong container) -->
+            <div class="container">
+                <div class="section-container">
+                    <h3 class="section-title-underline" style="margin-top: 60px;">DỰ ÁN KIẾN TRÚC & XÂY DỰNG ĐÃ THỰC
+                        HIỆN</h3>
+                    <div class="grid-3x3" id="tk-projects"></div>
+
+                    <h3 id="xu-huong" class="section-title-underline" style="margin-top: 60px; padding-top: 20px;">XU
+                        HƯỚNG KIẾN TRÚC MỚI NHẤT</h3>
+                    <div class="news-grid-4">
+                        <article style="background: #111; text-align: left;">
+                            <a href="xu-huong-noi-that.html"
+                                style="display: block; overflow: hidden; aspect-ratio: 16/10;">
+                                <img src="images/project_1.png" alt="News 1"
+                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+                            </a>
+                            <h3
+                                style="font-size: 13px; font-weight: 400; margin-top: 15px; padding: 0 10px 15px; line-height: 1.5;">
+                                <a href="xu-huong-noi-that.html" style="color: #ccc; text-decoration: none;">Mẫu thiết
+                                    kế nội thất chung cư 50m2 đẹp và tiện nghi 2026</a>
+                            </h3>
+                        </article>
+
+                        <article style="background: #111; text-align: left;">
+                            <a href="xu-huong-noi-that.html"
+                                style="display: block; overflow: hidden; aspect-ratio: 16/10;">
+                                <img src="images/project_2.png" alt="News 2"
+                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+                            </a>
+                            <h3
+                                style="font-size: 13px; font-weight: 400; margin-top: 15px; padding: 0 10px 15px; line-height: 1.5;">
+                                <a href="xu-huong-noi-that.html" style="color: #ccc; text-decoration: none;">Kích Thước
+                                    Tủ Bếp Chữ L Chuẩn Phong Thủy, Hút Tài Lộc</a>
+                            </h3>
+                        </article>
+
+                        <article style="background: #111; text-align: left;">
+                            <a href="xu-huong-noi-that.html"
+                                style="display: block; overflow: hidden; aspect-ratio: 16/10;">
+                                <img src="images/service_construction.png" alt="News 3"
+                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+                            </a>
+                            <h3
+                                style="font-size: 13px; font-weight: 400; margin-top: 15px; padding: 0 10px 15px; line-height: 1.5;">
+                                <a href="xu-huong-noi-that.html" style="color: #ccc; text-decoration: none;">50+ Mẫu Tủ
+                                    Bếp Treo Tường Đẹp, Tối Ưu Không Gian</a>
+                            </h3>
+                        </article>
+
+                        <article style="background: #111; text-align: left;">
+                            <a href="xu-huong-noi-that.html"
+                                style="display: block; overflow: hidden; aspect-ratio: 16/10;">
+                                <img src="images/service_manufacturing.png" alt="News 4"
+                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+                            </a>
+                            <h3
+                                style="font-size: 13px; font-weight: 400; margin-top: 15px; padding: 0 10px 15px; line-height: 1.5;">
+                                <a href="xu-huong-noi-that.html" style="color: #ccc; text-decoration: none;">30+ Mẫu Tủ
+                                    Bếp Chữ I Dài 3m Đẹp, Tiện Nghi Kèm Báo Giá</a>
+                            </h3>
+                        </article>
                     </div>
 
-                    <div id="form-thiet-ke" style="display: none;">
-                        <div class="form-group"><label for="area">Diện tích (m2):</label><input type="number"
-                                id="area" placeholder="Nhập số m2 (VD: 100)"></div>
-                        <div class="form-group"><label for="style">Phong cách thiết kế:</label><select id="style">
-                                <option value="150000">Tối giản (150k/m2)</option>
-                                <option value="180000">Hiện đại (180k/m2)</option>
-                                <option value="200000">Bắc Âu (200k/m2)</option>
-                                <option value="250000">Tân cổ điển (250k/m2)</option>
-                                <option value="280000">Hiện Đại Sang Trọng (280k/m2)</option>
-                                <option value="300000">Cổ điển (300k/m2)</option>
-                                <option value="350000">Indochine (350k/m2)</option>
-                                <option value="400000">Luxury (400k/m2)</option>
-                            </select></div>
-                        <button class="btn-more" onclick="calculatePrice()">Tra giá</button>
-                        <div id="result-tk" class="result-box"></div>
-                    </div>
-
-                    <div id="form-thi-cong" style="display: none;">
-                        <div class="form-group"><label for="package-type">Chọn gói thi công:</label><select
-                                id="package-type">
-                                <option value="pdf_300m.pdf">Gói 300 triệu</option>
-                                <option value="pdf_400m.pdf">Gói 400 triệu</option>
-                                <option value="pdf_500m.pdf">Gói 500 triệu</option>
-                            </select></div>
-                        <button class="btn-more" onclick="openPackagePDF()">Tra giá</button>
+                    <div style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
+                        <a href="xu-huong-noi-that.html"
+                            style="display: inline-block; padding: 12px 30px; border: 1px solid rgba(255,255,255,0.3); color: #fff; text-decoration: none; font-size: 14px; background: transparent; transition: all 0.3s;"
+                            onmouseover="this.style.borderColor='#e8c490'; this.style.color='#e8c490'"
+                            onmouseout="this.style.borderColor='rgba(255,255,255,0.3)'; this.style.color='#fff'">Xem
+                            thêm
+                            <i class="fa-solid fa-arrow-right-long" style="margin-left: 8px;"></i></a>
                     </div>
                 </div>
             </div>
+
         </section>
 
     </main>
