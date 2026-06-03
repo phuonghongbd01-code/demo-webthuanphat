@@ -11,7 +11,7 @@
     --font-heading: 'Playfair Display', serif;
     --font-text: 'Inter', sans-serif;
 
-    --container-width: 1300px;
+    --container-width: 1440px;
     --transition-smooth: all 0.3s ease-in-out;
 }
 
@@ -21,7 +21,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     background-color: var(--bg-main);
     color: var(--text-main);
     font-family: var(--font-text);
@@ -61,8 +62,10 @@ img {
 /* Container */
 .container {
     max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 20px;
+    margin-left: 150px !important;
+    margin-right: 150px !important;
+    
+    padding: 0;
 }
 
 /* Buttons */
@@ -114,3 +117,5 @@ img {
 .w-100 {
     width: 100%;
 }
+
+@media (min-width: 1600px) {}

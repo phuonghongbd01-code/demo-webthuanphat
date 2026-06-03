@@ -64,9 +64,11 @@
     letter-spacing: 2px;
     line-height: 1.15;
     background: none !important;
-    -webkit-background-clip: initial !important;
     -webkit-text-fill-color: initial !important;
+    max-width: 100%;
+    width: 626px;
 }
+
 
 .scroll-down-btn {
     position: absolute;
