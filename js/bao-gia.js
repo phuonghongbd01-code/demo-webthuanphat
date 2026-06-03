@@ -3,26 +3,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Hàm sinh HTML tự động cho lưới 9 ô (Dự án 3x3)
-    function renderGrid(containerId, prefix) {
-        let container = document.getElementById(containerId);
-        if (!container) return;
-
-        let content = '';
-        for (let i = 1; i <= 9; i++) {
-            content += `
-                <div class="grid-item">
-                    <img src="images/project_${i % 2 + 1}.png" alt="Dự án ${i}">
-                    <div class="grid-item-content">
-                        <h4>Dự án ${prefix} ${i}</h4>
-                        <p>Khách hàng: Anh A <br> Diện tích: 100m2</p>
-                    </div>
-                </div>
-            `;
-        }
-        container.innerHTML = content;
-    }
-
     // Hàm mở file PDF (Mô phỏng nhảy trang - dùng cho trang thi công)
     window.openPDF = function (pdfName) {
         alert("Hệ thống sẽ chuyển hướng hoặc mở popup hiển thị file báo giá: " + pdfName);
@@ -71,10 +51,6 @@ document.addEventListener('DOMContentLoaded', function () {
             openPDF(selectedPDF);
         }
     }
-
-    // Render grids
-    renderGrid('tk-projects', 'Thiết kế');
-    renderGrid('tc-projects', 'Thi công');
 
     // ========================================================
     // ==== PDF VIEWER - CHỈ ĐỌC (KHÁCH HÀNG) ====
@@ -174,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 getRequest.onerror = () => resolve(null);
             };
             request.onerror = () => resolve(null);
-            request.onupgradeneeded = function(event) {
+            request.onupgradeneeded = function (event) {
                 // DB mới, chưa có data
             };
         });
