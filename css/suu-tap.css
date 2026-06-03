@@ -294,7 +294,7 @@
     box-shadow: 0 0 8px rgba(197, 160, 89, 0.5);
 }
 
-/* Lưới xu hướng: 4 cột x 2 dòng */
+/* Lưới xu hướng: 4 cột x 3 dòng */
 .trends-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -426,35 +426,36 @@
     }
 }
 
+@media (max-width: 767px) {
 
+    .bst-showcase {
+        padding: 60px 0;
+    }
 
-.bst-showcase {
-    padding: 60px 0;
-}
+    .bst-showcase-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
 
-.bst-showcase-title {
-    font-size: 24px;
-    margin-bottom: 30px;
-}
+    .bst-slider-wrapper {
+        height: 50vh;
+        min-height: 350px;
+    }
 
-.bst-slider-wrapper {
-    height: 50vh;
-    min-height: 350px;
-}
+    .trends-grid {
+        grid-template-columns: 1fr;
+    }
 
-.trends-grid {
-    grid-template-columns: 1fr;
-}
+    .trends-title {
+        font-size: 28px;
+    }
 
-.trends-title {
-    font-size: 28px;
-}
+    .bst-hotspot-circle {
+        width: 18px;
+        height: 18px;
+    }
 
-.bst-hotspot-circle {
-    width: 18px;
-    height: 18px;
-}
-
-.bst-hotspot-circle::after {
-    display: none;
+    .bst-hotspot-circle::after {
+        display: none;
+    }
 }
