@@ -2,7 +2,184 @@
            CSS ĐẶC THÙ CHO TRANG KIẾN TRÚC SƯ
            ================================================== */
 
-/* ── KTS Hero Banner (Full-width, Full-height) ── */
+/* ── KTS Banner Custom (2 cột: text + ảnh) ── */
+.kts-banner-custom {
+    display: flex;
+    align-items: flex-end;
+    /* Ép toàn bộ nội dung ra giữa màn hình */
+    justify-content: center;
+    padding-top: 80px;
+}
+
+.kts-banner-overlay-custom {
+    background: linear-gradient(135deg,
+            rgba(10, 10, 10, 0.92) 0%,
+            rgba(15, 15, 15, 0.75) 50%,
+            rgba(10, 10, 10, 0.88) 100%) !important;
+}
+
+/* Hộp mô tả góc trên trái */
+.kts-banner-desc-box {
+    padding: 20px 0 0 0;
+    z-index: 3;
+}
+
+.kts-banner-desc-box p {
+    margin: 0;
+    max-width: 90%;
+    font-size: 20px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.78);
+    font-weight: 500;
+    text-align: justify;
+    margin-bottom: 155px;
+}
+
+/* Grid 2 cột trong banner */
+.kts-banner-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    /* Cột chữ chiếm 1 phần, cột ảnh chiếm 1.15 phần để nhường chỗ cho ảnh bự */
+    align-items: flex-end;
+    gap: 60px;
+    width: 100%;
+}
+
+
+
+.kts-banner-text .page-title {
+    font-size: 60px !important;
+}
+
+.kts-banner-subtitle {
+    font-family: var(--font-heading);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+    line-height: 1.3;
+}
+
+/* Cột ảnh chân dung bên phải */
+.kts-banner-portrait-col {
+    margin: 0;
+    /* Đã xóa margin-right: 200px và margin-top: 500px */
+    display: flex;
+    justify-content: flex-end;
+    /* Đẩy ảnh về góc phải */
+    align-items: flex-end;
+    z-index: 3;
+}
+
+.kts-banner-arch-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-width: 750px;
+    /* Tăng vọt lên 650px (hoặc 700px nếu bạn thích to hơn nữa) */
+    width: 100%;
+    align-items: flex-end;
+}
+
+.kts-banner-portrait-img {
+    width: 100%;
+    max-height: none !important;
+    object-fit: contain;
+    object-position: bottom right;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.85));
+    transform-origin: bottom center;
+    transform: scale(0.9);
+    margin-right: 100px;
+}
+
+/* Vòm trang trí vàng phía sau ảnh */
+.kts-banner-arch-line {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88%;
+    height: 92%;
+    border: 1.5px solid rgba(197, 160, 89, 0.45);
+    border-bottom: none;
+    border-radius: 50% 50% 0 0 / 45% 45% 0 0;
+    z-index: 1;
+    box-shadow: 0 0 40px rgba(197, 160, 89, 0.12), inset 0 0 30px rgba(197, 160, 89, 0.04);
+    pointer-events: none;
+}
+
+.kts-banner-arch-line::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-bottom: none;
+    border-radius: 50% 50% 0 0 / 45% 45% 0 0;
+}
+
+/* Responsive banner */
+@media (max-width: 991px) {
+    .kts-banner-desc-box {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        padding: 0 20px 20px;
+    }
+
+    .kts-banner-desc-box p {
+        max-width: 100%;
+        ;
+    }
+
+    .kts-banner-grid {
+        grid-template-columns: 1fr;
+
+    }
+
+    .kts-banner-portrait-col {
+        justify-content: center;
+        margin-top: 30px;
+        z-index: 3;
+    }
+
+
+
+    .kts-banner-subtitle {
+        font-size: 22px;
+    }
+
+    .kts-banner-text .page-title {
+        font-size: 38px !important;
+        max-width: 100%;
+        width: 1000px;
+
+    }
+}
+
+.kts-banner-text-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .kts-banner-portrait-col {
+        display: none;
+    }
+}
+
+
+
 .kts-hero {
     position: relative;
     height: 100vh;
@@ -384,9 +561,112 @@
     z-index: 1;
 }
 
+/* ── Section: Customer Satisfaction & Future ── */
+.kts-satisfaction {
+    padding: 100px 0;
+    background-color: #0a0a0a;
+    position: relative;
+}
+
+.satisfaction-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+    min-height: 520px;
+}
+
+.satisfaction-img-col {
+    position: relative;
+    overflow: hidden;
+}
+
+.satisfaction-img-container {
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    overflow: hidden;
+}
+
+.satisfaction-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.satisfaction-img-container:hover img {
+    transform: scale(1.04);
+}
+
+.satisfaction-text-col {
+    padding: 60px 70px;
+    background-color: #111111;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    border-left: 1px solid rgba(197, 160, 89, 0.15);
+}
+
+.satisfaction-text-block h3 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.45;
+    margin-bottom: 16px;
+}
+
+.satisfaction-text-block p {
+    font-size: 14.5px;
+    line-height: 1.85;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.satisfaction-cta {
+    margin-top: 10px;
+}
+
+.btn-satisfaction-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--luxury-gold);
+    color: var(--luxury-gold);
+    background: transparent;
+    padding: 14px 32px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: var(--transition-smooth);
+}
+
+.btn-satisfaction-cta:hover {
+    background: var(--luxury-gradient);
+    border-color: transparent;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.3);
+}
+
+.btn-satisfaction-cta i {
+    transition: transform 0.3s ease;
+}
+
+.btn-satisfaction-cta:hover i {
+    transform: translateX(5px);
+}
+
 /* ── Section: Projects ── */
 .kts-projects {
-    padding: 120px 0 60px 0;
+    padding: 120px 0;
     background-color: var(--bg-main);
 }
 
@@ -449,13 +729,12 @@
     box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
 }
 
-/* Lưới dự án: 3 cột */
+/* Lưới dự án: 3 cột x 2 dòng = 6 ô */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    min-height: 960px;
-    /* Cập nhật chiều cao cho bố cục 3 cột */
+    min-height: 720px;
     transition: opacity 0.4s ease;
     align-content: start;
 }
@@ -599,7 +878,14 @@
 
 /* Responsive */
 @media (max-width: 1200px) {
-    /* Bố cục 3 cột đã là mặc định, không cần ghi đè */
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        min-height: 960px;
+    }
+
+    .satisfaction-text-col {
+        padding: 50px 50px;
+    }
 }
 
 @media (max-width: 991px) {
@@ -669,6 +955,20 @@
     .challenge-wave-svg {
         display: none;
     }
+
+    .satisfaction-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .satisfaction-img-container {
+        min-height: 340px;
+    }
+
+    .satisfaction-text-col {
+        padding: 50px 40px;
+        border-left: none;
+        border-top: 1px solid rgba(197, 160, 89, 0.15);
+    }
 }
 
 @media (max-width: 768px) {
@@ -700,5 +1000,13 @@
 
     .projects-title {
         font-size: 30px;
+    }
+
+    .satisfaction-text-col {
+        padding: 40px 24px;
+    }
+
+    .satisfaction-text-block h3 {
+        font-size: 18px;
     }
 }

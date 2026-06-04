@@ -225,7 +225,7 @@
             }
         ];
 
-        const itemsPerPage = 8; // 2 dòng x 4 ô
+        const itemsPerPage = 6; // 2 dòng x 4 ô
         let currentPage = 1;
         let currentFilter = 'all';
 
