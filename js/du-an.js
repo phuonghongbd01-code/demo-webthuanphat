@@ -101,16 +101,23 @@ function goPage(n) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const tabButtons = document.querySelectorAll('.tab-btn');
-  if (tabButtons.length > 0) {
-    tabButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentTab = btn.dataset.tab;
-        currentPage = 1;
-        renderCards();
+  const cardGrid = document.getElementById('cardGrid');
+
+  // Chỉ chạy logic nếu có lưới card trên trang
+  if (cardGrid) {
+    // Nếu có các nút tab, gán sự kiện cho chúng
+    if (tabButtons.length > 0) {
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentTab = btn.dataset.tab;
+          currentPage = 1;
+          renderCards();
+        });
       });
-    });
+    }
+    // Luôn render card lần đầu, bất kể có tab hay không
     renderCards();
   }
 });

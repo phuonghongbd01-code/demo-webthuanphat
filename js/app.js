@@ -49,6 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Swipe & Drag Events
         const dragStart = (e) => {
+            // Bỏ qua hành vi kéo (drag) nếu người dùng nhấp vào các nút chấm.
+            // Điều này ngăn chặn việc `setPointerCapture` chặn sự kiện 'click' trên các nút.
+            if (e.target.closest('.slider-dots')) {
+                return;
+            }
             isDragging = true;
             sliderContainer.style.cursor = 'grabbing';
             sliderContainer.setPointerCapture(e.pointerId);
@@ -85,9 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (dots.length > 0) {
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    updateSlider(index);
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const slideIndex = parseInt(e.currentTarget.dataset.slide, 10);
+                    updateSlider(slideIndex);
                     resetSlider();
                 });
             });
@@ -182,5 +188,31 @@ document.addEventListener("DOMContentLoaded", () => {
             // TODO: Implement search functionality or toggle search modal here
             console.log("Search button clicked");
         });
+    }
+
+    // Floating Widget Visibility Logic
+    const floatingWidget = document.querySelector('.floating-widget');
+    const footerContactInfo = document.querySelector('.footer-contact-info-wrapper');
+
+    if (floatingWidget && footerContactInfo) {
+        const observerOptions = {
+            root: null, // relative to the viewport
+            rootMargin: '0px',
+            threshold: 0.1 // trigger when 10% of the element is visible
+        };
+
+        const widgetObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // The contact info section is visible, so hide the widget
+                    floatingWidget.classList.add('hidden');
+                } else {
+                    // The contact info section is not visible, so show the widget
+                    floatingWidget.classList.remove('hidden');
+                }
+            });
+        }, observerOptions);
+
+        widgetObserver.observe(footerContactInfo);
     }
 });

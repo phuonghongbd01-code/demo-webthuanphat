@@ -1,0 +1,98 @@
+/* =========================================
+   MOBILE HEADER DROPDOWN ACCORDION
+   Mirrors the footer accordion pattern.
+   Only active at <= 991px.
+   ========================================= */
+
+@media (max-width: 991px) {
+
+    /* --- Reset all desktop dropdown styles --- */
+    .main-nav .has-simple-dropdown {
+        position: static;
+    }
+
+    .main-nav .simple-dropdown {
+        /* Kill absolute positioning */
+        position: static !important;
+        /* Kill desktop show/hide */
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        /* Kill desktop dimensions */
+        min-width: unset !important;
+        width: 100% !important;
+        /* Kill desktop decoration */
+        box-shadow: none !important;
+        border-top: none !important;
+        border-radius: 0 !important;
+        z-index: auto !important;
+        /* Accordion: collapsed by default */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+        /* Visual style */
+        background: rgba(255, 255, 255, 0.03);
+        padding: 0 !important;
+        margin: 0;
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    /* --- Expanded state (when .open is toggled) --- */
+    .main-nav .has-simple-dropdown.open > .simple-dropdown {
+        max-height: 500px;
+        /* Big enough for all items */
+    }
+
+    /* --- Prevent desktop :hover from showing dropdown on mobile --- */
+    .main-nav .has-simple-dropdown:hover > .simple-dropdown {
+        max-height: 0;
+    }
+
+    .main-nav .has-simple-dropdown.open:hover > .simple-dropdown {
+        max-height: 500px;
+    }
+
+    /* --- Dropdown link styling (accordion items) --- */
+    .main-nav .simple-dropdown li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .main-nav .simple-dropdown li:last-child {
+        border-bottom: none;
+    }
+
+    .main-nav .simple-dropdown a {
+        display: block !important;
+        padding: 12px 20px 12px 50px !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        text-transform: none !important;
+        letter-spacing: 0.5px !important;
+        color: #aaa !important;
+        background-color: transparent !important;
+        border-bottom: none !important;
+    }
+
+    .main-nav .simple-dropdown a:hover {
+        color: var(--luxury-gold, #c5a059) !important;
+        padding-left: 55px !important;
+        background: rgba(197, 160, 89, 0.05) !important;
+    }
+
+    /* --- Chevron rotation --- */
+    .main-nav .has-simple-dropdown > a > .fa-chevron-down {
+        transition: transform 0.3s ease;
+    }
+
+    .main-nav .has-simple-dropdown.open > a > .fa-chevron-down {
+        transform: rotate(180deg);
+    }
+
+    /* --- Allow enough room for expanded dropdowns --- */
+    .main-nav.active {
+        max-height: 2000px !important;
+        overflow-y: auto !important;
+    }
+}

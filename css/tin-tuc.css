@@ -19,7 +19,6 @@ body.news-page-dark {
 }
 
 .filter-section .container,
-.featured-post-section .container,
 .news-list-section .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -34,7 +33,48 @@ body.news-page-dark {
     position: relative;
 }
 
+/* 1. BÀI VIẾT NỔI BẬT (FEATURED) - DÙNG CHUNG COMPONENT SPLIT-CARD */
+.news-featured-section {
+    padding-bottom: 50px;
+}
 
+.news-featured-section .split-card {
+    padding: 0; /* Ghi đè padding mặc định của split-card */
+    background: none;
+}
+
+.news-featured-section .split-content {
+    padding-left: 50px;
+}
+
+.news-featured-section .split-title {
+    font-size: 26px;
+    color: var(--text-white);
+    line-height: 1.4;
+}
+
+.news-featured-section .split-desc {
+    display: block; /* Ghi đè display -webkit-box */
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    color: var(--text-gray);
+    font-size: 15px;
+}
+
+.featured-meta {
+    font-size: 13px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.news-featured-section .split-btn i {
+    transition: transform 0.3s ease;
+}
+
+.news-featured-section .split-btn:hover i {
+    transform: translateX(4px);
+}
 
 /* 2. THANH FILTER & SEARCH (Space-between) */
 .filter-section {
@@ -64,7 +104,6 @@ body.news-page-dark {
     font-weight: 500;
     text-transform: uppercase;
     padding-bottom: 15px;
-    /* Để lát làm gạch chân */
     position: relative;
     transition: 0.3s;
 }
@@ -79,7 +118,6 @@ body.news-page-dark {
     content: '';
     position: absolute;
     bottom: -16px;
-    /* Canh đè lên đường viền của thanh filter */
     left: 0;
     width: 100%;
     height: 2px;
@@ -112,78 +150,12 @@ body.news-page-dark {
     cursor: pointer;
 }
 
-/* 3. BÀI VIẾT NỔI BẬT (Col-6 x Col-6) */
-.featured-post-section {
-    margin-bottom: 60px;
-}
-
-.featured-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* Chia đúng 2 cột bằng nhau */
-    gap: 40px;
-    align-items: center;
-    /* Căn giữa nội dung theo chiều dọc so với ảnh */
-}
-
-.featured-image img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.featured-title {
-    font-size: 28px;
-    color: var(--gold);
-    line-height: 1.4;
-    margin-bottom: 15px;
-}
-
-.featured-meta {
-    font-size: 14px;
-    color: var(--text-gray);
-    margin-bottom: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.featured-meta .category {
-    color: var(--text-white);
-    font-weight: 500;
-}
-
-.featured-desc {
-    font-size: 15px;
-    color: var(--text-gray);
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
-
-.btn-read-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--bg-dark);
-    background-color: var(--gold);
-    padding: 12px 25px;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: 0.3s;
-}
-
-.btn-read-more:hover {
-    background-color: var(--text-white);
-}
-
-/* 4. DANH SÁCH 8 BÀI VIẾT (Ảnh trên, Tên dưới) */
+/* 3. DANH SÁCH BÀI VIẾT (Ảnh trên, Tên dưới) */
 .news-list-section {
     margin-bottom: 80px;
 }
 
-.news-grid-8 {
+.news-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     /* 4 cột trên PC */
@@ -232,12 +204,11 @@ body.news-page-dark {
     color: var(--gold);
 }
 
-
 /* =========================================================
    RESPONSIVE (Điện thoại & Tablet)
    ========================================================= */
-@media (max-width: 992px) {
 
+@media (max-width: 991px) {
     /* Thanh filter chuyển thành dọc */
     .filter-bar {
         flex-direction: column;
@@ -246,34 +217,49 @@ body.news-page-dark {
     }
 
     .news-tabs {
-        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 12px;
         overflow-x: auto;
-        /* Cuộn ngang nếu tab dài */
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+    }
+
+    .news-tabs li {
+        flex: 0 0 auto;
+    }
+
+    .news-tabs a {
+        white-space: nowrap;
+        padding: 8px 12px;
+        background: var(--bg-dark);
+        border-radius: 4px;
+        color: var(--text-white);
+        text-decoration: none;
+    }
+
+    .news-tabs a.active {
+        background: var(--gold);
+        color: var(--bg-dark);
     }
 
     .news-search-box {
         width: 100%;
     }
 
-    /* Grid Nổi bật thành 1 cột (Ảnh trên, chữ dưới) */
-    .featured-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .featured-image img {
-        height: 300px;
-    }
-
-    /* Lưới 8 tin thành 2 cột */
-    .news-grid-8 {
+    /* Lưới tin thành 2 cột trên Tablet */
+    .news-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 767px) {
-    /* Lưới 8 tin thành 1 cột trên Mobile */
-    .news-grid-8 {
+    .news-featured-section .split-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    /* Lưới tin thành 1 cột trên Mobile */
+    .news-grid {
         grid-template-columns: 1fr;
     }
 }

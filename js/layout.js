@@ -61,54 +61,36 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Sticky header & Scroll Spy
-        const header = document.getElementById('main-header');
-        const sections = document.querySelectorAll('section');
+        // Mobile dropdown toggle for parent items (hamburger menu)
+        const navDropdownToggles = document.querySelectorAll('.main-nav .has-simple-dropdown > a');
+        navDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                if (window.innerWidth <= 991) {
+                    e.preventDefault();
+                    const parentLi = this.parentElement;
+                    parentLi.classList.toggle('open');
+                    // Close other open dropdowns
+                    document.querySelectorAll('.main-nav .has-simple-dropdown.open').forEach(openLi => {
+                        if (openLi !== parentLi) {
+                            openLi.classList.remove('open');
+                        }
+                    });
+                }
+            });
+        });
 
-        if (header || sections.length > 0) {
+        // Sticky header (no Scroll Spy — active state is determined by page URL only)
+        const header = document.getElementById('main-header');
+
+        if (header) {
             window.addEventListener('scroll', () => {
                 const scrollY = window.pageYOffset || window.scrollY;
 
                 // Sticky Header (uses .scrolled to match css/layout.css)
-                if (header) {
-                    if (scrollY > 50) {
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.remove('scrolled');
-                    }
-                }
-
-                // Scroll Spy (updates active class as user scrolls through sections)
-                if (sections.length > 0 && navLinks.length > 0) {
-                    let current = '';
-                    sections.forEach(section => {
-                        const sectionTop = section.offsetTop;
-                        const sectionHeight = section.clientHeight;
-                        if (scrollY >= (sectionTop - sectionHeight / 3)) {
-                            current = section.getAttribute('id');
-                        }
-                    });
-
-                    navLinks.forEach(a => {
-                        a.classList.remove('active');
-                        let parentLi = a.closest('.has-simple-dropdown');
-                        if (parentLi) {
-                            let parentLink = parentLi.querySelector('a');
-                            if (parentLink) parentLink.classList.remove('active');
-                        }
-                    });
-
-                    navLinks.forEach(a => {
-                        const href = a.getAttribute('href');
-                        if (current && href && href.includes(current)) {
-                            a.classList.add('active');
-                            let parentLi = a.closest('.has-simple-dropdown');
-                            if (parentLi) {
-                                let parentLink = parentLi.querySelector('a');
-                                if (parentLink) parentLink.classList.add('active');
-                            }
-                        }
-                    });
+                if (scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
             }, { passive: true });
         }
