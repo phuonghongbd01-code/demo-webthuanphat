@@ -156,6 +156,70 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
+    const initializeScrollDownButtons = () => {
+        const buttons = document.querySelectorAll('.scroll-down-btn');
+        if (!buttons.length) return;
+
+        const getHeaderOffset = () => {
+            const header = document.getElementById('main-header');
+            if (!header) return 24;
+            return Math.max(header.getBoundingClientRect().height, 24) + 16;
+        };
+
+        const hideButton = (button) => {
+            button.classList.add('is-hidden');
+            button.setAttribute('aria-hidden', 'true');
+        };
+
+        const showButton = (button) => {
+            button.classList.remove('is-hidden');
+            button.removeAttribute('aria-hidden');
+        };
+
+        buttons.forEach((button) => {
+            const banner = button.closest('.page-banner');
+            const href = button.getAttribute('href') || '';
+            if (!href.startsWith('#')) return;
+
+            const target = document.querySelector(href);
+            if (!target) return;
+
+            const scrollToTarget = () => {
+                const offset = getHeaderOffset();
+                const top = window.pageYOffset + target.getBoundingClientRect().top - offset;
+                window.history.pushState(null, '', href);
+                window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+                hideButton(button);
+            };
+
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                scrollToTarget();
+            });
+
+            if (banner && 'IntersectionObserver' in window) {
+                const bannerObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
+                            showButton(button);
+                        } else {
+                            hideButton(button);
+                        }
+                    });
+                }, {
+                    root: null,
+                    threshold: [0, 0.2, 0.5],
+                    rootMargin: `-${getHeaderOffset()}px 0px 0px 0px`
+                });
+
+                bannerObserver.observe(banner);
+            } else if (!banner) {
+                showButton(button);
+            }
+        });
+    };
+
     loadComponent('_header.html', 'header-placeholder', initializeHeaderScripts);
     loadComponent('_footer.html', 'footer-placeholder', initializeFooterScripts);
+    initializeScrollDownButtons();
 });
