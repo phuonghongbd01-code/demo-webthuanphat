@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/pages.css">
     <link rel="stylesheet" href="css/du-an.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/gioi-thieu-kt.css">
 
 
 </head>
@@ -34,34 +35,42 @@
 
     <main>
         <!-- Banner -->
-        <section class="ceo-banner" style="background-image: url('images/hero-bg.png');">
-            <div class="ceo-banner-overlay"></div>
-            <div class="container ceo-banner-content">
-                <div class="ceo-banner-left" data-aos="fade-right">
-                    <p class="ceo-banner-desc">
-                        Không chỉ được biết đến là CEO, là nhà sáng lập và vận hành doanh nghiệp, ông Lưu Phúc Lộc còn
-                        là Kiến trúc sư tài năng, người có 20 năm kinh nghiệm trong lĩnh vực thiết kế & thi công nội
-                        thất cao cấp.
-                    </p>
-                    <div class="ceo-banner-breadcrumbs">
+        <section class="page-banner kts-banner-custom" style="background-image: url('images/hero-bg.png');">
+            <div class="page-banner-overlay kts-banner-overlay-custom"></div>
+
+            <!-- Grid 2 cột: Text trái + Ảnh KTS phải -->
+            <div class="container kts-banner-grid">
+
+                <!-- Cột TRÁI: Text + Breadcrumb + Mô tả -->
+                <div class="kts-banner-text-col" data-aos="fade-up">
+                    <div class="kts-banner-desc-box" data-aos="fade-down">
+                        <p>Không chỉ được biết đến là CEO, là nhà sáng lập và vận hành doanh nghiệp, ông Lưu Phúc Lộc
+                            còn là Kiến trúc sư tài năng, người có 20 năm kinh nghiệm trong lĩnh vực thiết kế &amp; thi
+                            công nội thất cao cấp.</p>
+                    </div>
+                    <div class="breadcrumbs">
                         <a href="index.html">TRANG CHỦ</a> / <span>KIẾN TRÚC SƯ LƯU PHÚC LỘC</span>
                     </div>
-                    <h1 class="ceo-banner-title">KTS. LƯU PHÚC LỘC</h1>
-                    <h2 class="ceo-banner-subtitle">20 NĂM LÀM NỘI THẤT CAO CẤP</h2>
+                    <h1 class="page-title">KTS. LƯU PHÚC LỘC</h1>
                 </div>
-                <div class="ceo-banner-right" data-aos="fade-left">
-                    <div class="ceo-image-wrapper">
-                        <!-- Decorative Arch -->
-                        <div class="ceo-arch"></div>
-                        <img src="images/ceo.png" alt="KTS Lưu Phúc Lộc" class="ceo-hero-img">
+
+                <!-- Cột PHẢI: Ảnh chân dung KTS với vòm vàng -->
+                <div class="kts-banner-portrait-col" data-aos="fade-left">
+                    <div class="kts-banner-arch-wrapper">
+                        <div class="kts-banner-arch-line"></div>
+                        <img src="images/ceo.png" alt="KTS. Lưu Phúc Lộc - Nhà sáng lập Thuận Phát"
+                            class="kts-banner-portrait-img"
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80'">
                     </div>
                 </div>
-                <a href="#scroll-down" class="scroll-down-btn"><i class="fa-solid fa-chevron-down"></i></a>
+
             </div>
+
+            <a href="#scroll-down" class="scroll-down-btn"><i class="fa-solid fa-chevron-down"></i></a>
         </section>
 
         <!-- Projects Section (Replaced by Split Cards) -->
-        <section class="split-cards-section">
+        <section class="split-cards-section" id="scroll-down">
             <!-- Card 1: Image Left -->
             <div class="split-card">
                 <div class="container">
