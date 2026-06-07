@@ -11,7 +11,7 @@
   --font-heading: "Playfair Display", serif;
   --font-text: "Inter", sans-serif;
 
-  --container-width: 1440px;
+  --container-width: 1280px;
   --gutter: 20px;
   --transition-smooth: all 0.3s ease-in-out;
 }

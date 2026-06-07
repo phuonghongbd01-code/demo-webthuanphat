@@ -1,0 +1,128 @@
+/* ======= FLOATING WIDGET ======= */
+.floating-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+}
+
+.widget-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--luxury-gradient);
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: var(--transition-smooth);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.widget-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.widget-btn:hover {
+    transform: scale(1.1);
+}
+
+@keyframes shakeWidget {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(15deg);
+    }
+
+    20% {
+        transform: rotate(-15deg);
+    }
+
+    30% {
+        transform: rotate(15deg);
+    }
+
+    40% {
+        transform: rotate(-15deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.zalo-btn {
+    background: #ffffff !important;
+    border: 2px solid #ffffff;
+    animation: shakeWidget 1.5s infinite ease-in-out;
+}
+
+.messenger-btn {
+    background: #ffffff !important;
+    border: 2px solid #ffffff;
+    animation: shakeWidget 1.5s infinite ease-in-out;
+    animation-delay: 0.75s;
+}
+
+.phone-btn {
+    background: #D5B174 !important;
+    color: #4A2E15 !important;
+    animation: shakeWidget 1.5s infinite ease-in-out;
+    animation-delay: 1.5s;
+}
+
+.form-btn {
+    background: #D5B174 !important;
+    color: #4A2E15 !important;
+    animation: shakeWidget 1.5s infinite ease-in-out;
+    animation-delay: 2.25s;
+}
+
+@media (max-width: 768px) {
+    .floating-widget {
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background: #ffffff;
+        padding: 8px 10px;
+        border-radius: 40px;
+        /* Bo tròn mạnh để tạo thành dạng viên thuốc (pill) */
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        gap: 10px;
+    }
+
+    .widget-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .widget-btn img {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Điều chỉnh lại nút Zalo/Messenger cho nền trắng */
+    .floating-widget .zalo-btn,
+    .floating-widget .messenger-btn {
+        background: transparent !important;
+        border: none !important;
+    }
+}

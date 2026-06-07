@@ -1,0 +1,88 @@
+/* ======= FOOTER ======= */
+.footer {
+    background-color: var(--bg-section);
+    padding: 80px 0 20px;
+    border-top: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.footer-main-grid {
+    display: grid;
+    /* Điều chỉnh lại tỷ lệ các cột để cân bằng thị giác.
+       Cột đầu tiên (Giới thiệu) và các cột có nội dung phức tạp hơn (Hỗ trợ, Theo dõi)
+       sẽ được cấp thêm không gian để tạo ra một bố cục cân đối và hài hòa hơn. */
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr 1.4fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    font-size: 16px;
+    color: var(--luxury-gold);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: var(--luxury-gold);
+    padding-left: 5px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    margin-right: 10px;
+    transition: var(--transition-smooth);
+}
+
+.social-icons a:hover {
+    background: var(--luxury-gold);
+}
+
+.footer-mobile {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .footer-main-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* Cải thiện bố cục trên tablet cho 5 cột */
+    }
+
+    /* --- Custom Footer Accordion Styles for Mobile --- */
+    .site-footer .footer-accordion-item .footer-heading-title {
+        color: var(--luxury-gold);
+        border-bottom-color: var(--luxury-gold);
+    }
+
+    .site-footer .footer-accordion-item .footer-heading-title .mobile-dropdown-icon {
+        color: var(--luxury-gold);
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-main-grid {
+        grid-template-columns: 1fr;
+    }
+}

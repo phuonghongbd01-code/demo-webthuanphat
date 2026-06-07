@@ -227,9 +227,6 @@
     align-items: start;
 }
 
-/* ── CỘT TRÁI: Nội dung bài viết ── */
-.article-body {}
-
 /* Meta bar */
 .article-meta {
     display: flex;
@@ -276,9 +273,6 @@
     border-bottom: 1px solid #1a1a1a;
     font-style: italic;
 }
-
-/* ── Phần nội dung (sections) ── */
-.article-content {}
 
 /* Heading section */
 .article-content h2 {
@@ -539,9 +533,6 @@
     color: #c9a84c;
 }
 
-/* ── CỘT PHẢI: Sidebar ── */
-.article-sidebar {}
-
 .article-sidebar-sticky {
     position: sticky;
     top: 100px;
@@ -670,8 +661,6 @@
     flex-shrink: 0;
 }
 
-.sidebar-article-info {}
-
 .sidebar-article-cat {
     font-family: 'Montserrat', sans-serif;
     font-size: 9px;
@@ -689,8 +678,8 @@
     line-height: 1.45;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 .sidebar-article-item:hover .sidebar-article-name {
