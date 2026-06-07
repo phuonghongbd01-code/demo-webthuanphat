@@ -1,34 +1,36 @@
 :root {
-    --bg-main: #0F0F0F;
-    --bg-section: #1A1A1A;
-    --bg-card: #222222;
-    --luxury-gold: #C5A059;
-    --luxury-gold-hover: #D8B066;
-    --luxury-gradient: linear-gradient(135deg, #C5A059 0%, #8E6D31 100%);
-    --text-main: #FFFFFF;
-    --text-muted: #A0A0A0;
+  --bg-main: #0f0f0f;
+  --bg-section: #1a1a1a;
+  --bg-card: #222222;
+  --luxury-gold: #c5a059;
+  --luxury-gold-hover: #d8b066;
+  --luxury-gradient: linear-gradient(135deg, #c5a059 0%, #8e6d31 100%);
+  --text-main: #ffffff;
+  --text-muted: #a0a0a0;
 
-    --font-heading: 'Playfair Display', serif;
-    --font-text: 'Inter', sans-serif;
+  --font-heading: "Playfair Display", serif;
+  --font-text: "Inter", sans-serif;
 
-    --container-width: 1300px;
-    --transition-smooth: all 0.3s ease-in-out;
+  --container-width: 1280px;
+  --gutter: 20px;
+  --transition-smooth: all 0.3s ease-in-out;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body {
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    font-family: var(--font-text);
-    line-height: 1.6;
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100vw;
+html,
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Typography */
@@ -38,79 +40,107 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    color: var(--text-main);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-main);
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition-smooth);
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 img {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 
 /* Container */
 .container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 20px;
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
 }
 
 /* Buttons */
 .btn-gold {
-    background: var(--luxury-gradient);
-    color: white;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-weight: bold;
-    border: none;
-    padding: 12px 24px;
-    cursor: pointer;
-    display: inline-block;
-    transition: var(--transition-smooth);
-    font-family: var(--font-text);
-    letter-spacing: 1px;
+  background: var(--luxury-gradient);
+  color: white;
+  border-radius: 500px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  padding: 13px 15px; /* Tăng padding 2 bên mặc định một chút cho cân đối */
+  cursor: pointer;
+  display: inline-block;
+  transition: var(--transition-smooth);
+  font-family: var(--font-text);
+  letter-spacing: 1px;
+  font-size: 14px;
 }
 
 .btn-gold:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4);
+}
+
+@media (max-width: 991px) {
+  .btn-gold {
+    padding: 7px 8px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .btn-gold {
+    padding: 7px 8px;
+    font-size: 9px;
+
+  }
+}
+
+@media (max-width: 575px) {
+  .btn-gold {
+    padding: 6px 7px;
+    font-size: 9px;
+
+  }
 }
 
 /* Section Padding */
 .section-padding {
-    padding: 80px 0;
+  padding: 80px 0;
 }
 
 /* ======= UTILITIES ======= */
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .section-header {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .section-subtitle {
-    color: var(--text-muted);
-    max-width: 700px;
-    margin: 0 auto;
-    font-size: 15px;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 15px;
 }
 
 .mt-4 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .w-100 {
-    width: 100%;
+  width: 100%;
+}
+
+@media (min-width: 1600px) {
 }
