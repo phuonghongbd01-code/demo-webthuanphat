@@ -15,7 +15,7 @@
 /* --- CTA BANNERS --- */
 .footer-cta-banners {
     max-width: var(--container-width, 1200px);
-    margin: 0 auto 60px auto;
+    margin: 0 auto 20px auto;
     padding: 0 15px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -81,9 +81,8 @@
 
 /* --- CONTACT INFO ROW --- */
 .footer-contact-info-wrapper {
-    /* border-top: 1px solid #e8c490;
-    border-bottom: 1px solid #e8c490; */
-    padding: 30px 0;
+    border-bottom: 1px solid rgba(232, 196, 144, 0.2); 
+    padding: 35px 0;
 }
 
 .footer-contact-info-row {
@@ -91,9 +90,9 @@
     margin: 0 auto;
     padding: 0 15px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    align-items: start;
+    grid-template-columns: 0.6fr 1.3fr 1.3fr 1.8fr; 
+    gap: 25px; 
+    align-items: center; 
 }
 
 .footer-info-item {
@@ -120,9 +119,9 @@
     max-width: var(--container-width, 1200px);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.2fr 0.9fr 0.9fr 1.2fr 1.2fr;
+    grid-template-columns: 0.9fr 0.9fr 0.8fr 1.4fr 1.3fr;
     gap: 40px;
-    padding: 30px 15px 40px;
+    padding: 30px 15px 30px;
 }
 
 .footer-col .footer-logo {
@@ -144,7 +143,7 @@
 .footer-social-networks {
     display: flex;
     gap: 12px;
-    padding-top: 15px;
+    padding-top: 0px;
 }
 
 .footer-social-networks .social-btn {
@@ -235,13 +234,14 @@
 
 /* --- FOOTER BOTTOM BAR --- */
 .footer-bottom-bar {
-    /* border-top: 1px solid #e8c490; */
+    border-top: 1px solid rgba(232, 196, 144, 0.2); 
+    padding: 25px 0;
 }
 
 .footer-bottom-wrapper {
     max-width: var(--container-width, 1200px);
     margin: 0 auto;
-    padding: 0px 15px;
+    padding: 0 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -251,27 +251,36 @@
     margin: 0;
     font-size: 13px;
     color: #ffffff;
-    margin-bottom: 70px;
+    margin-bottom: 0; /* ĐỔI THÀNH 0: Bỏ hẳn cái 70px cũ đi để tránh làm vỡ khoảng cách cân đối */
 }
-
-.footer-trust-badges {
+.footer-desktop-badges {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 25px; 
 }
 
-.footer-trust-badges img {
-    height: 38px;
+.footer-desktop-badges img {
+    height: 32px; 
+    width: auto;
     object-fit: contain;
-    border: 1px solid var(--luxury-gold, #c5a059);
-    padding: 4px;
-    border-radius: 4px;
+    filter: grayscale(20%); 
+    transition: all 0.3s ease;
 }
 
-/* =========================================
-   RESPONSIVE (Mobile Accordion Logic)
-========================================= */
+.footer-desktop-badges img:hover {
+    filter: grayscale(0%); 
+}
+@media (max-width: 767px) {
+    
+    .footer-desktop-badges {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+    RESPONSIVE (Hợp nhất Màu sắc, Khoảng cách & Logic Accordion Mobile)
+   ========================================================================== */
 
 @media (max-width: 991px) {
     .footer-contact-info-row {
@@ -284,6 +293,85 @@
 }
 
 @media (max-width: 767px) {
+    
+    /* 1. ĐỒNG BỘ 100% TÔNG MÀU VÀNG LUXURY CHO CHÂN TRANG */
+    .footer-mobile-brand-title,       
+    .footer-contact-heading-mobile,   
+    .footer-info-item i,               
+    .footer-heading-title,             
+    .mobile-dropdown-icon i,           
+    .footer-company-name {             
+        color: #c5a059 !important;
+    }
+
+    /* 2. ĐỊNH DẠNG KHOẢNG CÁCH VÀ MÀU VIỀN CHO 3 NHÃN CHỨNG NHẬN TRÊN MOBILE */
+    .footer-payment-badges {
+        margin-top: 10px !important;    /* <-- MỚI: Đẩy cụm ảnh dịch xuống 25px, hết bị dính đường kẻ */
+        margin-bottom: 15px !important;  /* Khoảng cách an toàn phía dưới */
+        display: flex !important;
+        justify-content: center !important; /* Căn giữa 3 cái ảnh đều đặn */
+        gap: 15px !important;
+    }
+
+    .footer-payment-badges img {
+        border: 1px solid #c5a059 !important;
+        border-radius: 4px;
+        padding: 4px;
+        height: 55px !important; /* Khống chế chiều cao ảnh vừa vặn trên điện thoại */
+        object-fit: contain;
+    }
+
+    /* 3. SỬA KHOẢNG CÁCH CỤM ICON MẠNG XÃ HỘI TRÊN MOBILE */
+    .footer-social-networks {
+        display: flex !important;
+        justify-content: center !important; 
+        margin-top: 0px !important;        
+        margin-bottom: 0px !important;     
+        padding-top: 0 !important;          
+    }
+
+    /* 4. CĂN CHỈNH LỀ THÔNG TIN LIÊN HỆ RA SÁT LỀ TRÁI TOÀN TRANG */
+    .footer-contact-info-wrapper {
+        padding: 15px 0 25px 0; 
+    }
+
+    .footer-contact-info-row {
+        grid-template-columns: 1fr;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        gap: 18px;
+    }
+
+    .footer-contact-heading-mobile {
+        display: block;              
+        text-align: left !important; 
+        margin-left: 0 !important;   
+        padding-left: 0 !important; 
+        margin-top: 0;
+        margin-bottom: 20px;        
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .footer-info-item {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    /* 5. GIỮ NGUYÊN LOGIC VÀ PHÂN BỔ BỐ CỤC MOBILE GỐC */
+    .footer-mobile-brand {
+        margin: 35px 0 10px 0; 
+        text-align: center;
+    }
+    
+    .footer-mobile-brand-title {
+        margin: 0; 
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+    }
+
     .site-footer {
         padding-top: 15px;
     }
@@ -296,10 +384,6 @@
 
     .footer-cta-banner {
         height: 140px;
-    }
-
-    .footer-contact-info-row {
-        grid-template-columns: 1fr;
     }
 
     .footer-main-grid {
@@ -317,7 +401,7 @@
     }
 
     .footer-accordion-item {
-        border-bottom: 1px solid #e8c490;
+        border-bottom: 1px solid rgba(232, 196, 144, 0.4); 
         padding: 15px 0;
     }
 

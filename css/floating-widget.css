@@ -112,8 +112,6 @@
         width: 40px;
         height: 40px;
         font-size: 18px;
-        animation: none !important;
-        /* Tắt hiệu ứng rung lắc trên mobile */
     }
 
     .widget-btn img {
