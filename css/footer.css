@@ -81,7 +81,7 @@
 
 /* --- CONTACT INFO ROW --- */
 .footer-contact-info-wrapper {
-    border-bottom: 1px solid rgba(232, 196, 144, 0.2); 
+    border-bottom: 1px solid rgba(232, 196, 144, 0.2);
     padding: 35px 0;
 }
 
@@ -90,21 +90,21 @@
     margin: 0 auto;
     padding: 0 15px;
     display: grid;
-    grid-template-columns: 0.6fr 1.3fr 1.3fr 1.8fr; 
-    gap: 25px; 
-    align-items: center; 
+    grid-template-columns: 0.6fr 1.3fr 1.3fr 1.8fr;
+    gap: 25px;
+    align-items: center;
 }
 
 .footer-info-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 15px;
 }
 
 .footer-info-item i {
     color: var(--luxury-gold, #c5a059);
     font-size: 18px;
-    margin-top: 5px;
+    margin-top: 4px;
     flex-shrink: 0;
 }
 
@@ -234,7 +234,7 @@
 
 /* --- FOOTER BOTTOM BAR --- */
 .footer-bottom-bar {
-    border-top: 1px solid rgba(232, 196, 144, 0.2); 
+    border-top: 1px solid rgba(232, 196, 144, 0.2);
     padding: 25px 0;
 }
 
@@ -251,30 +251,36 @@
     margin: 0;
     font-size: 13px;
     color: #ffffff;
-    margin-bottom: 0; /* ĐỔI THÀNH 0: Bỏ hẳn cái 70px cũ đi để tránh làm vỡ khoảng cách cân đối */
+    margin-bottom: 0;
+    /* ĐỔI THÀNH 0: Bỏ hẳn cái 70px cũ đi để tránh làm vỡ khoảng cách cân đối */
 }
+
 .footer-desktop-badges {
     display: flex;
     gap: 10px;
     align-items: center;
-    margin-top: 25px; 
+    margin-top: 25px;
 }
 
 .footer-desktop-badges img {
-    height: 32px; 
+    height: 32px;
     width: auto;
     object-fit: contain;
-    filter: grayscale(20%); 
+    filter: grayscale(20%);
     transition: all 0.3s ease;
 }
 
 .footer-desktop-badges img:hover {
-    filter: grayscale(0%); 
+    filter: grayscale(0%);
 }
+
 @media (max-width: 767px) {
-    
+
     .footer-desktop-badges {
         display: none;
+    }
+    .footer-bottom-bar{
+        border-top: none;
     }
 }
 
@@ -293,23 +299,29 @@
 }
 
 @media (max-width: 767px) {
-    
+
     /* 1. ĐỒNG BỘ 100% TÔNG MÀU VÀNG LUXURY CHO CHÂN TRANG */
-    .footer-mobile-brand-title,       
-    .footer-contact-heading-mobile,   
-    .footer-info-item i,               
-    .footer-heading-title,             
-    .mobile-dropdown-icon i,           
-    .footer-company-name {             
+    .footer-mobile-brand-title,
+    .footer-contact-heading-mobile,
+    .footer-info-item i,
+    .footer-heading-title,
+    .mobile-dropdown-icon i,
+    .footer-company-name {
         color: #c5a059 !important;
+        gap:100ox;
     }
+
+   
 
     /* 2. ĐỊNH DẠNG KHOẢNG CÁCH VÀ MÀU VIỀN CHO 3 NHÃN CHỨNG NHẬN TRÊN MOBILE */
     .footer-payment-badges {
-        margin-top: 10px !important;    /* <-- MỚI: Đẩy cụm ảnh dịch xuống 25px, hết bị dính đường kẻ */
-        margin-bottom: 15px !important;  /* Khoảng cách an toàn phía dưới */
+        margin-top: 10px !important;
+        /* <-- MỚI: Đẩy cụm ảnh dịch xuống 25px, hết bị dính đường kẻ */
+        margin-bottom: 15px !important;
+        /* Khoảng cách an toàn phía dưới */
         display: flex !important;
-        justify-content: center !important; /* Căn giữa 3 cái ảnh đều đặn */
+        justify-content: center !important;
+        /* Căn giữa 3 cái ảnh đều đặn */
         gap: 15px !important;
     }
 
@@ -317,63 +329,64 @@
         border: 1px solid #c5a059 !important;
         border-radius: 4px;
         padding: 4px;
-        height: 55px !important; /* Khống chế chiều cao ảnh vừa vặn trên điện thoại */
+        height: 55px !important;
+        /* Khống chế chiều cao ảnh vừa vặn trên điện thoại */
         object-fit: contain;
     }
 
     /* 3. SỬA KHOẢNG CÁCH CỤM ICON MẠNG XÃ HỘI TRÊN MOBILE */
     .footer-social-networks {
         display: flex !important;
-        justify-content: center !important; 
-        margin-top: 0px !important;        
-        margin-bottom: 0px !important;     
-        padding-top: 0 !important;          
+        justify-content: center !important;
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+        padding-top: 0 !important;
     }
 
     /* 4. CĂN CHỈNH LỀ THÔNG TIN LIÊN HỆ RA SÁT LỀ TRÁI TOÀN TRANG */
     .footer-contact-info-wrapper {
-        padding: 15px 0 25px 0; 
+        padding: 15px 0 20px 0;
     }
 
     .footer-contact-info-row {
         grid-template-columns: 1fr;
         padding-left: 0 !important;
         padding-right: 0 !important;
-        gap: 18px;
+        gap: 10px;
     }
 
     .footer-contact-heading-mobile {
-        display: block;              
-        text-align: left !important; 
-        margin-left: 0 !important;   
-        padding-left: 0 !important; 
+        display: block;
+        text-align: left !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
         margin-top: 0;
-        margin-bottom: 20px;        
+        margin-bottom: 10px;
         font-size: 15px;
         font-weight: 700;
     }
 
     .footer-info-item {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         text-align: left;
     }
 
     /* 5. GIỮ NGUYÊN LOGIC VÀ PHÂN BỔ BỐ CỤC MOBILE GỐC */
     .footer-mobile-brand {
-        margin: 35px 0 10px 0; 
+        margin: 35px 0 10px 0;
         text-align: center;
     }
-    
+
     .footer-mobile-brand-title {
-        margin: 0; 
+        margin: 0;
         font-size: 18px;
         font-weight: 700;
         letter-spacing: 0.05em;
     }
 
     .site-footer {
-        padding-top: 15px;
+        padding-top: 0px;
     }
 
     .footer-cta-banners {
@@ -389,7 +402,7 @@
     .footer-main-grid {
         grid-template-columns: 1fr;
         gap: 0;
-        padding: 40px 15px 20px;
+        padding: 40px 15px 0px;
     }
 
     .footer-col.col-logo {
@@ -401,7 +414,7 @@
     }
 
     .footer-accordion-item {
-        border-bottom: 1px solid rgba(232, 196, 144, 0.4); 
+        border-bottom: 1px solid rgba(232, 196, 144, 0.4);
         padding: 15px 0;
     }
 
@@ -451,5 +464,9 @@
         flex-direction: column;
         gap: 15px;
         text-align: center;
+    }
+
+    .fa-solid fa-location-dot {
+        margin: 0 auto;
     }
 }

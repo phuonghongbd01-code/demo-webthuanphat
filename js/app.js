@@ -189,30 +189,27 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Search button clicked");
         });
     }
+});
 
-    // Floating Widget Visibility Logic
-    const floatingWidget = document.querySelector('.floating-widget');
-    const footerContactInfo = document.querySelector('.footer-contact-info-wrapper');
+document.addEventListener("DOMContentLoaded", function () {
+    let scrollTimeout;
 
-    if (floatingWidget && footerContactInfo) {
-        const observerOptions = {
-            root: null, // relative to the viewport
-            rootMargin: '0px',
-            threshold: 0.1 // trigger when 10% of the element is visible
-        };
+    window.addEventListener('scroll', function () {
+        // Chuyển lệnh tìm kiếm vào bên trong sự kiện scroll
+        // Dù footer tải chậm qua layout.js thì nó vẫn luôn tìm thấy
+        const floatingWidget = document.querySelector('.floating-widget');
 
-        const widgetObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // The contact info section is visible, so hide the widget
-                    floatingWidget.classList.add('hidden');
-                } else {
-                    // The contact info section is not visible, so show the widget
-                    floatingWidget.classList.remove('hidden');
-                }
-            });
-        }, observerOptions);
+        if (floatingWidget) {
+            // 1. Thêm class ẩn khi đang cuộn
+            floatingWidget.classList.add('is-hidden');
 
-        widgetObserver.observe(footerContactInfo);
-    }
+            // 2. Xóa bộ đếm cũ
+            clearTimeout(scrollTimeout);
+
+            // 3. Đặt bộ đếm mới: Dừng cuộn 0.4s thì hiện lại
+            scrollTimeout = setTimeout(function () {
+                floatingWidget.classList.remove('is-hidden');
+            }, 400);
+        }
+    });
 });

@@ -106,18 +106,7 @@
     color: #e8c490;
 }
 
-/* Floating Widget Visibility */
-.floating-widget {
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-    visibility: visible;
-}
 
-.floating-widget.hidden {
-    opacity: 0;
-    transform: scale(0.8);
-    pointer-events: none;
-    visibility: hidden;
-}
 
 /* Mobile-only elements (hidden on desktop) */
 .footer-mobile-brand,
@@ -239,7 +228,7 @@
         /* Gold color */
         text-transform: uppercase;
         /* Uppercase */
-        margin-top: 30px;
+        margin-top: 10px;
         font-size: 14px;
         font-weight: 600;
         margin-bottom: 10px;

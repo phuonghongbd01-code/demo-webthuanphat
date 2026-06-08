@@ -755,16 +755,7 @@
     font-size: 12px;
   }
 
-  /* Floating widgets spacing */
-  .floating-widget {
-    bottom: 20px;
-    right: 15px;
-    gap: 8px;
-  }
-  .floating-widget .widget-btn {
-    width: 44px;
-    height: 44px;
-  }
+
 
   /* Pre-footer contact columns */
   .contact-info-row {
