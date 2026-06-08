@@ -234,7 +234,6 @@
     position: absolute;
     bottom: 24px;
     right: 24px;
-    font-family: 'Playfair Display', serif;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.25em;
@@ -245,6 +244,11 @@
     border: 1px solid rgba(255, 255, 255, 0.12);
     padding: 6px 14px;
     backdrop-filter: blur(2px);
+}
+
+.watermark-logo {
+    max-width: 100px;
+    height: 30%;
 }
 
 /* Nút mũi tên */

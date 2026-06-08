@@ -38,18 +38,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (!isSubpageActive) {
-             const homeLink = document.querySelector('.main-nav a[href="index.html"]');
-             if (homeLink && (currentPage === '' || currentPage === 'index.html')) {
-                 homeLink.classList.add('active');
-             }
-             else {
-                 navLinks.forEach(link => {
+            const homeLink = document.querySelector('.main-nav a[href="index.html"]');
+            if (homeLink && (currentPage === '' || currentPage === 'index.html')) {
+                homeLink.classList.add('active');
+            }
+            else {
+                navLinks.forEach(link => {
                     const linkPage = link.getAttribute('href').split('/').pop().split('#')[0];
                     if (linkPage === currentPage) {
                         link.classList.add('active');
                     }
-                 });
-             }
+                });
+            }
         }
 
         // Mobile menu toggle
@@ -143,10 +143,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         }
-        
+
         const otherTriggers = document.querySelectorAll('[id^="openContactModal"]');
         otherTriggers.forEach(trigger => {
-            if(trigger.id !== 'openContactModal') {
+            if (trigger.id !== 'openContactModal') {
                 trigger.addEventListener('click', openModal);
             }
         });

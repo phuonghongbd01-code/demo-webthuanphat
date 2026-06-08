@@ -710,7 +710,7 @@ html.snap-page {
 }
 
 .factory-title {
-  font-size: 36px;
+  font-size: 22px;
   font-weight: 500;
   color: var(--luxury-gold);
   line-height: 1.4;
@@ -774,7 +774,7 @@ html.snap-page {
 
 .tech-title {
   font-family: "Caveat", cursive;
-  font-size: 56px;
+  font-size: 22px;
   color: var(--luxury-gold);
   margin-bottom: 100px;
   font-weight: 400;

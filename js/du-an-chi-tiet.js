@@ -48,14 +48,6 @@
         // Hiện slide mới
         slides[currentIndex].classList.add('active');
         dotsWrap.children[currentIndex].classList.add('active');
-
-        // Cuộn thumbnail vào view
-        if (thumbsWrap) {
-            const activeThumb = thumbsWrap.querySelector(`.dact-thumb[data-index="${currentIndex}"]`);
-            if (activeThumb) {
-                activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
-        }
     }
 
     function next() { goTo(currentIndex + 1); }

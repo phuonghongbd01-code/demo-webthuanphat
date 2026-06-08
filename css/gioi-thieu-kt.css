@@ -645,11 +645,11 @@
   box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
 }
 
-/* Lưới dự án: 4 cột x 2 dòng = 8 ô */
+/* Lưới dự án: 3 cột x 2 dòng = 6 ô */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
   transition: opacity 0.4s ease;
   align-content: start;
 }
