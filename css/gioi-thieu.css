@@ -227,9 +227,13 @@
   margin: 0;
 }
 .ceo-profile-btn {
-  margin-top: 20px; /* Khoảng cách với ceo-tag-bottom */
-  margin-bottom: 20px; /* Khoảng cách với ceo-tag-bottom */
-  font-size: 11px; /* Kích thước chữ nhỏ hơn cho nút */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 11px;
+  max-width: calc(100% - 80px); /* Trừ đi padding 40px mỗi bên của .ceo-msg-left */
+  align-self: center;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .ceo-msg-right {
@@ -511,9 +515,10 @@
 
 /* ── Factory Intro (copied from nha-may.css) ── */
 .factory-intro {
-  background: var(--bg-main); /* Assuming similar background as other sections */
+  background: var(--bg-section); /* Khác màu với about-presence (bg-main) để tạo phân đoạn rõ ràng */
   padding: 100px 0;
   scroll-margin-top: 80px; /* For sticky header */
+  border-top: 1px solid rgba(197, 160, 89, 0.12); /* Đường kẻ vàng mỏng phân cách */
 }
 
 .factory-grid {
@@ -604,6 +609,7 @@
     border-right: none;
     border-bottom: 1px solid rgba(197, 160, 89, 0.12);
     padding: 40px 20px;
+    overflow: hidden; /* Ngăn nút tràn ra ngoài */
   }
   .ceo-msg-right {
     padding: 40px 20px;
