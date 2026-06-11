@@ -1097,6 +1097,8 @@ html.snap-page {
   .ceo-msg-left {
     border-right: none;
     border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+    padding: 40px 24px;
+    overflow: hidden;
   }
 
   .promise-left {
