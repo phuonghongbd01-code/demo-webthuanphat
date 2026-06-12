@@ -29,12 +29,10 @@
 .dact-hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(10, 10, 10, 0.55) 0%,
-        rgba(10, 10, 10, 0.75) 60%,
-        rgba(10, 10, 10, 0.95) 100%
-    );
+    background: linear-gradient(to bottom,
+            rgba(10, 10, 10, 0.55) 0%,
+            rgba(10, 10, 10, 0.75) 60%,
+            rgba(10, 10, 10, 0.95) 100%);
     z-index: 1;
 }
 
@@ -81,7 +79,7 @@
 /* Tiêu đề công trình */
 .dact-hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 5vw, 64px);
+    font-size: clamp(26px, 5vw, 64px);
     font-weight: 700;
     line-height: 1.25;
     text-transform: uppercase;
@@ -386,8 +384,13 @@
         font-size: 14px;
     }
 
-    .dact-arrow-prev { left: 10px; }
-    .dact-arrow-next { right: 10px; }
+    .dact-arrow-prev {
+        left: 10px;
+    }
+
+    .dact-arrow-next {
+        right: 10px;
+    }
 
     .dact-thumb {
         width: calc((100% - 32px) / 5);
@@ -707,13 +710,53 @@
    RESPONSIVE CHUNG
 ══════════════════════════════════════════ */
 @media (max-width: 768px) {
+    .dact-slider {
+        aspect-ratio: 4 / 3;
+    }
+
+    .dact-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+    }
+
+    .dact-arrow-prev {
+        left: 10px;
+    }
+
+    .dact-arrow-next {
+        right: 10px;
+    }
+
+    .dact-thumb {
+        width: calc((100% - 32px) / 5);
+        min-width: 64px;
+    }
+
+    /* 👇 BẠN THÊM ĐOẠN CODE NÀY VÀO ĐÂY ĐỂ THU NHỎ LOGO TRÊN DI ĐỘNG 👇 */
+    .dact-watermark {
+        bottom: 10px;
+        /* Đẩy logo xích xuống góc dưới */
+        right: 10px;
+        /* Đẩy logo xích ra sát lề phải */
+        padding: 4px 8px;
+        /* Thu nhỏ viền hộp bóng mờ lại */
+    }
+
+    .watermark-logo {
+        max-width: 60px !important;
+        /* Bóp nhỏ logo lại chỉ còn 60px */
+        height: auto !important;
+        /* Trả về tỷ lệ chuẩn, xóa cái 30% gây lỗi phình to */
+    }
+
     .dact-hero {
         min-height: 360px;
         background-attachment: scroll;
     }
 
     .dact-hero-content {
-        padding: 100px 20px 48px;
+        padding: 100px 20px 0px;
     }
 
     .dact-content-section {
