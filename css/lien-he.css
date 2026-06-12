@@ -208,15 +208,15 @@
 }
 
 .contact-list-custom li .icon-circle-wrapper {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border: 1px solid var(--luxury-gold);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--luxury-gold);
-    font-size: 15px;
+    font-size: 12px;
     flex-shrink: 0;
 }
 
@@ -236,6 +236,138 @@
 /* Không sử dụng bộ lọc đảo màu tối cho map nữa để khớp 100% hình ảnh mẫu sáng tự nhiên */
 .map-iframe-box iframe {
     filter: none;
+}
+
+/* ============================================================
+   KHỐI THÔNG TIN PHÁP LÝ
+   ============================================================ */
+.legal-info-block {
+    margin-bottom: 10px;
+}
+
+.legal-info-title {
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    color: var(--luxury-gold);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(179, 139, 77, 0.25);
+}
+
+.legal-info-title i {
+    font-size: 13px;
+    color: var(--luxury-gold);
+}
+
+.legal-table {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.legal-row {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    align-items: center;
+    gap: 12px;
+}
+
+.legal-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #888;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+}
+
+.legal-label i {
+    font-size: 12px;
+    color: var(--luxury-gold);
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.legal-value {
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: #d5d5d5;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.legal-value.highlight {
+    color: #e8a94a;
+    font-weight: 700;
+    /* Giữ nguyên cùng font-size 14px, chỉ dùng màu để nổi bật */
+    letter-spacing: 0.5px;
+}
+
+/* DIVIDER VÀNG */
+.section-divider-gold {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(179, 139, 77, 0.5), transparent);
+    margin: 24px 0;
+    position: relative;
+}
+
+.section-divider-gold::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: var(--luxury-gold);
+    border-radius: 50%;
+}
+
+/* CONTACT TEXT DETAIL – NHÃN + GIÁ TRỊ */
+.contact-list-custom li {
+    align-items: flex-start;
+}
+
+.contact-text-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.contact-label {
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    color: var(--luxury-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.contact-value {
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: #cccccc;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.icon-circle-wrapper {
+    margin-top: 2px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.contact-list-custom li:hover .icon-circle-wrapper {
+    background: rgba(179, 139, 77, 0.15);
+    transform: scale(1.1);
 }
 
 /* RESPONSIVE TRÊN ĐIỆN THOẠI & TABLET */
