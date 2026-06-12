@@ -179,3 +179,26 @@
 
 
 }
+
+/* =========================================
+   LANDSCAPE OVERRIDE
+   Thu nhỏ widget ở dạng ngang trên điện thoại để đỡ choáng chỗ
+   ========================================= */
+@media (max-width: 991px) and (orientation: landscape) {
+    .floating-widget {
+        bottom: 10px;
+        right: 15px;
+        gap: 8px;
+    }
+    
+    .widget-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
+    
+    .widget-btn img {
+        width: 16px;
+        height: 16px;
+    }
+}

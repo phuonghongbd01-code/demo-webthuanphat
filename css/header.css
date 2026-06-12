@@ -45,21 +45,21 @@
 
 .main-nav ul {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     /* Default for smaller desktops (992px - 1199px) to prevent layout crowding */
     transition: gap 0.3s ease;
 }
 
 @media (min-width: 1200px) {
     .main-nav ul {
-        gap: 18px;
+        gap: 14px;
         /* Perfectly balanced gap for standard desktop viewports (1200px - 1399px) */
     }
 }
 
 @media (min-width: 1400px) {
     .main-nav ul {
-        gap: 24px;
+        gap: 18px;
         /* Elegant gap for large desktop viewports (1400px+) */
     }
 }
@@ -293,7 +293,10 @@
 }
 
 /* ======= HEADER RESPONSIVE ======= */
-@media (max-width: 991px) {
+/* Áp dụng kiểu mobile (menu hamburger) cho các màn hình có chiều rộng dưới 992px VÀ đang ở chế độ dọc (portrait).
+   Điều này giúp màn hình ngang (landscape) trên điện thoại/tablet nhỏ vẫn có thể hiển thị menu đầy đủ như desktop,
+   tránh việc menu hamburger chiếm toàn bộ chiều cao vốn đã bị hạn chế. */
+@media (max-width: 991px) and (orientation: portrait) {
     .menu-toggle {
         display: block;
     }
@@ -330,5 +333,67 @@
 
     .main-nav a::after {
         display: none !important;
+    }
+}
+
+/* Xử lý cho màn hình ngang (landscape) trên các thiết bị nhỏ hơn 992px.
+   Thay vì hiển thị menu hamburger, chúng ta sẽ giữ lại thanh menu ngang
+   và cho phép người dùng cuộn ngang nếu không đủ không gian.
+   Điều này đáp ứng yêu cầu hiển thị menu dạng web trên màn hình ngang. */
+/* Xử lý cho màn hình ngang (landscape) trên các thiết bị nhỏ hơn 992px.
+   Thay vì hiển thị menu hamburger, chúng ta sẽ giữ lại thanh menu ngang
+   và cho phép người dùng cuộn ngang nếu không đủ không gian.
+   Điều này đáp ứng yêu cầu hiển thị menu dạng web trên màn hình ngang. */
+@media (max-width: 991px) and (orientation: landscape) {
+    /* Thu gọn thanh header thêm 1.5 lần */
+    .header {
+        padding: 2px 0 !important;
+    }
+
+    .logo-img {
+        height: 26px !important;
+    }
+
+    .main-nav a {
+        font-size: 9px;
+    }
+
+    .icon-btn {
+        width: 24px;
+        height: 24px;
+        font-size: 11px;
+    }
+
+    .header-actions {
+        margin-left: 10px !important;
+    }
+
+    .main-nav {
+        overflow-x: auto;
+        /* Cho phép cuộn menu theo chiều ngang */
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        /* Tăng độ mượt khi cuộn trên iOS */
+    }
+
+    /* Ẩn thanh cuộn trên các trình duyệt Webkit và Firefox */
+    .main-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .main-nav {
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    /* Fix: Ngăn .simple-dropdown và .mega-menu bị ẩn nhưng vẫn chiếm width làm đẩy các navi ra xa */
+    .main-nav .has-simple-dropdown {
+        position: relative !important;
+    }
+
+    .main-nav .simple-dropdown,
+    .main-nav .mega-menu {
+        display: none !important;
+        position: absolute !important;
     }
 }

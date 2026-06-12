@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const navDropdownToggles = document.querySelectorAll('.main-nav .has-simple-dropdown > a');
         navDropdownToggles.forEach(toggle => {
             toggle.addEventListener('click', function (e) {
-                if (window.innerWidth <= 991) {
+                if (window.innerWidth <= 991 && window.matchMedia('(orientation: portrait)').matches) {
                     e.preventDefault();
                     const parentLi = this.parentElement;
                     parentLi.classList.toggle('open');

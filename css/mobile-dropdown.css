@@ -96,3 +96,19 @@
         overflow-y: auto !important;
     }
 }
+
+/* =========================================
+   LANDSCAPE OVERRIDE
+   Prevents dropdowns from expanding the horizontal flex container
+   ========================================= */
+@media (max-width: 991px) and (orientation: landscape) {
+    .main-nav .has-simple-dropdown {
+        position: relative !important;
+    }
+
+    .main-nav .simple-dropdown,
+    .main-nav .mega-menu {
+        position: absolute !important;
+        display: none !important;
+    }
+}

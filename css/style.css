@@ -124,7 +124,7 @@
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
     .split-col-6 {
         flex: 0 0 100%;
         max-width: 100%;
