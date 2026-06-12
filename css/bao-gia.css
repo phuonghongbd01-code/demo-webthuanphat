@@ -124,6 +124,30 @@
     color: #fff;
 }
 
+/* Tiêu đề chữ hiển thị trên video */
+.video-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 12px 10px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0) 100%);
+    color: #e8c97a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    text-align: center;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.video-item:hover .video-title {
+    color: #fff;
+}
+
 
 /* Các Gói Thi Công */
 .package-container {
